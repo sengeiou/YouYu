@@ -12,6 +12,7 @@ import { OrderlistComponent } from '../orderlist/orderlist.component';
 import { SimcardComponent } from '../simcard/simcard.component';
 import { AgentlistComponent } from '../agentlist/agentlist.component';
 import { AddagentComponent } from '../addagent/addagent.component';
+import { CreatorderComponent } from '../creatorder/creatorder.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,7 @@ const routes: Routes = [
       { path: "simcard", component: SimcardComponent }, 
       { path: "agentlist", component: AgentlistComponent }, 
       { path: "addagent", component: AddagentComponent }, 
+      { path: "creatorder", component: CreatorderComponent }, 
     ]
   }
 ];

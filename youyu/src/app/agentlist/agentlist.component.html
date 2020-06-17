@@ -1,17 +1,74 @@
 <div class="content-wrapper">
+ 
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>下属代理商管理</h1>
+                    <h1>代理商列表</h1>
                 </div> 
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a routerLink='/'>首页</a></li> 
+                        <li class="breadcrumb-item active">代理商列表</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </section>
 
     <section class="content">
-        <div class="container-fluid">
-            代理商列表
+  
+        
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Horizontal Form -->
+                <div class="card card-info">
+                    <div class="card-header bg-gray-d">
+                        <h3 class="card-title">搜索条件</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form class="form-horizontal">
+                        <div class="card-body">
+                            <div class="row"> 
+                                <div class="form-group  col-lg-4 col-md-5  col-sm-6">
+                                    <label for="inputEmail3" class=" col-form-label">代理商名称</label>
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商名称"    name='orderno' />
+                                </div>
+                                <!-- <div class="form-group   col-lg-4 col-md-5  col-sm-6">
+                                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">开始时间</label>
+                                    <input type="date" class="form-control col-form-label-sm" id="inputEmail3"
+                                        data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd"
+                                        data-mask placeholder="请输入创建时间"    name='shijian' />
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                        <div class="card-footer">
+                            <div class="float-right">
+                                <button type="submit" class="btn bg-gray"  >重置</button>
+                                <button type="submit" class="btn btn-primary margin-left-20"  >搜索</button>
+                            </div>
+                            
+                            <div>
+                                <button type="submit" class="btn btn-info " routerLink='/addagent'>添加代理商</button>
+                                <button type="submit" class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}" (click)='ordertype("")' >全部代理商</button>
+                                <!-- <button type="submit" class="btn   margin-left-20  {{type=='A'?'btn-primary':'btn-default'}}"   (click)='ordertype("A")' >待处理订单</button>
+                                <button type="submit" class="btn    margin-left-20  {{type=='B'?'btn-primary':'btn-default'}}"  (click)='ordertype("B")' >已处理订单</button>
+                                <button type="submit" class="btn    margin-left-20  {{type=='C'?'btn-primary':'btn-default'}}"   (click)='ordertype("C")' >已拒绝订单</button>
+                                <button type="submit" class="btn    margin-left-20  {{type=='D'?'btn-primary':'btn-default'}}"   (click)='ordertype("D")'>已失效订单</button> -->
+                            </div>
+
+                        </div>
+                        <!-- /.card-footer -->
+                    </form>
+                </div>
+                <!-- /.card -->
+
+
+            </div>
         </div>
+
+
     </section>
 </div>

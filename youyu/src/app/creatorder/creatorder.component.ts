@@ -7,12 +7,12 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 
 @Component({
-  selector: 'app-agentlist',
-  templateUrl: './agentlist.component.html',
-  styleUrls: ['./agentlist.component.scss'],
+  selector: 'app-creatorder',
+  templateUrl: './creatorder.component.html',
+  styleUrls: ['./creatorder.component.scss'],
   providers: [InstApi, MemberApi]
 })
-export class AgentlistComponent extends AppBase {
+export class CreatorderComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -20,28 +20,17 @@ export class AgentlistComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
   ) {
-    super(router, activeRoute, instApi, memberApi); 
+    super(router, activeRoute, instApi, memberApi);
+
   }
-  type="";
-  check=false;
+
   onMyLoad() {
     this.params;
   }
   onMyShow() {
-    if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("agentlist", "agentlist");
-    }
-  }
-
-  ordertype(type){
-    this.type=type;
-  }
-
-  choose(){
-  if(this.check==false){
-   this.check=true;
-  }else{
-    this.check=false;
-  }
+    
+    // if (MainComponent.Instance != null) {
+    //   MainComponent.Instance.setModule("sim", "addagent");
+    // }
   }
 }

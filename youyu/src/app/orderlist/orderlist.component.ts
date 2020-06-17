@@ -23,7 +23,8 @@ export class OrderlistComponent extends AppBase {
     super(router, activeRoute, instApi, memberApi);
 
   }
-
+  type="";
+  check=false;
   onMyLoad() {
     this.params;
   }
@@ -32,4 +33,17 @@ export class OrderlistComponent extends AppBase {
       MainComponent.Instance.setModule("orderlist", "orderlist");
     }
   }
+
+  ordertype(type){
+    this.type=type;
+  }
+
+  choose(){
+  if(this.check==false){
+   this.check=true;
+  }else{
+    this.check=false;
+  }
+  }
+
 }

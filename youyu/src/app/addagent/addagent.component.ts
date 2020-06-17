@@ -29,8 +29,8 @@ export class AddagentComponent extends AppBase {
   }
   onMyShow() {
     
-    if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("sim", "addagent");
-    }
+    // if (MainComponent.Instance != null) {
+    //   MainComponent.Instance.setModule("sim", "addagent");
+    // }
   }
 }

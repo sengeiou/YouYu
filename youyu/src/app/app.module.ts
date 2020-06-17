@@ -31,7 +31,8 @@ import { SearchComponent } from './search/search.component';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { SimcardComponent } from './simcard/simcard.component';
 import { AgentlistComponent } from './agentlist/agentlist.component';
-import { AddagentComponent } from './addagent/addagent.component'; 
+import { AddagentComponent } from './addagent/addagent.component';
+import { CreatorderComponent } from './creatorder/creatorder.component'; 
  
 
 @NgModule({
@@ -51,7 +52,8 @@ import { AddagentComponent } from './addagent/addagent.component';
     OrderlistComponent,
     SimcardComponent,
     AgentlistComponent,
-    AddagentComponent, 
+    AddagentComponent,
+    CreatorderComponent, 
   ],
   imports: [
     BrowserModule,
