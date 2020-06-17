@@ -1,0 +1,86 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
+import { AppBase } from '../AppBase';
+import { InstApi } from 'src/providers/inst.api';
+import { MemberApi } from 'src/providers/member.api';
+import { ApiConfig } from '../api.config';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss'],
+  providers:[InstApi,MemberApi]
+})
+export class LoginComponent extends AppBase {
+  instinfo = null;
+  username='';
+  password='';
+  isremember=false;
+  constructor(
+    public router: Router,
+    public activeRoute: ActivatedRoute,
+    public instApi:InstApi,
+    public memberApi:MemberApi,
+  ) {
+    super(router,activeRoute,instApi,memberApi);
+    this.isLoginPage=true;
+   }
+   loginunicode="";
+  
+   onMyLoad(){
+     this.params;
+     this.instApi.info({  }).then((instinfo) => {
+      this.instinfo = instinfo;
+    });
+    if (this.params.v == undefined) {
+      
+    } else {
+      var str = this.base64decode(this.params.v);
+      console.log(str);
+      var emailstr = str.split("&")[0];
+      this.username = emailstr.split("=")[1];
+      var codestr = str.split("&")[1];
+      this.loginunicode = codestr.split("=")[1];
+    }
+   }
+   onMyShow(){
+    
+   }
+  
+   login(){
+     console.log(this.username,this.password)
+    if(this.username=="" || this.password==""){
+      return
+    }
+    this.memberApi.kehulogin({
+      name:this.username,
+      password:this.password,
+      loginunicode:this.loginunicode
+    }).then((res:any)=>{
+      console.log(res);
+      if(res.code=='0'){
+        var token=res.return;
+        window.localStorage.setItem("lastusername",this.username);
+        
+        if(this.isremember==true){
+          window.localStorage.setItem("lastpassword",this.password);
+        }
+        window.sessionStorage.setItem("token",token);
+
+        ApiConfig.SetToken(token);
+        this.memberApi.kehuinfo({}).then((info: any) => {
+          window.sessionStorage.setItem("memberinfo",JSON.stringify(info)) ;
+          //this.navigate("/");
+          window.location.href="/";
+      })
+
+
+      }else {
+        this.toast(res.result);
+      }
+    })
+    
+   }
+  
+}
