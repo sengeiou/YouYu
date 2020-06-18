@@ -30,7 +30,7 @@ export class OrderlistComponent extends AppBase {
   }
   onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("orderlist", "orderlist");
+      MainComponent.Instance.setModule("order", "orderlist");
     }
   }
 

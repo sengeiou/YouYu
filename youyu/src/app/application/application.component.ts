@@ -7,12 +7,12 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 
 @Component({
-  selector: 'app-agentlist',
-  templateUrl: './agentlist.component.html',
-  styleUrls: ['./agentlist.component.scss'],
+  selector: 'app-application',
+  templateUrl: './application.component.html',
+  styleUrls: ['./application.component.scss'],
   providers: [InstApi, MemberApi]
 })
-export class AgentlistComponent extends AppBase {
+export class ApplicationComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -29,7 +29,7 @@ export class AgentlistComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("agent", "agentlist");
+      MainComponent.Instance.setModule("agent", "application");
     }
   }
 

@@ -29,7 +29,7 @@ export class SimcardComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("simcard", "simcard");
+      MainComponent.Instance.setModule("sim", "simcard");
     }
   }
 }

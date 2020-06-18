@@ -1,3 +1,4 @@
+ 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -7,12 +8,12 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 
 @Component({
-  selector: 'app-agentlist',
-  templateUrl: './agentlist.component.html',
-  styleUrls: ['./agentlist.component.scss'],
+  selector: 'app-rechargelist',
+  templateUrl: './rechargelist.component.html',
+  styleUrls: ['./rechargelist.component.scss'],
   providers: [InstApi, MemberApi]
 })
-export class AgentlistComponent extends AppBase {
+export class RechargelistComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -20,16 +21,17 @@ export class AgentlistComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
   ) {
-    super(router, activeRoute, instApi, memberApi); 
+    super(router, activeRoute, instApi, memberApi);
+
   }
   type="";
   check=false;
   onMyLoad() {
     this.params;
   }
-  onMyShow() {
+  onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("agent", "agentlist");
+      MainComponent.Instance.setModule("sim", "rechargelist");
     }
   }
 
@@ -44,4 +46,5 @@ export class AgentlistComponent extends AppBase {
     this.check=false;
   }
   }
+
 }

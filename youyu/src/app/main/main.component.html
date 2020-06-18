@@ -127,28 +127,10 @@
                  with font-awesome or any other icon font library -->
           <li class="nav-item">
             <a routerLink="" class="nav-link {{module=='home'?'active':''}}">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 首页
                 <!-- <span class="right badge badge-danger">New</span> -->
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item has-treeview ">
-            <a class="nav-link  {{module=='orderlist'?'active':''}}" routerLink='/orderlist'>
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                订单管理
-              </p>
-            </a>
-          </li>
-
-          <li class="nav-item ">
-            <a class="nav-link  {{module=='simcard'?'active':''}}" routerLink='/simcard'>
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                SIM卡管理
               </p>
             </a>
           </li>
@@ -157,15 +139,80 @@
             <a class="nav-link  {{module=='agentlist'?'active':''}}" routerLink='/agentlist'>
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                代理商列表
+                产品管理
               </p>
             </a>
+          </li>
+
+    
+
+          <li class="nav-item has-treeview">
+            <a class="nav-link {{module=='order'?'active':''}}">
+              <i class="nav-icon fas fa-chart-pie"></i>
+              <p>
+                订单管理<i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+
+            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
+                <a href="#" class="nav-link flex-row  flex-center {{module2=='rechargeorder'?'active':''}}" routerLink='/recharge-order'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>SIM卡充值订单</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='orderlist'?'active':''}}" 
+                  routerLink='/orderlist'><i class="far fa-circle nav-icon"></i>
+                  <p>代理商充值订单</p>
+                </a></li>
+            </ul>
+
+          </li>
+
+  
+
+          <li class="nav-item has-treeview">
+            <a class="nav-link {{module=='sim'?'active':''}}">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                SIM卡管理<i class="right fas fa-angle-left"></i>
+              </p>
+            </a> 
+            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
+                <a href="#" class="nav-link flex-row  flex-center {{module2=='simcard'?'active':''}}" routerLink='/simcard'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>SIM卡列表</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='rechargelist'?'active':''}}" 
+                  routerLink='/rechargelist'><i class="far fa-circle nav-icon"></i>
+                  <p>SIM卡充值记录</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='query'?'active':''}}" 
+                  routerLink='/query'><i class="far fa-circle nav-icon"></i>
+                  <p>SIM卡余额查询</p>
+                </a></li>
+            </ul>
           </li>
 
 
           <!-- <li class="nav-item has-treeview">
             <a class="nav-link {{module=='sim'?'active':''}}">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                产品管理<i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
+                <a href="#" class="nav-link flex-row  flex-center {{module2=='simcard'?'active':''}}" routerLink='/simcard'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>产品列表</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='query'?'active':''}}" 
+                  routerLink='/query'><i class="far fa-circle nav-icon"></i>
+                  <p>SIM卡套餐查询</p>
+                </a></li>
+            </ul>
+          </li> -->
+
+
+
+          <li class="nav-item has-treeview">
+            <a class="nav-link {{module=='agent'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>  
               <p>
                 代理商管理<i class="right fas fa-angle-left"></i>
               </p>
@@ -176,23 +223,60 @@
                 <a href="#" class="nav-link flex-row  flex-center {{module2=='agentlist'?'active':''}}" routerLink='/agentlist'>
                   <i class="far fa-circle nav-icon"></i>
                   <p>代理商列表</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='application'?'active':''}}" 
+                  routerLink='/application'><i class="far fa-circle nav-icon"></i>
+                  <p>代理商充值申请</p>
+                </a></li>
+            </ul>
+
+          </li>
+
+          <!-- <li class="nav-item has-treeview">
+            <a class="nav-link {{module=='member'?'active':''}}">
+              <i class="nav-icon fas fa-edit"></i>                                
+              <p>
+                权限管理<i class="right fas fa-angle-left"></i>
+              </p>
+              
+            </a>
+
+            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
+                <a href="#" class="nav-link flex-row  flex-center {{module2=='memberlist'?'active':''}}" routerLink='/memberlist'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>成员列表</p>
                 </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='addagent'?'active':''}}" 
                   routerLink='/addagent'><i class="far fa-circle nav-icon"></i>
-                  <p>代理商列表新增</p>
+                  <p>成员权限</p>
                 </a></li>
             </ul>
 
           </li> -->
 
-          <li class="nav-item has-treeview">
-            <a class="nav-link {{module=='infobox'?'active':''}}" routerLink='/infobox'>
-              <i class="nav-icon fas fa-tree"></i>
-              <p>
-                页面四
-              </p>
-            </a>
-          </li>
 
+          <li class="nav-item has-treeview">
+            <a class="nav-link  ">
+              <i class="nav-icon fas fa-chart-pie"></i>                                  
+              <p>
+                相关报表<i class="right fas fa-angle-left"></i>
+              </p>
+              
+            </a>
+
+            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
+                <a href="#" class="nav-link flex-row  flex-center "  >
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>消费充值额度</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center  " 
+                   ><i class="far fa-circle nav-icon"></i>
+                  <p>领卡数</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center  " 
+                  ><i class="far fa-circle nav-icon"></i>
+                 <p>代理数</p>
+               </a></li>
+            </ul>
+
+          </li>
+<!-- 
           <li class="nav-item has-treeview">
             <a class="nav-link {{module2=='infobox'?'active':''}}" routerLink='/infobox'>
               <i class="nav-icon fas fa-edit"></i>
@@ -203,14 +287,14 @@
             </a>
           </li>
 
-          <!-- <li class="nav-header">EXAMPLES</li> -->
+          
 
           <li class="nav-item">
             <a class="nav-link {{module=='setting'?'active':''}}" routerLink='/setting'>
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 页面六
-                <!-- <span class="badge badge-info right">2</span> -->
+                 
               </p>
             </a>
           </li>
@@ -219,20 +303,30 @@
               <i class="nav-icon fas fa-envelope-square"></i>
               <p>
                 页面七
-                <!-- <span class="badge badge-info right">2</span> -->
+              
               </p>
             </a>
           </li>
-          <!-- <li class="nav-header">EXAMPLES</li> -->
+           
           <li class="nav-item">
             <a class="nav-link {{module=='support'?'active':''}}" routerLink='/support'>
               <i class="nav-icon fas fa-question-circle"></i>
               <p>
                 页面八
-                <!-- <span class="badge badge-info right">2</span> -->
+               
               </p>
             </a>
-          </li>
+          </li> -->
+
+          <li class="nav-item">
+            <a class="nav-link {{module=='support'?'active':''}}" routerLink='/support'>
+              <i class="nav-icon fas fa-cog"></i>
+              <p>
+                设置
+              </p>
+            </a>
+          </li> 
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

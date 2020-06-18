@@ -32,7 +32,12 @@ import { OrderlistComponent } from './orderlist/orderlist.component';
 import { SimcardComponent } from './simcard/simcard.component';
 import { AgentlistComponent } from './agentlist/agentlist.component';
 import { AddagentComponent } from './addagent/addagent.component';
-import { CreatorderComponent } from './creatorder/creatorder.component'; 
+import { CreatorderComponent } from './creatorder/creatorder.component';
+import { RechargelistComponent } from './rechargelist/rechargelist.component';
+import { QueryComponent } from './query/query.component';
+import { RechargeOrderComponent } from './recharge-order/recharge-order.component';
+import { ApplicationComponent } from './application/application.component';
+import { MemberlistComponent } from './memberlist/memberlist.component'; 
  
 
 @NgModule({
@@ -53,7 +58,12 @@ import { CreatorderComponent } from './creatorder/creatorder.component';
     SimcardComponent,
     AgentlistComponent,
     AddagentComponent,
-    CreatorderComponent, 
+    CreatorderComponent,
+    RechargelistComponent,
+    QueryComponent,
+    RechargeOrderComponent,
+    ApplicationComponent,
+    MemberlistComponent, 
   ],
   imports: [
     BrowserModule,

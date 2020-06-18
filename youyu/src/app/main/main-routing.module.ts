@@ -13,6 +13,11 @@ import { SimcardComponent } from '../simcard/simcard.component';
 import { AgentlistComponent } from '../agentlist/agentlist.component';
 import { AddagentComponent } from '../addagent/addagent.component';
 import { CreatorderComponent } from '../creatorder/creatorder.component';
+import { RechargelistComponent } from '../rechargelist/rechargelist.component';
+import { QueryComponent } from '../query/query.component';
+import { RechargeOrderComponent } from '../recharge-order/recharge-order.component';
+import { ApplicationComponent } from '../application/application.component';
+import { MemberlistComponent } from '../memberlist/memberlist.component';
 
 const routes: Routes = [
   {
@@ -32,6 +37,11 @@ const routes: Routes = [
       { path: "agentlist", component: AgentlistComponent }, 
       { path: "addagent", component: AddagentComponent }, 
       { path: "creatorder", component: CreatorderComponent }, 
+      { path: "rechargelist", component: RechargelistComponent }, 
+      { path: "recharge-order", component: RechargeOrderComponent }, 
+      { path: "query", component: QueryComponent },
+      { path: "application", component: ApplicationComponent },
+      { path: "memberlist", component: MemberlistComponent },
     ]
   }
 ];

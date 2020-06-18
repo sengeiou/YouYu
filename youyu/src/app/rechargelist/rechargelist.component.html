@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>代理商分配订单</h1>
+                    <h1>充值记录</h1>
                 </div> 
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -55,7 +55,7 @@
                                 <button type="submit" class="btn btn-primary margin-left-20"  >搜索</button>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-info " routerLink='/creatorder'>创建订单</button>
+                                <button type="submit" class="btn btn-info " routerLink='/creatorder'>充值</button>
                                 <button type="submit" class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}" (click)='ordertype("")' >全部订单</button>
                                 <button type="submit" class="btn   margin-left-20  {{type=='A'?'btn-primary':'btn-default'}}"   (click)='ordertype("A")' >待处理订单</button>
                                 <button type="submit" class="btn    margin-left-20  {{type=='B'?'btn-primary':'btn-default'}}"  (click)='ordertype("B")' >已处理订单</button>

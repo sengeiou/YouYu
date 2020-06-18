@@ -7,12 +7,12 @@ import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 
 @Component({
-  selector: 'app-agentlist',
-  templateUrl: './agentlist.component.html',
-  styleUrls: ['./agentlist.component.scss'],
+  selector: 'app-memberlist',
+  templateUrl: './memberlist.component.html',
+  styleUrls: ['./memberlist.component.scss'],
   providers: [InstApi, MemberApi]
 })
-export class AgentlistComponent extends AppBase {
+export class MemberlistComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -20,16 +20,17 @@ export class AgentlistComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
   ) {
-    super(router, activeRoute, instApi, memberApi); 
+    super(router, activeRoute, instApi, memberApi);
+
   }
   type="";
   check=false;
   onMyLoad() {
     this.params;
   }
-  onMyShow() {
+  onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("agent", "agentlist");
+      MainComponent.Instance.setModule("member", "memberlist");
     }
   }
 
@@ -44,4 +45,5 @@ export class AgentlistComponent extends AppBase {
     this.check=false;
   }
   }
+
 }
