@@ -23,9 +23,11 @@ export class AddagentComponent extends AppBase {
     super(router, activeRoute, instApi, memberApi);
 
   }
-
+  type=null;
   onMyLoad() {
     this.params;
+    this.type=this.params.type;
+
   }
   onMyShow() {
     

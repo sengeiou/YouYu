@@ -45,7 +45,14 @@ export class LoginComponent extends AppBase {
     }
    }
    onMyShow(){
-    
+    this.username=window.localStorage.getItem("lastusername");
+      this.password=window.localStorage.getItem("lastpassword");
+      if(this.password==null){
+        this.password="";
+        this.isremember = false;
+      }else if (this.password != ''){
+        this.isremember = true;
+      }
    }
   
    login(){
@@ -53,33 +60,62 @@ export class LoginComponent extends AppBase {
     if(this.username=="" || this.password==""){
       return
     }
-    this.memberApi.kehulogin({
-      name:this.username,
+    this.memberApi.agentlogin({
+      account:this.username,
       password:this.password,
-      loginunicode:this.loginunicode
-    }).then((res:any)=>{
-      console.log(res);
-      if(res.code=='0'){
-        var token=res.return;
-        window.localStorage.setItem("lastusername",this.username);
-        
-        if(this.isremember==true){
-          window.localStorage.setItem("lastpassword",this.password);
+    }).then((ret:any)=>{
+      console.log(ret);
+
+      if(ret.code=='0'){
+            var token=ret.return;
+            window.localStorage.setItem("lastusername",this.username);
+            
+            if(this.isremember==true){
+              window.localStorage.setItem("lastpassword",this.password);
+            }
+
+            window.sessionStorage.setItem("token",token);
+
+            ApiConfig.SetToken(token);
+            this.memberApi.agentinfo({id:ret.result}).then((info: any) => {
+              window.sessionStorage.setItem("agentinfo",JSON.stringify(info));
+              //this.navigate("/");
+             window.location.href="/";
+              console.log(info,'信息')
+          })
+        }else{
+          this.toast(ret.result)
         }
-        window.sessionStorage.setItem("token",token);
-
-        ApiConfig.SetToken(token);
-        this.memberApi.kehuinfo({}).then((info: any) => {
-          window.sessionStorage.setItem("memberinfo",JSON.stringify(info)) ;
-          //this.navigate("/");
-          window.location.href="/";
-      })
-
-
-      }else {
-        this.toast(res.result);
-      }
     })
+    
+
+    // this.memberApi.kehulogin({
+    //   name:this.username,
+    //   password:this.password,
+    //   loginunicode:this.loginunicode
+    // }).then((res:any)=>{
+    //   console.log(res);
+    //   if(res.code=='0'){
+    //     var token=res.return;
+    //     window.localStorage.setItem("lastusername",this.username);
+        
+    //     if(this.isremember==true){
+    //       window.localStorage.setItem("lastpassword",this.password);
+    //     }
+    //     window.sessionStorage.setItem("token",token);
+
+    //     ApiConfig.SetToken(token);
+    //     this.memberApi.kehuinfo({}).then((info: any) => {
+    //       window.sessionStorage.setItem("memberinfo",JSON.stringify(info)) ;
+    //       //this.navigate("/");
+    //       window.location.href="/";
+    //   })
+
+
+    //   }else {
+    //     this.toast(res.result);
+    //   }
+    // })
     
    }
   

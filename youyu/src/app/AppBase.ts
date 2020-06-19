@@ -51,6 +51,7 @@ export class AppBase implements OnInit {
 
 
     public memberinfo = null;
+    public agentinfo = null;
 
     mySwiperOption = {
         zoom: {
@@ -75,7 +76,7 @@ export class AppBase implements OnInit {
         });
         this.res = [];
 
-        this.memberinfo=JSON.parse( window.sessionStorage.getItem("memberinfo"));
+        this.agentinfo=JSON.parse( window.sessionStorage.getItem("agentinfo"));
     }
 
 
@@ -102,28 +103,32 @@ export class AppBase implements OnInit {
     }
     
     CheckPermission() {
+        console.log(this.agentinfo,'信息信息信息');
         if (this.isLoginPage == false) {
             var token = window.sessionStorage.getItem("token");
 
             console.log("token", '--', token);
 
             if (token == null) {
-                //this.navigate("login");
+                this.navigate("login");
             } else {
                 ApiConfig.SetToken(token);
-                // this.memberApi.kehuinfo({}).then((info: any) => {
-                //     console.log(info)
-                //     if (info != null && info.kehumanpower!="") {
-                //         window.sessionStorage.setItem("memberinfo",JSON.stringify(info));
+                var id=this.agentinfo.id;
+                this.memberApi.agentinfo({id:id}).then((info: any) => {
+                    console.log(info)
+                    if (info != null) {
+                        window.sessionStorage.setItem("agentinfo",JSON.stringify(info));
                         
-                //         if(this.memberinfo==null){
-                //             this.memberinfo=info;
-                //         }
-                //     } else {
-                //       //  this.navigate("login");
-                //     }
+                        if(this.agentinfo==null){
+                            this.agentinfo=info;
+                        }
+                        console.log(this.agentinfo,'代理商信息');
+                    } else {
+                       this.navigate("login");
+                    }
 
-                // })
+                })
+
             }
         }
     }
@@ -246,8 +251,8 @@ export class AppBase implements OnInit {
         window.location.href = "tel:" + tel;
     }
     logout() {
-        var loginunicode=this.memberinfo.loginunicode;
-        var zhanhu=this.memberinfo.zhanhao;
+        var loginunicode=this.agentinfo.loginunicode;
+        var zhanhu=this.agentinfo.account;
         var url=this.base64encode("email="+(zhanhu)+"&loginunicode="+(loginunicode));
         this.navigate("/login",{v:url})
         window.sessionStorage.removeItem("token");

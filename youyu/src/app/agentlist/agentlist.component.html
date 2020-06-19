@@ -1,14 +1,14 @@
 <div class="content-wrapper">
- 
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>代理商列表</h1>
-                </div> 
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a routerLink='/'>首页</a></li> 
+                        <li class="breadcrumb-item"><a routerLink='/'>首页</a></li>
                         <li class="breadcrumb-item active">代理商列表</li>
                     </ol>
                 </div>
@@ -17,8 +17,8 @@
     </section>
 
     <section class="content">
-  
-        
+
+
         <div class="row">
             <div class="col-md-12">
                 <!-- Horizontal Form -->
@@ -30,10 +30,17 @@
                     <!-- form start -->
                     <form class="form-horizontal">
                         <div class="card-body">
-                            <div class="row"> 
+                            <div class="row">
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">代理商名称</label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商名称"    name='orderno' />
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商名称"
+                                        name='orderno' />
+                                </div>
+
+                                <div class="form-group  col-lg-4 col-md-5  col-sm-6">
+                                    <label for="inputEmail3" class=" col-form-label">联系电话</label>
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入联系电话"
+                                        name='mobile' />
                                 </div>
                                 <!-- <div class="form-group   col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label col-form-label-sm">开始时间</label>
@@ -46,13 +53,15 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="float-right">
-                                <button type="submit" class="btn bg-gray"  >重置</button>
-                                <button type="submit" class="btn btn-primary margin-left-20"  >搜索</button>
+                                <button type="submit" class="btn bg-gray">重置</button>
+                                <button type="submit" class="btn btn-primary margin-left-20">搜索</button>
                             </div>
-                            
+
                             <div>
                                 <button type="submit" class="btn btn-info " routerLink='/addagent'>添加代理商</button>
-                                <button type="submit" class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}" (click)='ordertype("")' >全部代理商</button>
+                                <!-- <button type="submit"
+                                    class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}"
+                                    (click)='ordertype("")'>全部代理商</button> -->
                                 <!-- <button type="submit" class="btn   margin-left-20  {{type=='A'?'btn-primary':'btn-default'}}"   (click)='ordertype("A")' >待处理订单</button>
                                 <button type="submit" class="btn    margin-left-20  {{type=='B'?'btn-primary':'btn-default'}}"  (click)='ordertype("B")' >已处理订单</button>
                                 <button type="submit" class="btn    margin-left-20  {{type=='C'?'btn-primary':'btn-default'}}"   (click)='ordertype("C")' >已拒绝订单</button>
@@ -69,6 +78,92 @@
             </div>
         </div>
 
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <!-- <h3 class="card-title">Simple Full Width Table</h3> -->
+                        <div class="card-title h5 txt-orange">总条数：{{agentlist.length}}条</div>
+                        <div class="card-tools">
+                            <ul class="pagination pagination-sm float-right">
+                                <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
+                                <li class="page-item"><span class="page-link bg-primary ">11111</span></li>
+                                <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body p-0" style="overflow-x: auto;">
+                        <table class="table text-center" style="min-width: 768px;">
+                            <thead>
+                                <tr>
+                                    <th width='1%'><img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
+                                            *ngIf='check==true' (click)='choose()' />
+                                        <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
+                                            *ngIf='check==false' (click)='choose()' /></th>
+                                    <th>代理商名称</th>
+                                    <th>联系电话</th>
+                                    <th>图标</th>
+                                    <th>剩余额度</th>
+                                    <th>消耗额度</th>
+                                    <th>SIM卡数量</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  *ngFor='let item of agentlist;let i=index'>
+                                    <td>
+                                        <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
+                                            *ngIf='check==true' />
+                                        <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
+                                            *ngIf='check==false' />
+                                    </td>
+                                    <td> 
+                                        <div class="margin-left-10">{{item.name}}</div> 
+                                    </td> 
+                                    <td>{{item.mobile}}</td>
+                                    <td>
+                                        <img src="{{uploadpath}}agent/{{item.logo}}" class="icon"
+                                            />
+                                    </td>
+                                    
+                                    <td>{{item.quota}}</td>
+
+                                    <td>{{item.yixiaohao}}</td>
+                                    <td>{{item.total}}</td>
+                                    <td> <span class="badge">
+                                            {{item.status=="A"?"启用":"禁用"}}</span>
+                                    </td>
+                                    <!-- <td>
+                                        <div class="badge bg-primary margin-right"><img
+                                                src="{{uploadpath}}resource/{{res.xuanzhong}}" class="icon-15"
+                                                title="查看详情"></div>
+                                        <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default">
+                                            <img src="{{uploadpath}}resource/{{res.xuanzhong}}" class="icon-15"
+                                                title="删除">
+                                        </div> 
+                                    </td> -->
+
+                                    <td><div class="badge bg-warning margin-right"   ><img
+                                        src="{{uploadpath}}resource/{{res.status}}" class="icon-15" title="禁用/启用"></div>
+                                    <div class="badge bg-primary margin-right"  (click)='detail(item.id)'><img
+                                        src="{{uploadpath}}resource/{{res.update}}" class="icon-15" title="修改"></div>
+                                    <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default"  ><img
+                                        src="{{uploadpath}}resource/{{res.delete}}" class="icon-15" title="删除"></div></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
 
     </section>
 </div>

@@ -1,16 +1,16 @@
 <div class="content-wrapper">
- 
+
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>代理商列表新增</h1>
-                </div> 
+                    <h1>{{type=='B'?'代理商详情':'新增代理商'}}</h1>
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a routerLink='/'>首页</a></li>
                         <li class="breadcrumb-item"><a routerLink='/agentlist'>代理商列表</a></li>
-                        <li class="breadcrumb-item active">代理商列表新增</li>
+                        <li class="breadcrumb-item active">{{type=='B'?'代理商详情':'新增代理商'}}</li>
                     </ol>
                 </div>
             </div>
@@ -18,8 +18,89 @@
     </section>
 
     <section class="content">
-        <div class="container-fluid">
-            新增代理商
+
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card card-info">
+
+                    <div class="card-header" style="background-color: #F0F0F0;">
+                        <h3 class="card-title">{{type=='B'?'代理商详情':'新增代理商'}}</h3>
+                    </div>
+
+                    <form role="form" id="quickForm">
+                        <div class="card-body">
+
+                            <div class="row">
+                                <div class="form-group col-lg-12 col-md-12  col-sm-12" style="overflow-x: auto;">
+                                    <table class="table h5 bor-none" style="min-width: 768px;">
+                                        <tr>
+                                            <td class="  ">代理商名称</td>
+                                            <td class=""> <input type="text" class=" form-control col-form-label-sm"
+                                                    id="bianhao" name='bianhao' placeholder="刻录机阿萨德" disabled /></td>
+
+                                            <td class="  ">联系电话</td>
+                                            <td class=""><input type="text" class=" form-control col-form-label-sm"
+                                                    id="huzhao" name='huzhao' placeholder="刻录机阿萨德2" /></td>
+
+                                            <!-- <td class=" txt-red-ff5 ">*图标</td>
+                  <td class=""><input type="text" class=" form-control col-form-label-sm" id="xingm" name='xingm'
+                      placeholder="刻录机阿萨德4444"   /></td> -->
+                                            <!-- <td rowspan="3" class="">
+                    <div>{{lang.photos}}</div>
+                    <nz-upload class="avatar-uploader" nzAction="{{uploadapi}}?module=human&field=file&rettype=json"
+                      nzListType="picture-card" [nzShowUploadList]="false" (nzChange)="afterupload($event)">
+                      <ng-container *ngIf='!humandetail.img'>
+                        <i class="upload-icon" nz-icon [nzType]="loading ? 'loading' : 'plus'"></i>
+                        <div class="ant-upload-text">Upload</div>
+                      </ng-container>
+                      <img *ngIf='humandetail.img!=""' src="{{uploadpath}}human/{{humandetail.img}}"
+                        style="width: 100%" />
+                    </nz-upload>
+                  </td> -->
+                                        </tr>
+
+                                        <tr>
+                                            <td class=" ">代理商账号</td>
+                                            <td class=""> <input type="text" class=" form-control col-form-label-sm"
+                                                    id="bianhao" name='bianhao' placeholder="刻录机阿萨德"   /></td>
+                                            <td class="  ">代理商密码</td>
+                                            <td class=""><input type="password" class=" form-control col-form-label-sm"
+                                                    id="huzhao" name='huzhao' placeholder="刻录机阿萨德2" /></td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td class=" ">剩余额度</td>
+                                            <td class=""> <input type="text" class=" form-control col-form-label-sm"
+                                                    id="bianhao" name='bianhao' placeholder="刻录机阿萨德"  disabled /></td>
+                                            <td class="  ">消费额度</td>
+                                            <td class=""><input type="password" class=" form-control col-form-label-sm"
+                                                    id="huzhao" name='huzhao' placeholder="刻录机阿萨德2" disabled/></td> 
+                                        </tr>
+
+                                        <tr>
+                                            <td class=" ">SIM卡数量</td>
+                                            <td class=""> <input type="text" class=" form-control col-form-label-sm"
+                                                    id="bianhao" name='bianhao' placeholder="刻录机阿萨德"   disabled/></td>
+                                            <td class="">SIM卡激活数量</td>
+                                            <td class=""><input type="password" class=" form-control col-form-label-sm"
+                                                    id="huzhao" name='huzhao' placeholder="刻录机阿萨德2" disabled/></td> 
+                                        </tr>
+
+
+
+                                    </table>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
+
     </section>
 </div>

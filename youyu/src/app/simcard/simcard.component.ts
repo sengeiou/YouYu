@@ -23,7 +23,8 @@ export class SimcardComponent extends AppBase {
     super(router, activeRoute, instApi, memberApi);
 
   }
-
+  type="";
+  check=false;
   onMyLoad() {
     this.params;
   }

@@ -51,8 +51,8 @@ export class InstApi {
                 return ApiConfig.ErrorHandle('inst/aboutuslist', data, err);
             });
     }
- 
- 
+
+
     public indexbanner(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'inst/indexbanner';
         var headers = ApiConfig.GetHeader(url, data);
@@ -96,8 +96,6 @@ export class InstApi {
             });
     }
 
- 
-
 
     public resources(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'inst/resources';
@@ -119,6 +117,5 @@ export class InstApi {
                 return ApiConfig.ErrorHandle('inst/resources', data, err);
             });
     }
- 
 
 }
