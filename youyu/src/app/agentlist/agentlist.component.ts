@@ -27,6 +27,11 @@ export class AgentlistComponent extends AppBase {
   type="";
   check=false;
   agentlist=[];
+  shanshow=false;
+  nowid=null;
+  name="";
+  account="";
+  mobile="";
   onMyLoad() {
     this.params;
   }
@@ -34,13 +39,59 @@ export class AgentlistComponent extends AppBase {
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("agent", "agentlist");
     }
-
+    this.pageList = [];
     this.agentApi.agentlist({ 
 
+    }).then((ret:any)=>{
+        this.agentlist=ret;
+        this.pagination(ret, ret.length);
+        console.log(this.agentlist);
+    })
+  }
+  
+
+  search(){
+    this.pageList = [];
+    this.agentApi.agentlist({ 
+     account:this.account,
+     name:this.name,
+     mobile:this.mobile
     }).then((res:any)=>{
         this.agentlist=res;
         console.log(this.agentlist);
     })
+  }
+  reset(){
+    this.name="";
+    this.account="";
+    this.mobile="";
+  }
+
+  update(id,status){
+     
+    if(status=="A"){
+      var zhuangtai='I';
+    }else{
+      var zhuangtai='A';
+    }
+    this.agentApi.updatestatus({status:zhuangtai,id:id}).then((ret: any) => {
+      
+      this.onMyShow();
+    })
+  }
+
+  
+  delete(){
+    this.shanshow = false;
+    
+    this.agentApi.updatestatus({status:'D',id:this.nowid}).then((ret: any) => { 
+      this.onMyShow();
+    })
+  }
+
+  tanchuan(id){
+    this.shanshow = true;
+    this.nowid=id;
   }
 
   ordertype(type){

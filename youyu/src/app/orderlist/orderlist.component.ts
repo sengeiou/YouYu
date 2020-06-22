@@ -5,12 +5,13 @@ import { AppBase } from '../AppBase';
 import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
+import { AgentApi } from 'src/providers/agent.api';
 
 @Component({
   selector: 'app-orderlist',
   templateUrl: './orderlist.component.html',
   styleUrls: ['./orderlist.component.scss'],
-  providers: [InstApi, MemberApi]
+  providers: [InstApi, MemberApi,AgentApi]
 })
 export class OrderlistComponent extends AppBase {
 
@@ -18,6 +19,7 @@ export class OrderlistComponent extends AppBase {
     public router: Router,
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
+    public agentApi: AgentApi,
     public memberApi: MemberApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
@@ -25,6 +27,8 @@ export class OrderlistComponent extends AppBase {
   }
   type="";
   check=false;
+  fenpeilist=[];
+  name='';
   onMyLoad() {
     this.params;
   }
@@ -32,6 +36,28 @@ export class OrderlistComponent extends AppBase {
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("order", "orderlist");
     }
+
+    this.agentApi.fenpeilist({ 
+
+    }).then((res:any)=>{
+        this.fenpeilist=res;
+        this.pagination(res, res.length);
+        console.log(this.fenpeilist,'分配数据');
+    })
+  }
+
+  search(){
+    this.pageList = [];
+    this.agentApi.fenpeilist({  
+     name:this.name, 
+    }).then((res:any)=>{
+        this.fenpeilist=res;
+        this.pagination(res, res.length);
+        console.log(this.fenpeilist);
+    })
+  }
+  reset(){
+    this.name=""; 
   }
 
   ordertype(type){

@@ -34,38 +34,32 @@
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">代理商名称</label>
                                     <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商名称"
-                                        name='orderno' />
+                                        name='name' [(ngModel)]='name' />
                                 </div>
-
+                                <div class="form-group  col-lg-4 col-md-5  col-sm-6">
+                                    <label for="inputEmail3" class=" col-form-label">代理商账号</label>
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商账号"
+                                        name='account' [(ngModel)]='account' />
+                                </div>
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">联系电话</label>
                                     <input type="text" class="form-control" id="inputEmail3" placeholder="请输入联系电话"
-                                        name='mobile' />
+                                        name='mobile' [(ngModel)]='mobile' />
                                 </div>
-                                <!-- <div class="form-group   col-lg-4 col-md-5  col-sm-6">
-                                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">开始时间</label>
-                                    <input type="date" class="form-control col-form-label-sm" id="inputEmail3"
-                                        data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd"
-                                        data-mask placeholder="请输入创建时间"    name='shijian' />
-                                </div> -->
+
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="float-right">
-                                <button type="submit" class="btn bg-gray">重置</button>
-                                <button type="submit" class="btn btn-primary margin-left-20">搜索</button>
+                                <button type="submit" class="btn bg-gray" (click)='reset()'>重置</button>
+                                <button type="submit" class="btn btn-primary margin-left-20"
+                                    (click)='search()'>搜索</button>
                             </div>
 
                             <div>
                                 <button type="submit" class="btn btn-info " routerLink='/addagent'>添加代理商</button>
-                                <!-- <button type="submit"
-                                    class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}"
-                                    (click)='ordertype("")'>全部代理商</button> -->
-                                <!-- <button type="submit" class="btn   margin-left-20  {{type=='A'?'btn-primary':'btn-default'}}"   (click)='ordertype("A")' >待处理订单</button>
-                                <button type="submit" class="btn    margin-left-20  {{type=='B'?'btn-primary':'btn-default'}}"  (click)='ordertype("B")' >已处理订单</button>
-                                <button type="submit" class="btn    margin-left-20  {{type=='C'?'btn-primary':'btn-default'}}"   (click)='ordertype("C")' >已拒绝订单</button>
-                                <button type="submit" class="btn    margin-left-20  {{type=='D'?'btn-primary':'btn-default'}}"   (click)='ordertype("D")'>已失效订单</button> -->
+
                             </div>
 
                         </div>
@@ -82,29 +76,36 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
+
+
+
                     <div class="card-header">
                         <!-- <h3 class="card-title">Simple Full Width Table</h3> -->
-                        <div class="card-title h5 txt-orange">总条数：{{agentlist.length}}条</div>
+                        <div class="card-title h5  ">总条数：{{agentlist.length}}条</div>
+
                         <div class="card-tools">
                             <ul class="pagination pagination-sm float-right">
                                 <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
-                                <li class="page-item"><span class="page-link bg-primary ">11111</span></li>
+                                <li class="page-item" *ngFor='let i of pageList'><span
+                                        class="page-link {{selPage==i?'bg-primary':''}}"
+                                        (click)='changedate(i)'>{{i}}</span></li>
                                 <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
                             </ul>
                         </div>
+
+
                     </div>
+
                     <!-- /.card-header -->
                     <div class="card-body p-0" style="overflow-x: auto;">
                         <table class="table text-center" style="min-width: 768px;">
                             <thead>
                                 <tr>
-                                    <th width='1%'><img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
-                                            *ngIf='check==true' (click)='choose()' />
-                                        <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
-                                            *ngIf='check==false' (click)='choose()' /></th>
-                                    <th>代理商名称</th>
+                                    <th>代理商</th>
+                                    <th>账号</th>
+                                    <th>名称</th>
                                     <th>联系电话</th>
-                                    <th>图标</th>
+
                                     <th>剩余额度</th>
                                     <th>消耗额度</th>
                                     <th>SIM卡数量</th>
@@ -113,22 +114,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr  *ngFor='let item of agentlist;let i=index'>
+                                <tr *ngFor='let item of agentlist;let i=index'>
                                     <td>
-                                        <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
-                                            *ngIf='check==true' />
-                                        <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
-                                            *ngIf='check==false' />
+                                        <img src="{{uploadpath}}agent/{{item.logo}}" class="icon-50" />
                                     </td>
-                                    <td> 
-                                        <div class="margin-left-10">{{item.name}}</div> 
-                                    </td> 
+                                    <td>
+                                        <div>{{item.account}}</div>
+                                    </td>
+                                    <td>
+                                        <div>{{item.name}}</div>
+                                    </td>
                                     <td>{{item.mobile}}</td>
-                                    <td>
-                                        <img src="{{uploadpath}}agent/{{item.logo}}" class="icon"
-                                            />
-                                    </td>
-                                    
+
+
                                     <td>{{item.quota}}</td>
 
                                     <td>{{item.yixiaohao}}</td>
@@ -146,12 +144,17 @@
                                         </div> 
                                     </td> -->
 
-                                    <td><div class="badge bg-warning margin-right"   ><img
-                                        src="{{uploadpath}}resource/{{res.status}}" class="icon-15" title="禁用/启用"></div>
-                                    <div class="badge bg-primary margin-right"  (click)='detail(item.id)'><img
-                                        src="{{uploadpath}}resource/{{res.update}}" class="icon-15" title="修改"></div>
-                                    <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default"  ><img
-                                        src="{{uploadpath}}resource/{{res.delete}}" class="icon-15" title="删除"></div></td>
+                                    <td>
+                                        <div class="badge bg-warning margin-right"><img
+                                                src="{{uploadpath}}resource/{{res.status}}" class="icon-15"
+                                                title="禁用/启用" (click)='update(item.id,item.status)'></div>
+                                        <div class="badge bg-primary margin-right" (click)='detail(item.id)'><img
+                                                src="{{uploadpath}}resource/{{res.update}}" class="icon-15"
+                                                title="查看/修改"></div>
+                                        <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default">
+                                            <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15" title="删除"
+                                                (click)='tanchuan(item.id)'></div>
+                                    </td>
 
                                 </tr>
 
@@ -166,4 +169,27 @@
         </div>
 
     </section>
+</div>
+
+
+
+
+<div class="modal fade" id="modal-default" *ngIf='shanshow==true'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">删除提示</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>是否要删除该代理商?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" (click)='delete()' data-dismiss="modal">删除</button>
+            </div>
+        </div>
+    </div>
 </div>
