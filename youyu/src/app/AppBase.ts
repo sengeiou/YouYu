@@ -117,8 +117,7 @@ export class AppBase implements OnInit {
                 this.memberApi.agentinfo({id:id}).then((info: any) => {
                     console.log(info)
                     if (info != null) {
-                        window.sessionStorage.setItem("agentinfo",JSON.stringify(info));
-                        
+                        window.sessionStorage.setItem("agentinfo",JSON.stringify(info)); 
                         if(this.agentinfo==null){
                             this.agentinfo=info;
                         }

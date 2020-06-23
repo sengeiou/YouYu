@@ -3,13 +3,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>创建订单</h1>
+                    <h1>额度申请</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a routerLink='/'>首页</a></li>
-                        <li class="breadcrumb-item"><a routerLink='/orderlist'>订单列表</a></li>
-                        <li class="breadcrumb-item active">创建订单</li>
+                        <li class="breadcrumb-item"><a routerLink='/'>首页</a></li> 
+                        <li class="breadcrumb-item active">额度申请</li>
                     </ol>
                 </div>
             </div>
@@ -23,7 +22,7 @@
                 <div class="card card-info">
 
                     <div class="card-header" style="background-color: #F0F0F0;">
-                        <h3 class="card-title">新增代理商额度分配记录</h3>
+                        <h3 class="card-title">申请额度</h3>
                     </div>
 
                     <form role="form" id="quickForm">
@@ -31,25 +30,13 @@
 
                             <div class="row">
                                 <div class="form-group col-lg-12 col-md-12  col-sm-12" style="overflow-x: auto;">
-                                    <table class="table h5 bor-none" style="min-width: 768px;">
-
+                                    <table class="table h5 bor-none" style="min-width: 768px;"> 
                                         <tr>
-                                            <td class=" ">选择代理商</td>
-                                            <td class="">
-                                                <select name='country' [(ngModel)]='agent2_id' id="inputEmail3"
-                                                    class="form-control col-form-label-sm">
-                                                    <option value="">请选择</option>
-                                                    <option value="{{item.id}}" *ngFor='let item of agentlist'>
-                                                        {{item.name}}</option>
-                                                </select>
-                                            </td>
-                                            <td class="  ">分配额度</td>
+                                            <td class="  ">申请额度</td>
                                             <td class=""><input type="number" class=" form-control col-form-label-sm"
-                                                    id="password" name='quota' placeholder="请输入代理商密码"
+                                                    id="quota" name='quota' placeholder="请输入代理商密码"
                                                     [(ngModel)]='quota' />
                                             </td> 
-                                        </tr> 
-                                        <tr>
                                             <td class=" ">备注(选填)</td>
                                             <td class="">
                                                 <input type="text" class=" form-control col-form-label-sm"

@@ -40,13 +40,26 @@
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
+
+      <li class="nav-item dropdown"  >
+        <a class="nav-link" data-toggle="dropdown" href="#">
+           
+          <span class="h5 txt-red" >剩余额度：{{agentinfo.quota}}</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" >
+        
+          <a  class="dropdown-item dropdown-footer" routerLink='/addshenqing' >额度申请</a>
+        </div>
+      </li>
        
       <li class="nav-item dropdown user-menu"  >
+ 
         <a class="nav-link dropdown-toggle" data-toggle="dropdown">
           <img src="{{uploadpath}}agent/{{agentinfo.logo}}" class="user-image img-circle elevation-2" alt="User Image">
           <span class="d-none d-md-inline">{{agentinfo.name}}</span>
+ 
         </a>
-        
+ 
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
           <li class="user-header bg-primary">

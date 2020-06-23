@@ -18,6 +18,7 @@ import { QueryComponent } from '../query/query.component';
 import { RechargeOrderComponent } from '../recharge-order/recharge-order.component';
 import { ApplicationComponent } from '../application/application.component';
 import { MemberlistComponent } from '../memberlist/memberlist.component';
+import { AddshenqingComponent } from '../addshenqing/addshenqing.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: "query", component: QueryComponent },
       { path: "application", component: ApplicationComponent },
       { path: "memberlist", component: MemberlistComponent },
+      { path: "addshenqing", component: AddshenqingComponent },
     ]
   }
 ];

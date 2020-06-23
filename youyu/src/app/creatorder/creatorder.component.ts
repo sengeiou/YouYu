@@ -61,6 +61,10 @@ export class CreatorderComponent extends AppBase {
       this.toast("请输入分配额度");
       return
     }
+    if(this.quota>this.agentinfo.quota){
+       this.toast("剩余额度不足(剩余："+this.agentinfo.quota+")，无法分配");
+       return
+    }
   
     this.agentApi.addfenpei({quota:this.quota,agent2_id:this.agent2_id,remarks:this.remarks}).then((ret: any) => {
       console.log(ret);

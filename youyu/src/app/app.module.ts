@@ -37,7 +37,8 @@ import { RechargelistComponent } from './rechargelist/rechargelist.component';
 import { QueryComponent } from './query/query.component';
 import { RechargeOrderComponent } from './recharge-order/recharge-order.component';
 import { ApplicationComponent } from './application/application.component';
-import { MemberlistComponent } from './memberlist/memberlist.component'; 
+import { MemberlistComponent } from './memberlist/memberlist.component';
+import { AddshenqingComponent } from './addshenqing/addshenqing.component'; 
  
 
 @NgModule({
@@ -63,7 +64,8 @@ import { MemberlistComponent } from './memberlist/memberlist.component';
     QueryComponent,
     RechargeOrderComponent,
     ApplicationComponent,
-    MemberlistComponent, 
+    MemberlistComponent,
+    AddshenqingComponent, 
   ],
   imports: [
     BrowserModule,
