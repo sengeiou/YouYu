@@ -54,12 +54,8 @@
                                 <button type="submit" class="btn btn-primary margin-left-20"  >搜索</button>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-info " routerLink='/creatorder'>创建订单</button>
-                                <button type="submit" class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}" (click)='ordertype("")' >全部订单</button>
-                                <button type="submit" class="btn   margin-left-20  {{type=='A'?'btn-primary':'btn-default'}}"   (click)='ordertype("A")' >待处理订单</button>
-                                <button type="submit" class="btn    margin-left-20  {{type=='B'?'btn-primary':'btn-default'}}"  (click)='ordertype("B")' >已处理订单</button>
-                                <button type="submit" class="btn    margin-left-20  {{type=='C'?'btn-primary':'btn-default'}}"   (click)='ordertype("C")' >已拒绝订单</button>
-                                <button type="submit" class="btn    margin-left-20  {{type=='D'?'btn-primary':'btn-default'}}"   (click)='ordertype("D")'>已失效订单</button>
+                                <button type="submit" class="btn btn-info " routerLink='/creatrechargeorder'>创建订单</button>
+                                <!-- <button type="submit" class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}" (click)='ordertype("")' >全部订单</button>  -->
                             </div>
 
                         </div>
@@ -78,13 +74,13 @@
                 <div class="card">
                     <div class="card-header">
                         <!-- <h3 class="card-title">Simple Full Width Table</h3> -->
-                        <div class="card-title h5 txt-orange">总条数：15条</div>
+                        <div class="card-title h5 ">总条数：{{orderlist.length}}条</div>
                         <div class="card-tools">
                             <ul class="pagination pagination-sm float-right">
                                 <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
-                                <li class="page-item"  ><span
-                                        class="page-link bg-primary "
-                                        >11111</span></li>
+                                <li class="page-item" *ngFor='let i of pageList'><span
+                                        class="page-link {{selPage==i?'bg-primary':''}}"
+                                        (click)='changedate(i)'>{{i}}</span></li>
                                 <li class="page-item"><span class="page-link" (click)='Next()'>&raquo;</span></li>
                             </ul>
                         </div>
@@ -94,62 +90,51 @@
                         <table class="table text-center" style="min-width: 768px;">
                             <thead>
                                 <tr>
-                                    <th width='1%'><img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
+                                    <!-- <th width='1%'><img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==true' (click)='choose()' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
-                                            *ngIf='check==false' (click)='choose()' /></th>
-                                    <th>订单编号</th>
-                                    <th>代理商</th>
-                                    <th>创建时间</th>
-                                    <th>备注</th>
-                                    <th>数量</th>
-                                    <th>金额</th>
-                                    <th>状态</th>
-                                    <th>操作</th>
+                                            *ngIf='check==false' (click)='choose()' /></th> -->
+                                    <th>订单号</th>
+                                    <th>充值卡号</th>
+                                    
+                                    <th>套餐类型</th> 
+                                    <th>套餐价格</th> 
+                                    <th>流量额度</th> 
+                                    <th>套餐时效</th> 
+                                    <th>备注</th> 
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
+                                <tr *ngFor='let item of orderlist;let i=index'>
+                                    <!-- <td>
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==true' />
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==false' />
-                                    </td>
+                                    </td> -->
+                                     
+                                    <td>{{item.orderno}}</td>
+                                    
+                                    <td>{{item.simcard_cardnumber}}</td>
+                                    <td>{{item.packagetype_name}}</td>
+                                    <td>{{item.package_price}}</td>
+                                    <td>{{item.package_traffic}} M</td>
+                                    <td>{{item.package_month}} 个月</td>
                                     <td>
-
-                                        <div class="margin-left-10">5645656456456456</div>
-
-
+                                        {{item.remarks}}
                                     </td>
-                                    <td>张三</td>
-                                    <td>2020</td>
-                                    <td>
-                                        1嗷嗷嗷
-                                    </td>
-                                    <td>阿萨德</td>
-                                    <td>50元</td>
-                                    <td> <span class="badge" >
-                                         啦啦啦啦</span>
-                                    </td>
-                                    <td>
-                                        <div class="badge bg-primary margin-right"  ><img
-                                                src="{{uploadpath}}resource/{{res.xuanzhong}}" class="icon-15" title="查看详情"></div>
-                                        <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default" >
-                                            <img src="{{uploadpath}}resource/{{res.xuanzhong}}" class="icon-15" title="删除">
-                                        </div>
+ 
+                                    
 
-
-
-                                    </td>
                                 </tr>
 
                             </tbody>
                         </table>
                     </div>
-                   
+
                 </div>
-               
+
 
             </div>
         </div>

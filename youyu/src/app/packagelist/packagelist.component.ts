@@ -8,54 +8,68 @@ import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
 
 @Component({
-  selector: 'app-recharge-order',
-  templateUrl: './recharge-order.component.html',
-  styleUrls: ['./recharge-order.component.scss'],
+  selector: 'app-packagelist',
+  templateUrl: './packagelist.component.html',
+  styleUrls: ['./packagelist.component.scss'],
   providers: [InstApi, MemberApi,AgentApi]
 })
-export class RechargeOrderComponent extends AppBase {
+export class PackagelistComponent extends AppBase {
 
   constructor(
     public router: Router,
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
-    public memberApi: MemberApi,
     public agentApi: AgentApi,
+    public memberApi: MemberApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
 
   }
   type="";
   check=false;
-  orderlist=[];
-
+  packagelist=[];
+  name='';
   onMyLoad() {
     this.params;
   }
   onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("order", "rechargeorder");
+      MainComponent.Instance.setModule("packagelist", "packagelist");
     }
 
-    this.agentApi.orderlist({ 
+    this.agentApi.packagelist({ 
 
     }).then((res:any)=>{
-        this.orderlist=res;
+        this.packagelist=res;
         this.pagination(res, res.length);
-        console.log(this.orderlist,'数据');
+        console.log(this.packagelist,'数据');
     })
   }
 
+  search(){
+    // this.pageList = [];
+    // this.agentApi.fenpeilist({  
+    //  name:this.name, 
+    // }).then((res:any)=>{
+    //     this.fenpeilist=res;
+    //     this.pagination(res, res.length);
+    //     console.log(this.fenpeilist);
+    // })
+  }
+  reset(){
+   // this.name=""; 
+  }
+
   ordertype(type){
-    this.type=type;
+    //this.type=type;
   }
 
   choose(){
-  if(this.check==false){
-   this.check=true;
-  }else{
-    this.check=false;
-  }
+  // if(this.check==false){
+  //  this.check=true;
+  // }else{
+  //   this.check=false;
+  // }
   }
 
 }

@@ -1,5 +1,3 @@
-<!-- Content Wrapper. Contains page content -->
-
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
@@ -18,15 +16,14 @@
 
     <section class="content">
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-12">
-                <!-- Horizontal Form -->
+              
                 <div class="card card-info">
                     <div class="card-header bg-gray-d">
                         <h3 class="card-title">搜索条件</h3>
                     </div>
-                    <!-- /.card-header -->
-                    <!-- form start -->
+               
                     <form class="form-horizontal">
                         <div class="card-body">
                             <div class="row">
@@ -39,32 +36,32 @@
                                  
                             </div>
                         </div>
-                        <!-- /.card-body -->
+                       
                         <div class="card-footer">
                             <div class="float-right">
                                 <button type="submit" class="btn bg-gray" (click)='reset()'>重置</button>
                                 <button type="submit" class="btn btn-primary margin-left-20" (click)='search()'>搜索</button>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-info " routerLink='/creatorder'>分配额度</button>
+                                <button type="submit" class="btn btn-info " routerLink='/creatorder'>新增分配记录</button>
                             </div>
 
                         </div>
-                        <!-- /.card-footer -->
+                        
                     </form>
                 </div>
-                <!-- /.card -->
+              
 
 
             </div>
-        </div>
+        </div> -->
 
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <!-- <h3 class="card-title">Simple Full Width Table</h3> -->
-                        <div class="card-title h5 ">总条数：{{fenpeilist.length}}条</div>
+                        <div class="card-title h5 ">总条数：{{packagelist.length}}条</div>
                         <div class="card-tools">
                             <ul class="pagination pagination-sm float-right">
                                 <li class="page-item"><span class="page-link" (click)='Previous()'>&laquo;</span></li>
@@ -84,41 +81,32 @@
                                             *ngIf='check==true' (click)='choose()' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
                                             *ngIf='check==false' (click)='choose()' /></th> -->
-                                    <th>代理商</th>
-                                    <th>名称</th>
-                                    <th>分配额度</th>
-                                    <th>分配时间</th>
-                                    <th>备注</th>
-
+                                    <th>套餐类型</th>
+                                    <th>流量额度</th>
+                                    
+                                    <th>套餐时效</th> 
+                                    <th>套餐价格</th> 
+                                    
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor='let item of fenpeilist;let i=index'>
+                                <tr *ngFor='let item of packagelist;let i=index'>
                                     <!-- <td>
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==true' />
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==false' />
                                     </td> -->
+                                     
+                                    <td>{{item.packagetype_name}}</td>
+                                    
+                                    <td>{{item.traffic}} M</td>
+                                    <td>{{item.month}} 个月</td>
                                     <td>
-                                        <img src="{{uploadpath}}agent/{{item.agent2_logo}}" class="icon-50" />
+                                        {{item.price}} 元
                                     </td>
-
-                                    <td>{{item.agent2_name}}</td>
-                                    <td>
-                                        {{item.quota}}
-                                    </td>
-                                    <td>{{item.fenpeitime_formatting}}</td>
-
-                                    <td>{{item.remarks}}</td>
-
-                                    <!-- <td>
-                                        <div class="badge bg-primary margin-right"  ><img
-                                                src="{{uploadpath}}resource/{{res.xuanzhong}}" class="icon-15" title="查看详情"></div>
-                                        <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default" >
-                                            <img src="{{uploadpath}}resource/{{res.xuanzhong}}" class="icon-15" title="删除">
-                                        </div> 
-                                    </td> -->
+ 
+                                    
 
                                 </tr>
 

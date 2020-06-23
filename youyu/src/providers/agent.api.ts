@@ -163,6 +163,28 @@ export class AgentApi {
     }
 
 
+    public packagelist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/packagelist';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/packagelist', data, err);
+            });
+    }
+
+
     public shenqing(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/shenqing';
         var headers = ApiConfig.GetHeader(url, data);
@@ -251,8 +273,8 @@ export class AgentApi {
     }
 
 
-    public packagelist(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/packagelist';
+    public orderlist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/orderlist';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -268,7 +290,29 @@ export class AgentApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('agent/packagelist', data, err);
+                return ApiConfig.ErrorHandle('agent/orderlist', data, err);
+            });
+    }
+
+
+    public creatorder(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/creatorder';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/creatorder', data, err);
             });
     }
 
