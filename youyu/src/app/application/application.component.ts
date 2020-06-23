@@ -49,6 +49,7 @@ export class ApplicationComponent extends AppBase {
     this.agentApi.tongyi({  
        id:id, 
       }).then((res:any)=>{
+         this.pageList=[];
          this.onMyShow();
       })
   }
