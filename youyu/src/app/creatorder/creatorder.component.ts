@@ -32,7 +32,9 @@ export class CreatorderComponent extends AppBase {
     this.params;
   }
   onMyShow() {
-
+    // if (MainComponent.Instance != null) {
+    //   MainComponent.Instance.setModule("creatorder", "creatorder");
+    // }
     this.agentApi.agentlist({ 
 
     }).then((ret:any)=>{
@@ -40,9 +42,7 @@ export class CreatorderComponent extends AppBase {
         this.pagination(ret, ret.length);
         console.log(this.agentlist);
     })
-    // if (MainComponent.Instance != null) {
-    //   MainComponent.Instance.setModule("sim", "addagent");
-    // }
+    
   }
 
   confirm() {

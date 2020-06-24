@@ -32,7 +32,9 @@ export class AddshenqingComponent extends AppBase {
     this.params;
   }
   onMyShow() {
- 
+    if (MainComponent.Instance != null) {
+        MainComponent.Instance.setModule("addshenqing", "addshenqing");
+      }
      
   }
 
