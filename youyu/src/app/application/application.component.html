@@ -114,17 +114,17 @@
 
                                     <td>
                                         <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="A"'>
-                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15"
-                                                title="同意" (click)='tongyi(item.id)'></div>
+                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" data-toggle="modal" data-target="#modal-default"
+                                                title="同意" (click)='tongyi(item.id,item.quota,item.agent2_id)'></div>
 
                                         <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="B"' >
                                             <img src="{{uploadpath}}resource/{{res.ok}}" class="icon-15"
                                                 title="已同意"></div>
 
-                                        <div class="badge bg-danger">
+                                        <!-- <div class="badge bg-danger">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15"
                                                 title="删除">
-                                        </div>
+                                        </div> -->
                                     </td>
 
                                 </tr>
@@ -140,4 +140,26 @@
         </div>
 
     </section>
+</div>
+
+
+
+<div class="modal fade" id="modal-default" *ngIf='shanshow==true'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">提示</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>确定分配额度给该代理商?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" (click)='confirm()' data-dismiss="modal">确定</button>
+            </div>
+        </div>
+    </div>
 </div>

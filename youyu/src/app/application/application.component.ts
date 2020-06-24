@@ -28,6 +28,11 @@ export class ApplicationComponent extends AppBase {
   check=false;
   shenqing=[];
   name='';
+  remarks='';
+  id='';
+  quota='';
+  agent2_id='';
+  shanshow=false;
   onMyLoad() {
     this.params;
   }
@@ -45,13 +50,36 @@ export class ApplicationComponent extends AppBase {
     })
   }
 
-  tongyi(id){
-    this.agentApi.tongyi({  
-       id:id, 
-      }).then((res:any)=>{
-         this.pageList=[];
-         this.onMyShow();
-      })
+  tongyi(id,quota,agent2_id){
+    this.shanshow = true;
+    this.id=id;
+    this.quota=quota;
+    this.agent2_id=agent2_id;
+  }
+
+  confirm(){
+
+    if(this.quota>this.agentinfo.quota){
+      this.toast("剩余额度不足(剩余："+this.agentinfo.quota+")，无法分配");
+      return
+    }
+
+    this.agentApi.addfenpei({quota:this.quota,agent2_id:this.agent2_id,remarks:this.remarks}).then((ret: any) => {
+     
+      if (ret.code == '0') {
+
+        this.agentApi.tongyi({  
+          id:this.id, 
+         }).then((res:any)=>{
+            this.pageList=[];
+            this.onMyShow();
+       })
+      
+      } else {
+        this.toast(ret.result);
+      }
+    })
+ 
   }
 
   search(){
