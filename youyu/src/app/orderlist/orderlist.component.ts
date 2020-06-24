@@ -34,7 +34,7 @@ export class OrderlistComponent extends AppBase {
   }
   onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("order", "orderlist");
+      MainComponent.Instance.setModule("orderlist", "orderlist");
     }
 
     this.agentApi.fenpeilist({ 

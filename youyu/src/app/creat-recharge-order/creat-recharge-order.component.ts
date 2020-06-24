@@ -29,6 +29,8 @@ export class CreatRechargeOrderComponent extends AppBase {
   simcardlist=[];
   simcard_id='';
   package_id='';
+  idx='';
+  simcardidx='';
   remarks='';
   onMyLoad() {
     this.params;
@@ -43,18 +45,31 @@ export class CreatRechargeOrderComponent extends AppBase {
     })
 
     this.agentApi.simcardlist({ 
-
+      usestatus:'B'
     }).then((ret:any)=>{
         this.simcardlist=ret; 
     })
     
   }
+  chakan(){
+    console.log("23123")
+  }
 
   confirm() {
      
+    this.package_id=this.packagelist[this.idx].id;
+    console.log(this.packagelist[this.idx].price);
+    var price=parseInt(this.packagelist[this.idx].price);
+    var productid=this.packagelist[this.idx].productid;
 
     
+    var cardnumber=this.simcardlist[this.simcardidx].cardnumber;
+    this.simcard_id=this.simcardlist[this.simcardidx].id;
+
+   // console.log(cardnumber,"走了",this.simcardlist)
     //return;
+    //console.log("走了",this.agentinfo.quota)
+   // return;
     if(this.simcard_id.trim()==""){
       this.toast("请选择需要充值的SIM卡");
       return
@@ -63,13 +78,23 @@ export class CreatRechargeOrderComponent extends AppBase {
       this.toast("请选择充值套餐");
       return
     }
+    if(price>parseInt(this.agentinfo.quota)){
+      this.toast("您的额度不足，无法充值");
+      return
+      }
+    
+      console.log(productid);
+     // return;
      
     this.agentApi.creatorder({ simcard_id:this.simcard_id,package_id:this.package_id,remarks:this.remarks}).then((ret: any) => {
       console.log(ret);
       if (ret.code == '0') {
-        this.saveing();
+
+        this.agentApi.rechargerecord({package_id:this.package_id,order_id:ret.return,productid:productid,cardnumber:cardnumber}).then((ret: any)=>{
+          this.saveing(); 
+          this.back(); 
+        })
  
-        this.back(); 
       } else {
         this.toast(ret.result);
       }

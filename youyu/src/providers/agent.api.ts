@@ -119,6 +119,28 @@ export class AgentApi {
     }
 
 
+    public creatorder(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/creatorder';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/creatorder', data, err);
+            });
+    }
+
+
     public fenpei(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/fenpei';
         var headers = ApiConfig.GetHeader(url, data);
@@ -159,6 +181,28 @@ export class AgentApi {
             .catch(err => {
                 console.error(err);
                 return ApiConfig.ErrorHandle('agent/fenpeilist', data, err);
+            });
+    }
+
+
+    public orderlist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/orderlist';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/orderlist', data, err);
             });
     }
 
@@ -273,8 +317,8 @@ export class AgentApi {
     }
 
 
-    public orderlist(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/orderlist';
+    public rechargerecord(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/rechargerecord';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -290,29 +334,7 @@ export class AgentApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('agent/orderlist', data, err);
-            });
-    }
-
-
-    public creatorder(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/creatorder';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = { headers: headers };
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                return res;
-            })
-            .catch(err => {
-                console.error(err);
-                return ApiConfig.ErrorHandle('agent/creatorder', data, err);
+                return ApiConfig.ErrorHandle('agent/rechargerecord', data, err);
             });
     }
 

@@ -6,12 +6,13 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
+import { SimapiApi } from 'src/providers/simapi.api';
 
 @Component({
   selector: 'app-simcard',
   templateUrl: './simcard.component.html',
   styleUrls: ['./simcard.component.scss'],
-  providers: [InstApi, MemberApi, AgentApi]
+  providers: [InstApi, MemberApi, AgentApi,SimapiApi]
 })
 export class SimcardComponent extends AppBase {
 
@@ -21,6 +22,7 @@ export class SimcardComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
     public agentApi: AgentApi,
+    public simapiApi: SimapiApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
 
@@ -36,6 +38,8 @@ export class SimcardComponent extends AppBase {
   sim_id='';
   idlist=[];
   fenpeitype='';
+  info=null;
+
   onMyLoad() {
     this.params;
   }
@@ -51,6 +55,14 @@ export class SimcardComponent extends AppBase {
     })
 
   this.simcard();
+  }
+
+  chakan(cardnumber){
+
+    this.simapiApi.simcardinfo({simcard:cardnumber}).then((ret:any)=>{
+     this.info=ret;
+     console.log(this.info,'详情')
+    })
   }
 
   simcard(){

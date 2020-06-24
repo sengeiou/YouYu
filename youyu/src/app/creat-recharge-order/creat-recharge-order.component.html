@@ -36,22 +36,23 @@
                                         <tr>
                                             <td class=" ">选择SIM卡</td>
                                             <td class="">
-                                                <select name='country' [(ngModel)]='simcard_id' id="inputEmail3"
+                                                <select name='country' [(ngModel)]='simcardidx' id="inputEmail3"
                                                     class="form-control col-form-label-sm">
                                                     <option value="">请选择需要充值的SIM卡</option>
-                                                    <option value="{{item.id}}" *ngFor='let item of simcardlist'>
-                                                        {{item.cardnumber}}</option>
+                                                    <option value="{{i}}" *ngFor='let item of simcardlist;let i=index'>
+                                                        {{item.cardnumber}} (微信号: {{item.wechatid}})</option>
                                                 </select>
                                             </td>
 
                                             <td class=" ">选择套餐</td>
                                             <td class="">
-                                                <select name='country' [(ngModel)]='package_id' id="inputEmail3"
+                                                <select name='country' [(ngModel)]='idx' id="inputEmail3" (onchange)='chakan()'
                                                     class="form-control col-form-label-sm">
                                                     <option value="">请选择充值套餐</option>
-                                                    <option value="{{item.id}}" *ngFor='let item of packagelist'>
-                                                        {{item.packagetype_name}}({{item.traffic}}M {{item.month}}个月)</option>
+                                                    <option value="{{i}}" *ngFor='let item of packagelist;let i=index'>
+                                                        {{item.packagetype_name}}({{item.traffic}}M /{{item.month}}个月 /{{item.price}}元)</option>
                                                 </select>
+                                                 
                                             </td>
 
 

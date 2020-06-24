@@ -60,7 +60,8 @@
                             </div>
 
                             <div>
-                                <button type="submit" class="btn btn-info " data-toggle="modal" data-target="#modal-xl" (click)='piliang()'>批量分配</button>
+                                <button type="submit" class="btn btn-info " data-toggle="modal" data-target="#modal-xl"
+                                    (click)='piliang()'>批量分配</button>
                             </div>
 
                         </div>
@@ -141,12 +142,13 @@
                                                 src="{{uploadpath}}resource/{{res.update}}" class="icon-15"
                                                 title="分配" (click)='fenpei(item.id)'></div> -->
 
+                                        <div class="badge bg-success margin-right" title="分配"
+                                            (click)='chooseagent(item.id)' data-toggle="modal" data-target="#modal-xl">
+                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
 
-                                        <div class="badge bg-success margin-right" title="分配"  (click)='chooseagent(item.id)'
-                                            data-toggle="modal" data-target="#modal-xl"><img
-                                                src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
-
-
+                                        <div class="badge bg-success margin-right" title="查看"
+                                            (click)='chakan(item.cardnumber)' data-toggle="modal" data-target="#modal-xl2">
+                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
 
                                         <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15" title="删除">
@@ -173,6 +175,7 @@
 
 
 <div class="modal fade" id="modal-xl">
+
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
@@ -203,9 +206,51 @@
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
-                
+
                 <button type="submit" class="btn bg-primary" (click)='fenpei()'>保存</button>
 
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="modal-xl2"  *ngIf='info!=null'>
+
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <div class="flex-1"></div>
+                <h4 class="modal-title">套餐详情</h4>
+                <div class="flex-1"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+
+
+            <div class="modal-body" >
+
+                <div >
+                 剩余流量:{{info.dataUsageTotal}}MB
+                </div>
+
+                <div  >
+                <div  class="margin-top-20" *ngFor='let item of info.dataPackage'>
+                   
+                    <div>套餐名称:{{item.productName}}</div>
+                    <div>套餐已使用流量:{{item.dataUsage}}</div> 
+               </div>
+            </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+  
             </div>
         </div>
         <!-- /.modal-content -->
