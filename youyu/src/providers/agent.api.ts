@@ -229,6 +229,50 @@ export class AgentApi {
     }
 
 
+    public rechargelist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/rechargelist';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/rechargelist', data, err);
+            });
+    }
+
+
+    public rechargerecord(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/rechargerecord';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/rechargerecord', data, err);
+            });
+    }
+
+
     public shenqing(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/shenqing';
         var headers = ApiConfig.GetHeader(url, data);
@@ -313,28 +357,6 @@ export class AgentApi {
             .catch(err => {
                 console.error(err);
                 return ApiConfig.ErrorHandle('agent/updatestatus', data, err);
-            });
-    }
-
-
-    public rechargerecord(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/rechargerecord';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = { headers: headers };
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                return res;
-            })
-            .catch(err => {
-                console.error(err);
-                return ApiConfig.ErrorHandle('agent/rechargerecord', data, err);
             });
     }
 
