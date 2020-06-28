@@ -86,7 +86,7 @@ export class CreatRechargeOrderComponent extends AppBase {
       console.log(productid);
      // return;
      
-    this.agentApi.creatorder({ simcard_id:this.simcard_id,package_id:this.package_id,remarks:this.remarks}).then((ret: any) => {
+    this.agentApi.creatorder({ simcard_id:this.simcard_id,package_id:this.package_id,remarks:this.remarks,price:price}).then((ret: any) => {
       console.log(ret);
       if (ret.code == '0') {
 

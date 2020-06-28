@@ -35,6 +35,7 @@ export class SimcardComponent extends AppBase {
   datajson=[];
   agentlist=[];
   agent_id='';
+  agent_idx='';
   sim_id='';
   idlist=[];
   fenpeitype='';
@@ -51,6 +52,7 @@ export class SimcardComponent extends AppBase {
     this.agentApi.agentlist({  
     }).then((ret:any)=>{
         this.agentlist=ret; 
+        
         console.log(this.agentlist);
     })
 
@@ -76,28 +78,37 @@ export class SimcardComponent extends AppBase {
       console.log(this.simcardlist);
     })
   }
-  chooseagent(id){
+
+  chooseagent(id,usestatus){
+    if(usestatus=="A"){
+      this.toast("该卡已经被激活无法分配!");
+      return
+     }
    this.sim_id=id;
    this.fenpeitype='A';
+
   }
 
   fenpei() {
     this.idlist=[];
-    if(this.agent_id.trim()==""){
+    var agent_id=this.agentlist[this.agent_idx].id;
+    var qudao=this.agentlist[this.agent_idx].qudao;
+    if(agent_id.trim()==""){
       this.toast("请选择需要分配的代理商");
       return
     }
+    
 
-    // console.log(this.fenpeitype);
-    // return;
+      console.log(agent_id,'---',qudao);
+      //return;
 
     if(this.fenpeitype=="A"){
-      var list={id:this.sim_id,agent_id:this.agent_id};
+      var list={id:this.sim_id,agent_id:agent_id,qudao:qudao};
       this.idlist.push(list);
     }else{
       for(var i=0;i<this.simcardlist.length;i++){
         if(this.simcardlist[i].checking==true){
-         var list2={id:this.simcardlist[i].id,agent_id:this.agent_id};
+         var list2={id:this.simcardlist[i].id,agent_id:agent_id,qudao:qudao};
          this.idlist.push(list2);
         } 
      }
@@ -133,6 +144,11 @@ export class SimcardComponent extends AppBase {
   
   chooseone(i,item) {
     console.log(item)
+
+    if(item.usestatus=="A"){
+      this.toast("该卡已经被激活无法分配!");
+      return
+     }
       
     item.checking = !item.checking;
 
@@ -144,15 +160,21 @@ export class SimcardComponent extends AppBase {
     }
       
   }
+
   chooseall() {
     this.allchose = !this.allchose;
     if (this.allchose == true) {
       for (let item of this.simcardlist) {
-        item.checking = true;
+        if(item.usestatus!='A'){
+          item.checking = true;
+        }
+        
       }
     } else {
       for (let item of this.simcardlist) {
+         
         item.checking = false;
+         
       }
     }
   }

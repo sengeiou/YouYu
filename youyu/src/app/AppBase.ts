@@ -85,7 +85,7 @@ export class AppBase implements OnInit {
         console.log('123123')
     }
     ngOnInit() {
-        console.log('456456')
+       // console.log('坎坎坷坷扩扩扩扩扩扩扩')
         this.bfscrolltop = document.body.scrollTop;
         ApiConfig.SetUnicode(AppBase.UNICODE);
 
@@ -103,11 +103,13 @@ export class AppBase implements OnInit {
     }
     
     CheckPermission() {
-        console.log(this.agentinfo,'信息信息信息');
+        //console.log(this.agentinfo,'信息信息信息');
         if (this.isLoginPage == false) {
             var token = window.sessionStorage.getItem("token");
 
-            console.log("token", '--', token);
+           // console.log("token", '--', token);
+
+            //console.log(this.agentinfo,'信息信息信息');
 
             if (token == null) {
                 this.navigate("login");
@@ -121,7 +123,7 @@ export class AppBase implements OnInit {
                         if(this.agentinfo==null){
                             this.agentinfo=info;
                         }
-                        console.log(this.agentinfo,'代理商信息');
+                        console.log(this.agentinfo,'代理商代理商代理商');
                     } else {
                        this.navigate("login");
                     }
@@ -298,8 +300,9 @@ export class AppBase implements OnInit {
     pageList = [];
     setData = null;
     pagination(list, length) {
-
+        console.log(length,'长度?');
         this.pages = Math.ceil(length / this.pageSize);
+        console.log(this.pages,'页面数?');
         this.newPage = this.pages > 5 ? 5: this.pages;
         this.selPage = 1;
 

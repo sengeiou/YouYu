@@ -117,7 +117,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor='let item of simcardlist;let i=index'>
+                                <tr *ngFor='let item of data;let i=index'>
                                     <td>
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='item.checking==true' (click)='chooseone(i,item)' />
@@ -142,8 +142,12 @@
                                                 src="{{uploadpath}}resource/{{res.update}}" class="icon-15"
                                                 title="分配" (click)='fenpei(item.id)'></div> -->
 
-                                        <div class="badge bg-success margin-right" title="分配"
-                                            (click)='chooseagent(item.id)' data-toggle="modal" data-target="#modal-xl">
+                                        <div class="badge bg-success margin-right" *ngIf='item.usestatus!="A"' title="分配"
+                                            (click)='chooseagent(item.id,item.usestatus)' data-toggle="modal" data-target="#modal-xl">
+                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
+
+                                            <div class="badge bg-success margin-right" *ngIf='item.usestatus=="A"' title="分配"
+                                            (click)='chooseagent(item.id,item.usestatus)'  >
                                             <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
 
                                         <div class="badge bg-success margin-right" title="查看"
@@ -194,10 +198,10 @@
             <div class="modal-body">
 
                 <div>
-                    <select name='country' [(ngModel)]='agent_id' id="inputEmail3"
+                    <select name='country' [(ngModel)]='agent_idx' id="inputEmail3"
                         class="form-control col-form-label-sm">
                         <option value="">请选择</option>
-                        <option value="{{item.id}}" *ngFor='let item of agentlist'>
+                        <option value="{{i}}" *ngFor='let item of agentlist;let i =index;'>
                             {{item.name}}</option>
                     </select>
                 </div>
@@ -207,7 +211,7 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
 
-                <button type="submit" class="btn bg-primary" (click)='fenpei()'>保存</button>
+                <button type="submit" class="btn bg-primary" data-dismiss="modal" (click)='fenpei()'>保存</button>
 
             </div>
         </div>
