@@ -68,8 +68,8 @@ export class CreatRechargeOrderComponent extends AppBase {
 
    // console.log(cardnumber,"走了",this.simcardlist)
     //return;
-    //console.log("走了",this.agentinfo.quota)
-   // return;
+   console.log("走了",this.agentinfo.id)
+ // return;
     if(this.simcard_id.trim()==""){
       this.toast("请选择需要充值的SIM卡");
       return
@@ -90,7 +90,7 @@ export class CreatRechargeOrderComponent extends AppBase {
       console.log(ret);
       if (ret.code == '0') {
 
-        this.agentApi.rechargerecord({package_id:this.package_id,order_id:ret.return,productid:productid,cardnumber:cardnumber}).then((ret: any)=>{
+        this.agentApi.rechargerecord({package_id:this.package_id,order_id:ret.return,productid:productid,cardnumber:cardnumber,agent_id:this.agentinfo.id}).then((ret: any)=>{
           this.saveing(); 
           this.back(); 
         })

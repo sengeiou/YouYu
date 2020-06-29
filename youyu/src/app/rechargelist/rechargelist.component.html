@@ -104,7 +104,7 @@
                                     <th>充值额度</th>
                                     <th>生效时间</th>
                                     <th>生效状态</th>
-                                    <!-- <th>备注</th> -->
+                                    <th>操作</th>
 
                                 </tr>
                             </thead>
@@ -124,6 +124,10 @@
                                     <td>{{item.taketime_dateformat}}</td>
                                     <td>{{item.takestatus_name}}</td>
 
+                                    <td> 
+                                        <button class="badge bg-primary margin-right" *ngIf='item.takestatus=="A"' (click)='shengxiao(item.order_id,item.cardnumber)'> 提前生效</button> 
+                                        
+                                    </td>
 
 
                                 </tr>

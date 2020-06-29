@@ -47,6 +47,24 @@ export class RechargelistComponent extends AppBase {
     
   }
 
+  shengxiao(order_id,cardnumber){
+    this.pageList=[];
+    this.agentApi.tiqianchong({ 
+      order_id:order_id,cardnumber:cardnumber,agent_id:this.agentinfo.id
+    }).then((res:any)=>{
+
+      console.log(res);
+
+      this.agentApi.rechargelist({ 
+
+      }).then((res:any)=>{
+          this.rechargelist=res;
+          this.pagination(res, res.length); 
+      })
+
+    })
+  }
+
   ordertype(type){
     this.type=type;
   }

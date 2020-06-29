@@ -359,5 +359,25 @@ export class AgentApi {
                 return ApiConfig.ErrorHandle('agent/updatestatus', data, err);
             });
     }
+    public tiqianchong(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/tiqianchong';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/tiqianchong', data, err);
+            });
+    }
 
 }
