@@ -7,12 +7,13 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
+import { SimapiApi } from 'src/providers/simapi.api';
 
 @Component({
   selector: 'app-rechargelist',
   templateUrl: './rechargelist.component.html',
   styleUrls: ['./rechargelist.component.scss'],
-  providers: [InstApi, MemberApi,AgentApi]
+  providers: [InstApi, MemberApi,AgentApi,SimapiApi]
 })
 export class RechargelistComponent extends AppBase {
 
@@ -22,6 +23,7 @@ export class RechargelistComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
     public agentApi: AgentApi,
+    public simapiApi: SimapiApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
 
@@ -29,12 +31,14 @@ export class RechargelistComponent extends AppBase {
   type="";
   check=false;
   rechargelist=[];
+  order_id='';
+  cardnumber='';
   onMyLoad() {
     this.params;
   }
   onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("sim", "rechargelist");
+      MainComponent.Instance.setModule("rechargelist", "rechargelist");
     }
     
     this.agentApi.rechargelist({ 
@@ -48,21 +52,10 @@ export class RechargelistComponent extends AppBase {
   }
 
   shengxiao(order_id,cardnumber){
-    this.pageList=[];
-    this.agentApi.tiqianchong({ 
-      order_id:order_id,cardnumber:cardnumber,agent_id:this.agentinfo.id
-    }).then((res:any)=>{
 
-      console.log(res);
-
-      this.agentApi.rechargelist({ 
-
-      }).then((res:any)=>{
-          this.rechargelist=res;
-          this.pagination(res, res.length); 
-      })
-
-    })
+    this.order_id=order_id;
+    this.cardnumber=cardnumber;
+ 
   }
 
   ordertype(type){
@@ -75,6 +68,30 @@ export class RechargelistComponent extends AppBase {
   }else{
     this.check=false;
   }
+  }
+
+  queren(){
+    this.pageList=[];
+    this.agentApi.tiqianchong({ 
+      order_id:this.order_id,cardnumber:this.cardnumber,agent_id:this.agentinfo.id
+    }).then((res:any)=>{
+
+      console.log(res);
+      if(res.code==0){
+        this.simapiApi.chargesimcard({}).then((res:any)=>{
+
+          this.agentApi.rechargelist({ 
+  
+          }).then((res:any)=>{
+              this.rechargelist=res;
+              this.pagination(res, res.length); 
+          })
+  
+        })
+      }
+
+ 
+    })
   }
 
 }

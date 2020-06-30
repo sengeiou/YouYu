@@ -359,6 +359,8 @@ export class AgentApi {
                 return ApiConfig.ErrorHandle('agent/updatestatus', data, err);
             });
     }
+
+
     public tiqianchong(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/tiqianchong';
         var headers = ApiConfig.GetHeader(url, data);

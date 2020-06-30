@@ -101,36 +101,37 @@
                         <table class="table text-center" style="min-width: 768px;">
                             <thead>
                                 <tr>
-                                    <th>代理商</th>
+                                    <!-- <th>代理商</th> -->
+                                    <th>序号</th>
                                     <th>账号</th>
                                     <th>名称</th>
                                     <th>联系电话</th>
-
-                                    <th>剩余额度</th>
-                                    <th>消耗额度</th>
                                     <th>SIM卡数量</th>
+                                    <th>当前额度</th>
+                                    <th>累积额度</th> 
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor='let item of agentlist;let i=index'>
-                                    <td>
+                                    <!-- <td>
                                         <img src="{{uploadpath}}agent/{{item.logo}}" class="icon-50" />
-                                    </td>
-                                    <td>
-                                        <div>{{item.account}}</div>
-                                    </td>
-                                    <td>
-                                        <div>{{item.name}}</div>
-                                    </td>
+                                    </td> -->
+                                    <td>{{i+1}}</td>
+
+                                    <td>{{item.account}}</td>
+
+                                    <td>{{item.name}}</td>
+
                                     <td>{{item.mobile}}</td>
 
+                                    <td>{{item.total}}</td>
 
                                     <td>{{item.quota}}</td>
 
                                     <td>{{item.yixiaohao}}</td>
-                                    <td>{{item.total}}</td>
+                                    
                                     <td> <span class="badge">
                                             {{item.status=="A"?"启用":"禁用"}}</span>
                                     </td>

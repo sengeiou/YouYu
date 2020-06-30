@@ -81,6 +81,7 @@
                                             *ngIf='check==true' (click)='choose()' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
                                             *ngIf='check==false' (click)='choose()' /></th> -->
+                                    <th>序号</th>
                                     <th>套餐类型</th>
                                     <th>流量额度</th>
                                     
@@ -97,7 +98,7 @@
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==false' />
                                     </td> -->
-                                     
+                                     <td>{{i+1}}</td>
                                     <td>{{item.packagetype_name}}</td>
                                     
                                     <td>{{item.traffic}} M</td>

@@ -37,7 +37,7 @@ export class AgentlistComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("agent", "agentlist");
+      MainComponent.Instance.setModule("agentlist", "agentlist");
     }
     this.pageList = [];
     this.agentApi.agentlist({ 

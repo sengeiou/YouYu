@@ -46,7 +46,7 @@ export class SimcardComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("sim", "simcard");
+      MainComponent.Instance.setModule("simcard", "simcard");
     }
     this.pageList = [];
     this.agentApi.agentlist({  
