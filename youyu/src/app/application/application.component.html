@@ -114,12 +114,11 @@
 
                                     <td>
                                         <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="A"'>
-                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" data-toggle="modal" data-target="#modal-default"
+                                            <img src="{{uploadpath}}resource/{{res.daifenpei}}" class="icon-15" data-toggle="modal" data-target="#modal-default"
                                                 title="同意" (click)='tongyi(item.id,item.quota,item.agent2_id)'></div>
 
-                                        <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="B"' >
-                                            <img src="{{uploadpath}}resource/{{res.ok}}" class="icon-15"
-                                                title="已同意"></div>
+                                        <!-- <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="B"' >
+                                            已同意</div> -->
 
                                         <!-- <div class="badge bg-danger">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15"

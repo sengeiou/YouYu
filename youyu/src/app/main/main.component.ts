@@ -4,11 +4,12 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { AppBase } from '../AppBase';
 import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api'; 
+import { AgentApi } from 'src/providers/agent.api';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
-  providers: [InstApi, MemberApi]
+  providers: [InstApi, MemberApi,AgentApi]
 })
 export class MainComponent extends AppBase {
   static Instance: MainComponent = null;
@@ -19,6 +20,7 @@ export class MainComponent extends AppBase {
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public memberApi: MemberApi,
+    public agentApi: AgentApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
     this.instinfo = {};
@@ -31,7 +33,7 @@ export class MainComponent extends AppBase {
 
   module = "home";
   module2 = "";
-
+   
 
   onMyLoad() {
 
@@ -39,11 +41,18 @@ export class MainComponent extends AppBase {
 
   newhuman = 0;
   neworder = 0;
-
+  shenqingshu=0;
   onMyShow() {
     var today = new Date();
     var timespan = today.getTime();
 
+
+
+    var time=setInterval(()=>{
+      this.agentApi.shenqing({shenqingstatus:'A'}).then((ret:any)=>{ 
+        this.shenqingshu=ret.length;  
+      })
+    },2000)
     
     if (this.memberinfo != null
       &&

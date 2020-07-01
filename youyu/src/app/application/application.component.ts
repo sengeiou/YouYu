@@ -33,6 +33,7 @@ export class ApplicationComponent extends AppBase {
   quota='';
   agent2_id='';
   shanshow=false;
+   number=0;
   onMyLoad() {
     this.params;
   }
@@ -46,6 +47,8 @@ export class ApplicationComponent extends AppBase {
     }).then((res:any)=>{
         this.shenqing=res;
         this.pagination(res, res.length);
+
+        
         console.log(this.shenqing,'数据');
     })
   }

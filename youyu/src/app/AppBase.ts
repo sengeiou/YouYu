@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { OnInit, AfterViewInit, ElementRef,EventEmitter } from '@angular/core';
 import { InstApi } from '../providers/inst.api';
-import { MemberApi } from '../providers/member.api';
+import { MemberApi } from '../providers/member.api'; 
+
 import {Buffer} from 'buffer';
 
 declare let Chart: any;
@@ -46,7 +47,7 @@ export class AppBase implements OnInit {
     public InstInfo = { name: "", tel: '', logo: '' ,version:'',copyright:'',links:'' };
 
 
-    public options = null;
+    public options = null; 
     public params: Params = null;
 
 
@@ -67,7 +68,7 @@ export class AppBase implements OnInit {
     public constructor(
         public router: Router,
         public activeRoute: ActivatedRoute,
-        public instApi: InstApi,
+        public instApi: InstApi, 
         public memberApi: MemberApi,
     ) {
         this.activeRoute.queryParams.subscribe((params: Params) => {
@@ -224,9 +225,9 @@ export class AppBase implements OnInit {
 
         this.onMyShow();
     }
-
+    
     onMyShow() {
-
+        
     }
     windowslocation(url) {
         window.location.href = url;
