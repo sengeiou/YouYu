@@ -41,29 +41,18 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
 
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-
-          <span class="h5 txt-red">剩余额度：{{agentinfo.quota}}</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-
-          <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
-        </div>
-      </li>
 
       <li class="nav-item dropdown user-menu">
 
         <a class="nav-link dropdown-toggle" data-toggle="dropdown">
-          <img src="{{uploadpath}}agent/{{agentinfo.logo}}" class="user-image img-circle elevation-2" alt="User Image">
-          <span class="d-none d-md-inline">{{agentinfo.name}}</span>
-
+          <img src="{{uploadpath}}resource/{{res.dianpu}}" class="user-image img-circle elevation-2" alt="User Image">  
+          <span class="d-none d-md-inline txt-bold">{{agentinfo.name}}</span> 
         </a>
 
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
           <li class="user-header bg-primary">
-            <img src="{{uploadpath}}agent/{{agentinfo.logo}}" class="img-circle elevation-2" alt="User Image">
+            <img src="{{uploadpath}}resource/{{res.dianpu}}" class="img-circle elevation-2" alt="User Image">
             <h5>{{agentinfo.name}}</h5>
             <p>
 
@@ -76,6 +65,31 @@
           </li>
         </ul>
       </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#">
+
+          <span class="h5 txt-red">剩余额度：{{agentinfo.quota}}</span>
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+          <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link " data-toggle="dropdown" href="#"> 
+           
+          <span class="h5 txt-blue">修改密码</span>
+        </a>
+        <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"> 
+          <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
+        </div> -->
+      </li>
+
+
+
+    
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -83,12 +97,12 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a routerLink="" class="brand-link">
-      <img src="{{uploadpath}}inst/{{InstInfo.logo}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-        style="opacity: .8">
-      <span class="brand-text font-weight-light">{{InstInfo.name}}</span>
+    <a routerLink="" class="brand-link  ">
+      <!-- <img src="{{uploadpath}}inst/{{InstInfo.logo}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+        style="opacity: .8"> -->
+      <span class="brand-text font-weight-light h5 ">{{InstInfo.agentname}}</span>
     </a>
-
+ 
     <!-- Sidebar -->
     <div class="sidebar">
 
@@ -119,7 +133,7 @@
  
           <li class="nav-item has-treeview">
             <a class="nav-link {{module=='order'?'active':''}}">
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-chart-pie"></i>
               <p>
                 订单管理<i class="right fas fa-angle-left"></i>
               </p>
@@ -148,7 +162,7 @@
 
           <li class="nav-item ">
             <a class="nav-link  {{module=='packagelist'?'active':''}}" routerLink='/packagelist'>
-              <i class="nav-icon fas fa-copy"></i>
+              <i class="nav-icon fas fa-edit"></i>
               <p>
                 商品查阅
               </p>
@@ -216,7 +230,7 @@
 
           <li class="nav-item has-treeview">
             <a class="nav-link  ">
-              <i class="nav-icon fas fa-chart-pie"></i>
+              <i class="nav-icon fas fa-cog"></i>
               <p>
                 辅助功能<i class="right fas fa-angle-left"></i>
               </p>

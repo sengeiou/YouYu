@@ -83,13 +83,12 @@
                                             *ngIf='check==true' (click)='choose()' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
                                             *ngIf='check==false' (click)='choose()' /></th> -->
-
+                                            <th>序号</th>
                                     <th>代理商名称</th>
                                     <th>申请额度</th>
-                                    <th>申请时间</th>
-                                    <th>处理状态</th>
+                                    <th>申请时间</th> 
                                     <th>备注</th>
-
+                                    <th>处理状态</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -103,22 +102,21 @@
                                     <!-- <td>
                                         <img src="{{uploadpath}}agent/{{item.agent2_logo}}" class="icon" />
                                     </td> -->
-
+                                    <td> {{i+1}}</td>
                                     <td> {{item.agent2_name}}</td>
                                     <td>
                                         {{item.quota}}
                                     </td>
                                     <td>{{item.shenqingtime_formatting}}</td>
-                                    <td>{{item.shenqingstatus_name}}</td>
+                                    <!-- <td>{{item.shenqingstatus_name}}</td> -->
                                     <td>{{item.remarks}}</td>
 
                                     <td>
-                                        <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="A"'>
-                                            <img src="{{uploadpath}}resource/{{res.daifenpei}}" class="icon-15" data-toggle="modal" data-target="#modal-default"
-                                                title="同意" (click)='tongyi(item.id,item.quota,item.agent2_id)'></div>
+                                        <div class="badge bg-primary margin-right" data-toggle="modal" data-target="#modal-default" *ngIf='item.shenqingstatus=="A"'(click)='tongyi(item.id,item.quota,item.agent2_id)'>
+                                              同意</div>
 
-                                        <!-- <div class="badge bg-primary margin-right" *ngIf='item.shenqingstatus=="B"' >
-                                            已同意</div> -->
+                                        <div class="badge bg-green margin-right" *ngIf='item.shenqingstatus=="B"' >
+                                            已同意</div>
 
                                         <!-- <div class="badge bg-danger">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15"
