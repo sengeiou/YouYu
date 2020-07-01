@@ -1,11 +1,10 @@
-
 <div class="content-wrapper">
     <section class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>充值订单</h1>
-                </div> 
+                    <h1>用户充值订单</h1>
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a routerLink='/'>首页</a></li>
@@ -33,7 +32,8 @@
                             <div class="row">
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">订单编号</label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入订单编号"    name='orderno' />
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入订单编号"
+                                        name='orderno' />
                                 </div>
                                 <!-- <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">代理商</label>
@@ -41,18 +41,20 @@
                                 </div> -->
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">充值卡号</label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入充值卡号"    name='cardid' />
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入充值卡号"
+                                        name='cardid' />
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="float-right">
-                                <button type="submit" class="btn bg-gray"  >重置</button>
-                                <button type="submit" class="btn btn-primary margin-left-20"  >搜索</button>
+                                <button type="submit" class="btn bg-gray">重置</button>
+                                <button type="submit" class="btn btn-primary margin-left-20">搜索</button>
                             </div>
                             <div>
-                                <button type="submit" class="btn btn-info " routerLink='/creatrechargeorder'>创建订单</button>
+                                <button type="submit" class="btn btn-info "
+                                    routerLink='/creatrechargeorder'>新增充值</button>
                                 <!-- <button type="submit" class="btn   margin-left-20 {{type==''?'btn-primary':'btn-default'}}" (click)='ordertype("")' >全部订单</button>  -->
                             </div>
 
@@ -92,15 +94,16 @@
                                             *ngIf='check==true' (click)='choose()' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
                                             *ngIf='check==false' (click)='choose()' /></th> -->
+                                    <th>序号</th>
                                     <th>订单号</th>
                                     <th>充值卡号</th>
-                                    
-                                    <th>套餐类型</th> 
-                                    <th>套餐价格</th> 
-                                    <th>流量额度</th> 
-                                    <th>套餐时效</th> 
-                                    <th>备注</th> 
-                                    
+
+                                    <th>产品套餐</th>
+                                    <th>套餐价格</th>
+                                    <th>订单创建时间</th>
+                                    <!-- <th>套餐时效</th>  -->
+                                    <th>备注</th>
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -111,19 +114,17 @@
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==false' />
                                     </td> -->
-                                     
+                                    <td>{{i+1}}</td>
                                     <td>{{item.orderno}}</td>
-                                    
+
                                     <td>{{item.simcard_cardnumber}}</td>
-                                    <td>{{item.packagetype_name}}</td>
+                                    <td>{{item.packagetype_name}} {{item.package_traffic}}M {{item.package_month}}个月
+                                    </td>
                                     <td>{{item.package_price}}</td>
-                                    <td>{{item.package_traffic}} M</td>
-                                    <td>{{item.package_month}} 个月</td>
+                                    <td>{{item.ordertime}}</td>
                                     <td>
                                         {{item.remarks}}
                                     </td>
- 
-                                    
 
                                 </tr>
 

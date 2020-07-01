@@ -84,9 +84,11 @@
                                             *ngIf='check==true' (click)='choose()' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
                                             *ngIf='check==false' (click)='choose()' /></th> -->
+                                    <th>序号</th>
+                                    <!-- <th>代理商</th> -->
                                     <th>代理商</th>
-                                    <th>名称</th>
-                                    <th>分配额度</th>
+                                    <th>上级代理商</th>
+                                    <th>分配金额</th>
                                     <th>分配时间</th>
                                     <th>备注</th>
 
@@ -100,11 +102,13 @@
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==false' />
                                     </td> -->
-                                    <td>
+                                    <td>{{i+1}}</td>
+                                    <!-- <td>
                                         <img src="{{uploadpath}}agent/{{item.agent2_logo}}" class="icon-50" />
-                                    </td>
+                                    </td> -->
 
                                     <td>{{item.agent2_name}}</td>
+                                    <td>{{item.agent_name}}</td>
                                     <td>
                                         {{item.quota}}
                                     </td>

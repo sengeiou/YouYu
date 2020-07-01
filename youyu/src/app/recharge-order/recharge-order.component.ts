@@ -34,7 +34,7 @@ export class RechargeOrderComponent extends AppBase {
   }
   onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("rechargeorder", "rechargeorder");
+      MainComponent.Instance.setModule("order", "rechargeorder");
     }
 
     this.agentApi.orderlist({ 
