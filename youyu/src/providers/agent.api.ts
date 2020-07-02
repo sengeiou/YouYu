@@ -31,6 +31,28 @@ export class AgentApi {
     }
 
 
+    public addappeal(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/addappeal';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/addappeal', data, err);
+            });
+    }
+
+
     public addfenpei(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/addfenpei';
         var headers = ApiConfig.GetHeader(url, data);
@@ -317,6 +339,28 @@ export class AgentApi {
     }
 
 
+    public tiqianchong(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/tiqianchong';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/tiqianchong', data, err);
+            });
+    }
+
+
     public tongyi(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/tongyi';
         var headers = ApiConfig.GetHeader(url, data);
@@ -335,6 +379,28 @@ export class AgentApi {
             .catch(err => {
                 console.error(err);
                 return ApiConfig.ErrorHandle('agent/tongyi', data, err);
+            });
+    }
+
+
+    public updateagentinfo(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/updateagentinfo';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/updateagentinfo', data, err);
             });
     }
 
@@ -361,8 +427,8 @@ export class AgentApi {
     }
 
 
-    public tiqianchong(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/tiqianchong';
+    public appeallist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/appeallist';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -378,7 +444,29 @@ export class AgentApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('agent/tiqianchong', data, err);
+                return ApiConfig.ErrorHandle('agent/appeallist', data, err);
+            });
+    }
+
+
+    public updateappeal(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/updateappeal';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/updateappeal', data, err);
             });
     }
 

@@ -20,7 +20,7 @@
     </ul>
 
     <!-- SEARCH FORM -->
-    <div class="form-inline ml-3" *ngIf="module!='search'">
+    <!-- <div class="form-inline ml-3" *ngIf="module!='search'">
       <div class="input-group input-group-sm">
         <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search"
           [(ngModel)]='searchkey'>
@@ -36,7 +36,7 @@
           <a (click)='searchkey="";navigate("search",{key:key.name})' class="dropdown-item">{{key.name}}</a>
         </ng-template>
       </div>
-    </div>
+    </div> -->
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -53,6 +53,7 @@
           <!-- User image -->
           <li class="user-header  ">
             <img src="{{uploadpath}}resource/{{res.dianpu}}" class="img-circle elevation-2" alt="User Image">
+            
             <h5>{{agentinfo.name}}</h5>
             <p>
 
@@ -77,10 +78,10 @@
         </div>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link " data-toggle="dropdown" href="#"> 
+      <li class="nav-item dropdown" >
+        <a class="nav-link " data-toggle="modal" data-target="#modal-xl3"> 
            
-          <span class="h5 txt-blue">修改密码</span>
+          <span class="h5 txt-blue" >修改密码</span>
         </a>
         <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"> 
           <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
@@ -224,32 +225,32 @@
               <p>
                 代理商充值申请
               </p>
-              <span class="badge badge-info right" >{{shenqingshu}}</span>
+              <span class="badge badge-info right" *ngIf='shenqingshu>0' >{{shenqingshu}}</span>
             </a>
           </li>
 
+
+
+
+
           <li class="nav-item has-treeview">
-            <a class="nav-link  ">
+            <a class="nav-link {{module=='set'?'active':''}}">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 辅助功能<i class="right fas fa-angle-left"></i>
-              </p>
-
+              </p> 
+              <span class="badge badge-info right" *ngIf='shensu>0'>{{shensu}}</span> 
             </a>
 
-            <ul class="nav nav-treeview" style="margin-top: 0;">
-              <!-- <li class="nav-item">
-                <a href="#" class="nav-link flex-row flex-center "  >
-                  <i class=" far fa-circle nav-icon"></i>
-                  <p>消费充值额度</p>
-                </a></li> -->
-              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center " 
+            <ul class="nav nav-treeview" style="margin-top: 0;"> 
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center  " routerLink='/appeal'
                    ><i class=" far fa-circle nav-icon"></i>
                   <p>短信通知设置</p>
                 </a></li>
-              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center " 
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module2=='appeallist'?'active':''}}" routerLink='/appeallist'
                   ><i class=" far fa-circle nav-icon"></i>
                   <p>平台申诉</p>
+                  <span class="badge badge-info right" *ngIf='shensu>0'>{{shensu}}</span> 
                 </a></li>
             </ul>
 
@@ -375,5 +376,47 @@
       <b>Version</b> 123
     </div>
   </footer>
+</div>
+
+
+
+
+<div class="modal fade" id="modal-xl3">
+
+  <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+          <div class="modal-header">
+              <!-- <button data-dismiss="modal" class="btn btn-primary margin-left"><img
+                      src="{{uploadpath}}resource/{{res.update}}" class="icon-15" title="分配"></button> -->
+              <div class="flex-1"></div>
+              <h4 class="modal-title">修改登录密码</h4>
+              <div class="flex-1"></div>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+              </button> 
+          </div>
+
+
+          <div class="modal-body">
+
+              <div>
+                <input type="text"  
+                class=" form-control col-form-label-sm" id="password"
+                name='password' placeholder="请输入代理商密码"
+                [(ngModel)]='password' />
+              </div>
+
+          </div>
+          <div class="modal-footer justify-content-between">
+              <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+
+              <button type="submit" class="btn bg-primary" data-dismiss="modal" (click)='submit()'>保存</button>
+
+          </div>
+      </div>
+      <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
 </div>
 <!-- ./wrapper -->

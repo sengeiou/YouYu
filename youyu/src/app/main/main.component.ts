@@ -33,15 +33,22 @@ export class MainComponent extends AppBase {
 
   module = "home";
   module2 = "";
-   
-
+  password='';
+  shenqingshu=0;
+  shensu=0;
   onMyLoad() {
+    this.agentApi.shenqing({shenqingstatus:'A'}).then((res:any)=>{ 
+      this.shenqingshu=res.length;  
+    })
 
+    this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
+      this.shensu= res.length;
+     })
   }
 
   newhuman = 0;
   neworder = 0;
-  shenqingshu=0;
+  
   onMyShow() {
     var today = new Date();
     var timespan = today.getTime();
@@ -52,6 +59,9 @@ export class MainComponent extends AppBase {
       this.agentApi.shenqing({shenqingstatus:'A'}).then((ret:any)=>{ 
         this.shenqingshu=ret.length;  
       })
+      this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
+        this.shensu= res.length;
+       })
     },2000)
     
     if (this.memberinfo != null
@@ -97,6 +107,13 @@ export class MainComponent extends AppBase {
     var list=[];
      
     return list;
+  }
+
+  submit(){
+    this.agentApi.updateagentinfo({password:this.password}).then((res:any)=>{
+      this.toast('请重新登录');
+      this.logout();
+    })
   }
 
 }

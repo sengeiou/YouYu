@@ -21,6 +21,8 @@ import { MemberlistComponent } from '../memberlist/memberlist.component';
 import { AddshenqingComponent } from '../addshenqing/addshenqing.component';
 import { PackagelistComponent } from '../packagelist/packagelist.component';
 import { CreatRechargeOrderComponent } from '../creat-recharge-order/creat-recharge-order.component';
+import { AppealComponent } from '../appeal/appeal.component';
+import { AppeallistComponent } from '../appeallist/appeallist.component';
 
 const routes: Routes = [
   {
@@ -48,7 +50,9 @@ const routes: Routes = [
       { path: "addshenqing", component: AddshenqingComponent },
       { path: "packagelist", component: PackagelistComponent },
       { path: "creatrechargeorder", component: CreatRechargeOrderComponent },
-
+      { path: "appeal", component: AppealComponent },
+      { path: "appeallist", component: AppeallistComponent },
+      
     ]
   }
 ];

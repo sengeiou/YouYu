@@ -40,7 +40,9 @@ import { ApplicationComponent } from './application/application.component';
 import { MemberlistComponent } from './memberlist/memberlist.component';
 import { AddshenqingComponent } from './addshenqing/addshenqing.component';
 import { PackagelistComponent } from './packagelist/packagelist.component';
-import { CreatRechargeOrderComponent } from './creat-recharge-order/creat-recharge-order.component'; 
+import { CreatRechargeOrderComponent } from './creat-recharge-order/creat-recharge-order.component';
+import { AppealComponent } from './appeal/appeal.component';
+import { AppeallistComponent } from './appeallist/appeallist.component'; 
  
 
 @NgModule({
@@ -69,7 +71,9 @@ import { CreatRechargeOrderComponent } from './creat-recharge-order/creat-rechar
     MemberlistComponent,
     AddshenqingComponent,
     PackagelistComponent,
-    CreatRechargeOrderComponent, 
+    CreatRechargeOrderComponent,
+    AppealComponent,
+    AppeallistComponent, 
   ],
   imports: [
     BrowserModule,
