@@ -61,6 +61,8 @@ export class AgentlistComponent extends AppBase {
         console.log(this.agentlist);
     })
   }
+
+
   reset(){
     this.name="";
     this.account="";
@@ -77,6 +79,7 @@ export class AgentlistComponent extends AppBase {
     this.agentApi.updatestatus({status:zhuangtai,id:id}).then((ret: any) => {
       
       this.onMyShow();
+      
     })
   }
 

@@ -59,6 +59,7 @@ export class MainComponent extends AppBase {
       this.agentApi.shenqing({shenqingstatus:'A'}).then((ret:any)=>{ 
         this.shenqingshu=ret.length;  
       })
+      
       this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
         this.shensu= res.length;
        })
