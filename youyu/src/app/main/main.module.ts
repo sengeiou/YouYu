@@ -11,7 +11,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { MemberApi } from 'src/providers/member.api';
 import { SupportComponent } from '../support/support.component';
-
+import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SupportComponent } from '../support/support.component';
     NgxUploaderModule,
     NgZorroAntdModule,
     NzUploadModule,
-    
+    NgxEchartsModule,
   ],
   providers: [MemberApi, InstApi, { provide: NZ_I18N, useValue: zh_CN },{ provide: NZ_ICONS, useValue: zh_CN }],
 })

@@ -45,7 +45,7 @@ import { CreatRechargeOrderComponent } from './creat-recharge-order/creat-rechar
 import { AppealComponent } from './appeal/appeal.component';
 import { AppeallistComponent } from './appeallist/appeallist.component'; 
 import { NgxEchartsModule } from 'ngx-echarts';
- 
+import * as echarts from 'echarts';
 
 @NgModule({
   declarations: [
@@ -86,7 +86,8 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NgxUploaderModule,
     NgZorroAntdModule,
     BrowserAnimationsModule,
-    NgxEchartsModule,
+    
+     
     NzIconModule
   ],
   providers: [MemberApi, InstApi, { provide: NZ_I18N, useValue: zh_CN },{ provide: APP_BASE_HREF, useValue: '/' }],
