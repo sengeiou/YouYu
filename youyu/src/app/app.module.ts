@@ -24,7 +24,8 @@ import { InstApi } from 'src/providers/inst.api';
 
 import { MemberApi } from 'src/providers/member.api';
 import { ContentComponent } from './content/content.component'; 
-import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzIconModule } from 'ng-zorro-antd/icon'; 
+
 import { SupportComponent } from './support/support.component';
 import { APP_BASE_HREF } from '@angular/common';
 import { SearchComponent } from './search/search.component';
@@ -43,6 +44,7 @@ import { PackagelistComponent } from './packagelist/packagelist.component';
 import { CreatRechargeOrderComponent } from './creat-recharge-order/creat-recharge-order.component';
 import { AppealComponent } from './appeal/appeal.component';
 import { AppeallistComponent } from './appeallist/appeallist.component'; 
+import { NgxEchartsModule } from 'ngx-echarts';
  
 
 @NgModule({
@@ -74,6 +76,7 @@ import { AppeallistComponent } from './appeallist/appeallist.component';
     CreatRechargeOrderComponent,
     AppealComponent,
     AppeallistComponent, 
+
   ],
   imports: [
     BrowserModule,
@@ -83,6 +86,7 @@ import { AppeallistComponent } from './appeallist/appeallist.component';
     NgxUploaderModule,
     NgZorroAntdModule,
     BrowserAnimationsModule,
+    NgxEchartsModule,
     NzIconModule
   ],
   providers: [MemberApi, InstApi, { provide: NZ_I18N, useValue: zh_CN },{ provide: APP_BASE_HREF, useValue: '/' }],

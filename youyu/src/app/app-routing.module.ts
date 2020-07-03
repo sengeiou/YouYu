@@ -7,8 +7,7 @@ import { DetailComponent } from './detail/detail.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
-import { ContentComponent } from './content/content.component';
-
+import { ContentComponent } from './content/content.component'; 
 
 const routes: Routes = [
   { path: '', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },

@@ -141,6 +141,28 @@ export class AgentApi {
     }
 
 
+    public appeallist(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/appeallist';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/appeallist', data, err);
+            });
+    }
+
+
     public creatorder(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/creatorder';
         var headers = ApiConfig.GetHeader(url, data);
@@ -405,6 +427,28 @@ export class AgentApi {
     }
 
 
+    public updateappeal(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/updateappeal';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/updateappeal', data, err);
+            });
+    }
+
+
     public updatestatus(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/updatestatus';
         var headers = ApiConfig.GetHeader(url, data);
@@ -427,8 +471,8 @@ export class AgentApi {
     }
 
 
-    public appeallist(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/appeallist';
+    public statistics(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/statistics';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -444,29 +488,7 @@ export class AgentApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('agent/appeallist', data, err);
-            });
-    }
-
-
-    public updateappeal(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/updateappeal';
-        var headers = ApiConfig.GetHeader(url, data);
-        let options = { headers: headers };
-        let body = ApiConfig.ParamUrlencoded(data);
-        let loading = null;
-
-        if (showLoadingModal) {
-            loading = ApiConfig.GetLoadingModal();
-        }
-
-        return this.http.post(url, body, options).toPromise()
-            .then((res) => {
-                return res;
-            })
-            .catch(err => {
-                console.error(err);
-                return ApiConfig.ErrorHandle('agent/updateappeal', data, err);
+                return ApiConfig.ErrorHandle('agent/statistics', data, err);
             });
     }
 
