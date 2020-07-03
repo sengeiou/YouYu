@@ -38,7 +38,7 @@ export class RechargelistComponent extends AppBase {
   }
   onMyShow() { 
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("rechargelist", "rechargelist");
+      MainComponent.Instance.setModule("order", "rechargelist");
     }
     
     this.agentApi.rechargelist({ 

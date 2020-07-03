@@ -33,7 +33,7 @@ export class AddshenqingComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-        MainComponent.Instance.setModule("addshenqing", "addshenqing");
+        MainComponent.Instance.setModule("set", "addshenqing");
       }
      
   }

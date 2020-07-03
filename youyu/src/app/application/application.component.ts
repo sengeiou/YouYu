@@ -39,7 +39,7 @@ export class ApplicationComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("application", "application");
+      MainComponent.Instance.setModule("agent", "application");
     }
 
     this.agentApi.shenqing({ 

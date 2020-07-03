@@ -37,7 +37,7 @@ export class AgentlistComponent extends AppBase {
   }
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("agentlist", "agentlist");
+      MainComponent.Instance.setModule("agent", "agentlist");
     }
     this.pageList = [];
     this.agentApi.agentlist({ 
@@ -79,7 +79,7 @@ export class AgentlistComponent extends AppBase {
     this.agentApi.updatestatus({status:zhuangtai,id:id}).then((ret: any) => {
       
       this.onMyShow();
-      
+
     })
   }
 

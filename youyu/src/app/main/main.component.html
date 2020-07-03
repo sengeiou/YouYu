@@ -146,20 +146,34 @@
                 </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='orderlist'?'active':''}}" 
                   routerLink='/orderlist'><i class="far fa-circle nav-icon"></i>
                   <p>代理充值管理</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='rechargelist'?'active':''}}" 
+                  routerLink='/rechargelist'><i class="far fa-circle nav-icon"></i>
+                  <p>SIM卡充值记录</p>
                 </a></li>
                  
             </ul>
           </li>
 
 
-          <li class="nav-item ">
-            <a class="nav-link  {{module=='agentlist'?'active':''}}" routerLink='/agentlist'>
+          <li class="nav-item has-treeview">
+            <a class="nav-link {{module=='agent'?'active':''}}">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                代理商管理
+                代理商管理<i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
+                <a href="#" class="nav-link flex-row  flex-center {{module2=='agentlist'?'active':''}}" routerLink='/agentlist'>
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>代理商列表</p>
+                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='application'?'active':''}}" 
+                  routerLink='/application'><i class="far fa-circle nav-icon"></i>
+                  <p>代理商充值申请</p>
+                </a></li> 
+            </ul>
           </li>
+
+          
 
           <li class="nav-item ">
             <a class="nav-link  {{module=='packagelist'?'active':''}}" routerLink='/packagelist'>
@@ -190,44 +204,18 @@
           </li> -->
  
 
-          <li class="nav-item ">
+          <!-- <li class="nav-item ">
             <a class="nav-link  {{module=='rechargelist'?'active':''}}" routerLink='/rechargelist'>
               <i class="nav-icon fas fa-copy"></i>
               <p>
                 SIM卡充值记录
               </p>
             </a>
-          </li>
-
-          <!-- <li class="nav-item has-treeview">
-            <a class="nav-link {{module=='sim'?'active':''}}">
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                SIM卡管理<i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview" style="margin-top: 0;"><li class="nav-item" >
-                <a href="#" class="nav-link flex-row  flex-center {{module2=='simcard'?'active':''}}" routerLink='/simcard'>
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>SIM卡列表</p>
-                </a></li><li class="nav-item"><a href="#" class="nav-link flex-row  flex-center {{module2=='rechargelist'?'active':''}}" 
-                  routerLink='/rechargelist'><i class="far fa-circle nav-icon"></i>
-                  <p>SIM卡充值记录</p>
-                </a></li>
-                 
-            </ul>
           </li> -->
 
+   
 
-          <li class="nav-item ">
-            <a class="nav-link  {{module=='application'?'active':''}}" routerLink='/application'>
-              <i class="nav-icon fas fa-copy"></i>
-              <p>
-                代理商充值申请
-              </p>
-              <span class="badge badge-info right" *ngIf='shenqingshu>0' >{{shenqingshu}}</span>
-            </a>
-          </li>
+ 
 
 
 
@@ -241,7 +229,7 @@
             </a>
 
             <ul class="nav nav-treeview" style="margin-top: 0;"> 
-              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center  " routerLink='/appeal'
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center  "  
                    ><i class=" far fa-circle nav-icon"></i>
                   <p>短信通知设置</p>
                 </a></li>
@@ -250,11 +238,23 @@
                   <p>平台申诉</p>
                   <span class="badge badge-info right" *ngIf='shensu>0'>{{shensu}}</span> 
                 </a></li>
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module2=='addshenqing'?'active':''}}" routerLink='/addshenqing'
+                  ><i class=" far fa-circle nav-icon"></i>
+                  <p>申请额度</p>
+                  <span class="badge badge-info right" *ngIf='shensu>0'>{{shensu}}</span> 
+                </a></li>
             </ul>
 
           </li>
 
-
+          <!-- <li class="nav-item">
+            <a class="nav-link {{module=='addshenqing'?'active':''}}" routerLink='/addshenqing'>
+              <i class="nav-icon fas fa-question-circle"></i>
+              <p>
+                申请额度
+              </p> 
+            </a>
+          </li> -->
 
 
           <!-- <li class="nav-item has-treeview">
@@ -284,14 +284,7 @@
           </li> -->
        
 
-          <li class="nav-item">
-            <a class="nav-link {{module=='addshenqing'?'active':''}}" routerLink='/addshenqing'>
-              <i class="nav-icon fas fa-question-circle"></i>
-              <p>
-                申请额度
-              </p> 
-            </a>
-          </li>
+       
 
           <!-- <li class="nav-item">
             <a class="nav-link {{module=='support'?'active':''}}" routerLink='/support'>
