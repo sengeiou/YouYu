@@ -113,6 +113,7 @@
                                     <th>名称</th>
                                     <th>联系电话</th>
                                     <th>SIM卡数量</th>
+                                    <th>已使用卡数(激活)</th>
                                     <th>当前额度</th>
                                     <th>累积额度</th> 
                                     <th>状态</th>
@@ -120,7 +121,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor='let item of agentlist;let i=index'>
+                                <tr *ngFor='let item of data;let i=index'>
                                     <!-- <td>
                                         <img src="{{uploadpath}}agent/{{item.logo}}" class="icon-50" />
                                     </td> -->
@@ -133,6 +134,8 @@
                                     <td>{{item.mobile}}</td>
 
                                     <td>{{item.total}}</td>
+
+                                    <td>{{item.jihuototal}}</td>
 
                                     <td>{{item.quota}}</td>
 

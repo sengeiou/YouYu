@@ -40,7 +40,8 @@ export class SimcardComponent extends AppBase {
   idlist=[];
   fenpeitype='';
   info=null;
-
+  wechatid='';
+  cardid='';
   onMyLoad() {
     this.params;
   }
@@ -189,6 +190,30 @@ export class SimcardComponent extends AppBase {
     }
     console.log('断2')
     return false
+  }
+
+
+  chongzhi(id,status){
+
+    if(status=="B"){
+      this.toast("该卡未激活无法充值!");
+      return
+     }
+
+     this.navigate('creatrechargeorder',id)
+
+  }
+  wechat(id,status,wechatid){
+    if(wechatid!=undefined&&wechatid!=""){
+      this.toast("该卡已填写微信号!");
+      return
+    }
+    this.cardid=id;
+  }
+  tianxie(){
+    this.agentApi.updateagentinfo({type:'A',id:this.cardid,wechatid:this.wechatid}).then((res:any)=>{
+        this.onMyShow();
+    })
   }
 
 }

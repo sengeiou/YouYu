@@ -32,8 +32,10 @@ export class CreatRechargeOrderComponent extends AppBase {
   idx='';
   simcardidx='';
   remarks='';
+  id=null;
   onMyLoad() {
     this.params;
+    this.id=this.params.id;
   }
   onMyShow() {
 

@@ -62,7 +62,10 @@
                             <div>
                                 <button type="submit" class="btn btn-info " data-toggle="modal" data-target="#modal-xl"
                                     (click)='piliang()'>批量分配</button>
+ 
                             </div>
+
+                           
 
                         </div>
                         <!-- /.card-footer -->
@@ -147,15 +150,27 @@
 
                                         <div class="badge bg-primary margin-right" *ngIf='item.usestatus!="A"' title="分配"
                                             (click)='chooseagent(item.id,item.usestatus)' data-toggle="modal" data-target="#modal-xl">
-                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
+                                            <img src="{{uploadpath}}resource/{{res.fenpei}}" class="icon-15" /></div>
 
                                             <div class="badge bg-primary margin-right" *ngIf='item.usestatus=="A"' title="分配"
                                             (click)='chooseagent(item.id,item.usestatus)'  >
-                                            <img src="{{uploadpath}}resource/{{res.update}}" class="icon-15" /></div>
+                                            <img src="{{uploadpath}}resource/{{res.fenpei}}" class="icon-15" /></div>
 
                                         <div class="badge bg-success margin-right" title="查看"
                                             (click)='chakan(item.cardnumber)' data-toggle="modal" data-target="#modal-xl2">
                                             <img src="{{uploadpath}}resource/{{res.see}}" class="icon-15" /></div>
+
+                                            <!-- <div class="badge bg-success margin-right" title="充值"
+                                            (click)='chongzhi(item.id,item.usestatus)' >
+                                            <img src="{{uploadpath}}resource/{{res.see}}" class="icon-15" /></div> -->
+
+                                            <div class="badge bg-success margin-right" *ngIf='item.wechatid==""||item.wechatid==undefined' title="填写微信号"
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)' data-toggle="modal" data-target="#modal-xl3">
+                                            <img src="{{uploadpath}}resource/{{res.tianxie}}" class="icon-15" /></div>
+
+                                            <div class="badge bg-success margin-right" *ngIf='item.wechatid!=""&&item.wechatid!=undefined'  title="填写微信号"
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)' >
+                                            <img src="{{uploadpath}}resource/{{res.tianxie}}" class="icon-15" /></div>
 
                                         <!-- <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15" title="删除">
@@ -259,6 +274,46 @@
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
   
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal fade" id="modal-xl3">
+
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <!-- <button data-dismiss="modal" class="btn btn-primary margin-left"><img
+                        src="{{uploadpath}}resource/{{res.update}}" class="icon-15" title="分配"></button> -->
+                <div class="flex-1"></div>
+                <h4 class="modal-title">填写微信号</h4>
+                <div class="flex-1"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+
+            </div>
+
+            <div class="modal-body">
+
+                <div>
+                    <input type="text"  
+                    class=" form-control col-form-label-sm" id="wechatid"
+                    name='wechatid' placeholder="请输入微信号"
+                    [(ngModel)]='wechatid' />
+                  </div>
+
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+
+
+                <button type="submit" class="btn bg-primary" data-dismiss="modal" (click)='tianxie()'>保存</button>
+
             </div>
         </div>
         <!-- /.modal-content -->
