@@ -40,6 +40,7 @@ export class DashboardComponent extends AppBase {
   list=[];
   datefrom='';
   dateto='';
+  allprice=0;
  
   
 
@@ -59,7 +60,7 @@ export class DashboardComponent extends AppBase {
       this.days=res.days;
       this.list=res.list; 
       this.datefrom=res.list[0].date;
-      
+      this.allprice=res.allprice;
       this.dateto=res.list[res.list.length-1].date; 
       console.log(res.list[res.list.length-1].date,'返回的数据'); 
 
