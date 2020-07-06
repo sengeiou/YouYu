@@ -11,6 +11,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
 import { MemberApi } from 'src/providers/member.api';
 import { SupportComponent } from '../support/support.component';
+import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
 
 @NgModule({
@@ -26,7 +27,9 @@ import { NgxEchartsModule } from 'ngx-echarts';
     NgxUploaderModule,
     NgZorroAntdModule,
     NzUploadModule,
-    NgxEchartsModule,
+    NgxEchartsModule.forRoot({
+      echarts
+    })
   ],
   providers: [MemberApi, InstApi, { provide: NZ_I18N, useValue: zh_CN },{ provide: NZ_ICONS, useValue: zh_CN }],
 })
