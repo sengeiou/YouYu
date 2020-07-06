@@ -46,6 +46,7 @@ import { AppealComponent } from './appeal/appeal.component';
 import { AppeallistComponent } from './appeallist/appeallist.component'; 
 import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
+import { SelectpageComponent } from './selectpage/selectpage.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import * as echarts from 'echarts';
     PackagelistComponent,
     CreatRechargeOrderComponent,
     AppealComponent,
-    AppeallistComponent, 
+    AppeallistComponent,
+    SelectpageComponent, 
 
   ],
   imports: [

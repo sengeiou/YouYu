@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit, ElementRef,EventEmitter,Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
 import { AppBase } from '../AppBase';
 import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api'; 
-import { AgentApi } from 'src/providers/agent.api';
+import { AgentApi } from 'src/providers/agent.api'; 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
@@ -21,6 +22,8 @@ export class MainComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
     public agentApi: AgentApi,
+    private el:ElementRef,
+    private renderer2: Renderer2
   ) {
     super(router, activeRoute, instApi, memberApi);
     this.instinfo = {};
@@ -70,6 +73,9 @@ export class MainComponent extends AppBase {
       this.memberinfo.expireddatetimespan / 24 / 3600 / 1000 - timespan / 24 / 3600 / 1000 < 30) {
       this.warning("Account Expired", "Your license would be expired in " + this.memberinfo.manpower.expired_date + ", please content support to update your license.");
     }
+
+    
+    this.renderer2.setStyle(this.el.nativeElement.querySelector('#loadingimg'),'background','green');
   }
 
 

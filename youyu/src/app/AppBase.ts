@@ -4,7 +4,7 @@ import { AppComponent } from "./app.component";
 import { ReturnStatement } from "@angular/compiler";
 import { Router } from '@angular/router';
 import { ActivatedRoute, Params } from '@angular/router';
-import { OnInit, AfterViewInit, ElementRef,EventEmitter } from '@angular/core';
+import { OnInit, AfterViewInit, ElementRef,EventEmitter,Renderer2 } from '@angular/core';
 import { InstApi } from '../providers/inst.api';
 import { MemberApi } from '../providers/member.api'; 
 
@@ -69,7 +69,9 @@ export class AppBase implements OnInit {
         public router: Router,
         public activeRoute: ActivatedRoute,
         public instApi: InstApi, 
-        public memberApi: MemberApi,
+        public memberApi: MemberApi,  
+        
+         
     ) {
         this.activeRoute.queryParams.subscribe((params: Params) => {
             console.log(params);
@@ -100,6 +102,7 @@ export class AppBase implements OnInit {
         this.checktime();
         this.getlang();
         this.getcountry();
+ 
 
     }
     
@@ -228,6 +231,7 @@ export class AppBase implements OnInit {
     
     onMyShow() {
         
+
     }
     windowslocation(url) {
         window.location.href = url;

@@ -1,0 +1,36 @@
+<div class="login-page" [style.background-image]="'url('+uploadpath+'resource/'+res.loginbg+')'"
+    style="background-size:100% 100%;">
+    <div class=" flex-row flex-center ">
+
+        <input type="text" class="padding-10 input" id="inputEmail3" placeholder="请输入ID号" name='simcardid'
+            [(ngModel)]='simcardid' />
+
+        <button class="badge bg-primary buttons padding-10" style="border: 0;" data-toggle="modal"
+            data-target="#modal-default" (click)='chakan()'>
+            查询</button>
+    </div>
+
+
+
+    <div *ngIf="info!=null" class="">
+   <!-- <div>{{info.account}}</div> -->
+        <div *ngFor='let item of info.dataPackage;let i=index'>
+
+            <div   class="margin-top-20" *ngIf="item.status==1">
+                <!-- <div>状态{{item.status}}</div> -->
+
+            <div>套餐可用流量：{{item.dataTotal}}MB</div>
+
+            <div class="margin-top-10">今日使用流量：{{item.dataToday}}</div>
+
+            <div class="margin-top-10">累积使用流量：{{item.dataUsage}}MB</div>
+        </div>
+        </div>
+
+    </div>
+
+
+
+
+
+</div>
