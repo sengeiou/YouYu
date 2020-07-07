@@ -25,7 +25,7 @@ export class AppeallistComponent extends AppBase {
     super(router, activeRoute, instApi, memberApi);
 
   }
-  t 
+ 
   appeallist=[];
   onMyLoad() {
     this.params; 
