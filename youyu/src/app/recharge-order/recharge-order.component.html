@@ -103,6 +103,8 @@
                                     <th>订单创建时间</th>
                                     <!-- <th>套餐时效</th>  -->
                                     <th>备注</th>
+                                    <th>操作</th>
+                                    
 
                                 </tr>
                             </thead>
@@ -124,15 +126,35 @@
                                     <td>
                                         {{item.remarks}}
                                     </td>
-                                    <td>
-                                        <img src="{{uploadpath}}resource/{{res.x}}" class="icon-20"
-                                            (click)='item.showall=true' />
+
+                                    <td> 
+                                        <button class="badge bg-primary margin-right" style="border: 0;" data-toggle="modal" data-target="#modal-default"   (click)='shengxiao(item.id,item.cardnumber)' > 提前生效</button> 
+                                        
                                     </td>
 
+                                    <td>
+                                        <img src="{{uploadpath}}resource/{{item.show==true?res.s:res.x}}" class="icon-20"
+                                            (click)='showall(i)' />
+                                    </td>
 
                                 </tr>
-                                <tr *ngIf="item.showall==true"><td colspan="9">有这么难理解?</td></tr>
+                                   
+                                <ng-container *ngIf="item.show==true" >
+                                <tr  *ngFor='let items of item.recordlist;let a=index'>
+                                 
+                                    
+                                    <td colspan="2">卡号：{{items.cardnumber}}</td>
+                                    <td colspan="2" >充值额度：{{items.quota}} MB</td>
+                                    <td colspan="2" >生效时间：{{items.taketime}}</td>
+                                    <td colspan="2" >生效状态：{{items.takestatus=='A'?'待生效':'已生效'}}</td>
+                                  
+                               
+                                </tr>
+                               </ng-container>
+
                                 </ng-container>
+
+
                             </tbody>
                         </table>
                     </div>
@@ -144,4 +166,25 @@
         </div>
 
     </section>
+</div>
+
+
+<div class="modal fade" id="modal-default"  >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">充值提示</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>确认提前生效该套餐?</p>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" (click)='queren()' data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
 </div>

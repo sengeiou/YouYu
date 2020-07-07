@@ -6,12 +6,13 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
+import { SimapiApi } from 'src/providers/simapi.api';
 
 @Component({
   selector: 'app-recharge-order',
   templateUrl: './recharge-order.component.html',
   styleUrls: ['./recharge-order.component.scss'],
-  providers: [InstApi, MemberApi,AgentApi]
+  providers: [InstApi, MemberApi,AgentApi,SimapiApi]
 })
 export class RechargeOrderComponent extends AppBase {
 
@@ -21,6 +22,7 @@ export class RechargeOrderComponent extends AppBase {
     public instApi: InstApi,
     public memberApi: MemberApi,
     public agentApi: AgentApi,
+    public simapiApi: SimapiApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
 
@@ -29,6 +31,8 @@ export class RechargeOrderComponent extends AppBase {
   check=false;
   orderlist=[];
   show=false;
+  order_id='';
+  cardnumber='';
 
   onMyLoad() {
     this.params;
@@ -71,5 +75,31 @@ export class RechargeOrderComponent extends AppBase {
     }
     
   }
+
+  shengxiao(order_id,cardnumber){
+
+    this.order_id=order_id;
+    this.cardnumber=cardnumber;
+ 
+  }
+
+  queren(){
+    this.pageList=[];
+    this.agentApi.tiqianchong({ 
+      // order_id:this.order_id,cardnumber:this.cardnumber,agent_id:this.agentinfo.id
+    }).then((res:any)=>{
+
+      console.log(res);
+      if(res.code==0){
+        this.simapiApi.chargesimcard({}).then((res:any)=>{
+ 
+  
+        })
+      }
+
+ 
+    })
+  }
+
 
 }
