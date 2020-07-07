@@ -109,8 +109,9 @@
 
 
                             <tbody>
+                                <ng-container *ngFor='let item of orderlist;let i=index'>
 
-                                <tr *ngFor='let item of orderlist;let i=index'>
+                                <tr >
 
                                     <td>{{i+1}}</td>
                                     <td>{{item.orderno}}</td>
@@ -125,20 +126,13 @@
                                     </td>
                                     <td>
                                         <img src="{{uploadpath}}resource/{{res.x}}" class="icon-20"
-                                            (click)='showall(i)' />
+                                            (click)='item.showall=true' />
                                     </td>
 
-                                    <ng-container *ngIf='item.show=true'>
-                                        <td>1232132213</td>
-                                        <!-- <div *ngIf='item.show==true'>1232132213</div> -->
-                                    </ng-container>
 
                                 </tr>
-
-                                <ng-template [ngIf]='item.show==true'>
-                                    <td>1232132213</td>
-                                </ng-template>
-
+                                <tr *ngIf="item.showall==true"><td colspan="9">有这么难理解?</td></tr>
+                                </ng-container>
                             </tbody>
                         </table>
                     </div>
