@@ -28,6 +28,7 @@ export class RechargeOrderComponent extends AppBase {
   type="";
   check=false;
   orderlist=[];
+  show=false;
 
   onMyLoad() {
     this.params;
@@ -40,8 +41,12 @@ export class RechargeOrderComponent extends AppBase {
     this.agentApi.orderlist({ 
 
     }).then((res:any)=>{
+        for(var i=0;i<res.length;i++){
+          res[i].show=false;
+        }
         this.orderlist=res;
         this.pagination(res, res.length);
+        
         console.log(this.orderlist,'数据');
     })
   }
@@ -56,6 +61,15 @@ export class RechargeOrderComponent extends AppBase {
   }else{
     this.check=false;
   }
+  }
+
+  showall(idx){
+    if(this.orderlist[idx].show==true){
+      this.orderlist[idx].show=false;
+    }else{
+      this.orderlist[idx].show=true;
+    }
+    
   }
 
 }

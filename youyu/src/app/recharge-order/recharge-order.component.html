@@ -106,16 +106,14 @@
 
                                 </tr>
                             </thead>
+
+
                             <tbody>
+
                                 <tr *ngFor='let item of orderlist;let i=index'>
-                                    <!-- <td>
-                                        <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
-                                            *ngIf='check==true' />
-                                        <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
-                                            *ngIf='check==false' />
-                                    </td> -->
+
                                     <td>{{i+1}}</td>
-                                    <td>{{item.orderno}}</td> 
+                                    <td>{{item.orderno}}</td>
                                     <td>{{item.simcard_cardnumber}}</td>
                                     <td>{{item.simcard_wechatid}}</td>
                                     <td>{{item.packagetype_name}} {{item.package_traffic}}M {{item.package_month}}个月
@@ -125,8 +123,21 @@
                                     <td>
                                         {{item.remarks}}
                                     </td>
+                                    <td>
+                                        <img src="{{uploadpath}}resource/{{res.x}}" class="icon-20"
+                                            (click)='showall(i)' />
+                                    </td>
+
+                                    <ng-container *ngIf='item.show=true'>
+                                        <td>1232132213</td>
+                                        <!-- <div *ngIf='item.show==true'>1232132213</div> -->
+                                    </ng-container>
 
                                 </tr>
+
+                                <ng-template [ngIf]='item.show==true'>
+                                    <td>1232132213</td>
+                                </ng-template>
 
                             </tbody>
                         </table>
