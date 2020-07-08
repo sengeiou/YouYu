@@ -37,12 +37,13 @@ export class AppeallistComponent extends AppBase {
     }
     this.agentApi.appeallist({}).then((res:any)=>{
      this.appeallist=res; 
+     console.log(res);
      this.pagination(res, res.length);
     })
   }
   update(id){
 
-console.log(id,'kjlk')
+   console.log(id,'kjlk')
   
    this.agentApi.updateappeal({id:id}).then((res:any)=>{ 
 

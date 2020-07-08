@@ -6,7 +6,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
-import { SimapiApi } from 'src/providers/simapi.api';
+import { SimapiApi } from 'src/providers/simapi.api'; 
 
 @Component({
   selector: 'app-simcard',
@@ -41,7 +41,7 @@ export class SimcardComponent extends AppBase {
   fenpeitype='';
   info=null;
   wechatid='';
-  cardid='';
+  cardid=''; 
   onMyLoad() {
     this.params;
   }
@@ -58,6 +58,13 @@ export class SimcardComponent extends AppBase {
     })
 
   this.simcard();
+  }
+
+  copy(cardnumber){
+    console.log(cardnumber);
+    //return;
+    this.navigate("selectpage",{cardid:cardnumber}); 
+
   }
 
   chakan(cardnumber){
@@ -132,11 +139,21 @@ export class SimcardComponent extends AppBase {
   }
 
   search() {
-
+    this.pageList = [];
+    this.agentApi.simcardlist({ 
+      cardnumber:this.idno
+    }).then((res: any) => { 
+      for (var i = 0; i < res.length; i++) {
+        res[i].checking = false;
+      } 
+      this.simcardlist = res; 
+      this.pagination(res, res.length);
+      console.log(this.simcardlist);
+    })
   }
 
   reset() {
-
+    this.idno='';
   }
 
   ordertype(type) {

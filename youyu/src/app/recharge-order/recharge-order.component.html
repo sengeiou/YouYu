@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">订单编号</label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入订单编号"
+                                    <input type="text" [(ngModel)]='orderno' class="form-control" id="inputEmail3" placeholder="请输入订单编号"
                                         name='orderno' />
                                 </div>
                                 <!-- <div class="form-group  col-lg-4 col-md-5  col-sm-6">
@@ -41,7 +41,7 @@
                                 </div> -->
                                 <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label">充值卡号</label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入充值卡号"
+                                    <input type="text" [(ngModel)]='cardid'  class="form-control" id="inputEmail3" placeholder="请输入充值卡号"
                                         name='cardid' />
                                 </div>
                             </div>
@@ -49,8 +49,8 @@
                         <!-- /.card-body -->
                         <div class="card-footer">
                             <div class="float-right">
-                                <button type="submit" class="btn bg-gray">重置</button>
-                                <button type="submit" class="btn btn-primary margin-left-20">搜索</button>
+                                <button type="submit" class="btn bg-gray" (click)='reset()'>重置</button>
+                                <button type="submit" class="btn btn-primary margin-left-20" (click)='search()'>搜索</button>
                             </div>
                             <div>
                                 <button type="submit" class="btn btn-info "

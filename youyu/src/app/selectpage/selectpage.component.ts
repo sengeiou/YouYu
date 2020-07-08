@@ -28,8 +28,10 @@ export class SelectpageComponent extends AppBase {
   }
   info=null;
   simcardid='';
+
   onMyLoad() {
     this.params;
+    this.simcardid=this.params.cardid;
   }
   onMyShow() {
      
@@ -39,6 +41,10 @@ export class SelectpageComponent extends AppBase {
 
     this.simapiApi.simcardinfo({simcard:this.simcardid}).then((ret:any)=>{
      this.info=ret;
+
+     if(ret.code=="400"){
+        this.toast("请输入正确的卡号");
+     }
      console.log(this.info,'详情')
     })
 

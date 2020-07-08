@@ -35,9 +35,11 @@ export class AddagentComponent extends AppBase {
     name: '',
     mobile: '',
     account: '',
+    primary_id:'',
     password: '',
     logo: ''
   };
+  primary_id="";
 
   onMyLoad() {
     this.params;
@@ -55,7 +57,7 @@ export class AddagentComponent extends AppBase {
       this.list.password = ret.password;
       this.list.mobile = ret.mobile;
       this.list.logo = ret.logo;
-
+      this.list.primary_id=this.params.id;
       this.quota = ret.quota;
       this.yixiaohao = ret.yixiaohao;
       this.total = ret.total;
@@ -103,14 +105,18 @@ export class AddagentComponent extends AppBase {
       return
     }
 
+    // if(this.params.id==null||this.params.id==undefined){
+    //   this.primary_id=0;
+    // }else{
+    //   var primary_id=this.params.id;
+    // }
+
     this.agentApi.addagent(this.list).then((ret: any) => {
       console.log(ret);
       if (ret.code == '0') {
         this.saveing();
-        // this.primary_id=res.return;
-
-        this.back();
-
+        // this.primary_id=res.return; 
+        this.back(); 
       } else {
         this.toast(ret.result);
       }

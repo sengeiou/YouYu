@@ -58,6 +58,7 @@ export class AgentlistComponent extends AppBase {
      mobile:this.mobile
     }).then((res:any)=>{
         this.agentlist=res;
+        this.pagination(res, res.length);
         console.log(this.agentlist);
     })
   }

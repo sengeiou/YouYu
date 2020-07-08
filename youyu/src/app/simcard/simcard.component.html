@@ -62,13 +62,13 @@
                             <div>
                                 <button type="submit" class="btn btn-info " data-toggle="modal" data-target="#modal-xl"
                                     (click)='piliang()'>批量分配</button>
-                                    <button type="submit" class="btn btn-info margin-left-20"
+                                <button type="submit" class="btn btn-info margin-left-20"
                                     routerLink='/creatrechargeorder'>充值</button>
                             </div>
 
-                           
 
-                           
+
+
 
                         </div>
                         <!-- /.card-footer -->
@@ -117,7 +117,7 @@
                                     <th>ID号</th>
                                     <th>渠道号</th>
                                     <th>微信号</th>
-                                    
+
                                     <!-- <th>电信供应商及运营商</th> -->
                                     <th>类型/激活状态/是否有码号</th>
                                     <th>获得时间</th>
@@ -127,14 +127,14 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor='let item of data;let i=index'>
-                                    
+
                                     <td>
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='item.checking==true' (click)='chooseone(i,item)' />
                                         <img src="{{uploadpath}}resource/{{res.nocheck}}" class="icon-20"
                                             *ngIf='item.checking==false' (click)='chooseone(i,item)' />
                                     </td>
-                                    
+
                                     <td>{{i+1}}</td>
                                     <td>{{item.cardnumber}}</td>
                                     <td>{{item.qudao}}</td>
@@ -147,35 +147,34 @@
                                             {{item.status=="A"?"启用":"禁用"}}</span>
                                     </td> -->
 
+                                    <!-- <input hidden='true' id='urls' value="http://uat13.helpfooter.com/selectpage?item.cardnumber">
+                                    <textarea cols="20" rows="10" id="urls">用户定义的代码区域</textarea> -->
                                     <td>
 
-                                        <!-- <div class="badge bg-primary margin-right"><img
-                                                src="{{uploadpath}}resource/{{res.update}}" class="icon-15"
-                                                title="分配" (click)='fenpei(item.id)'></div> -->
 
-                                        <div class="badge bg-primary margin-right" *ngIf='item.usestatus!="A"' title="分配"
-                                            (click)='chooseagent(item.id,item.usestatus)' data-toggle="modal" data-target="#modal-xl">
-                                            <img src="{{uploadpath}}resource/{{res.fenpei}}" class="icon-15" /></div>
 
-                                            <div class="badge bg-primary margin-right" *ngIf='item.usestatus=="A"' title="分配"
-                                            (click)='chooseagent(item.id,item.usestatus)'  >
-                                            <img src="{{uploadpath}}resource/{{res.fenpei}}" class="icon-15" /></div>
+                                        <button class="badge bg-primary margin-right" style="border: 0;"
+                                            *ngIf='item.usestatus!="A"' data-toggle="modal" data-target="#modal-xl"
+                                            (click)='chooseagent(item.id,item.usestatus)'>分配</button>
+                                        <button class="badge bg-primary margin-right" style="border: 0;"
+                                            *ngIf='item.usestatus=="A"'
+                                            (click)='chooseagent(item.id,item.usestatus)'>分配</button>
 
-                                        <div class="badge bg-success margin-right" title="查看"
-                                            (click)='chakan(item.cardnumber)' data-toggle="modal" data-target="#modal-xl2">
-                                            <img src="{{uploadpath}}resource/{{res.see}}" class="icon-15" /></div>
+                                        <button class="badge bg-green margin-right" style="border: 0;"
+                                            data-toggle="modal" data-target="#modal-xl2"
+                                            (click)='chakan(item.cardnumber)'>查看</button>
 
-                                            <!-- <div class="badge bg-success margin-right" title="充值"
-                                            (click)='chongzhi(item.id,item.usestatus)' >
-                                            <img src="{{uploadpath}}resource/{{res.see}}" class="icon-15" /></div> -->
+                                        <button class="badge bg-orange margin-right " style="border: 0;"
+                                            *ngIf='item.wechatid==""||item.wechatid==undefined' data-toggle="modal"
+                                            data-target="#modal-xl3"
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'>填写微信号</button>
+                                        <button class="badge bg-orange margin-right " style="border: 0;"
+                                            *ngIf='item.wechatid!=""&&item.wechatid!=undefined'
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'>填写微信号</button>
 
-                                            <div class="badge bg-success margin-right" *ngIf='item.wechatid==""||item.wechatid==undefined' title="填写微信号"
-                                            (click)='wechat(item.id,item.usestatus,item.wechatid)' data-toggle="modal" data-target="#modal-xl3">
-                                            <img src="{{uploadpath}}resource/{{res.tianxie}}" class="icon-15" /></div>
+                                        <button class="badge bg-green margin-right" style="border: 0;"
+                                            (click)='copy(item.cardnumber)'>分享链接</button>
 
-                                            <div class="badge bg-success margin-right" *ngIf='item.wechatid!=""&&item.wechatid!=undefined'  title="填写微信号"
-                                            (click)='wechat(item.id,item.usestatus,item.wechatid)' >
-                                            <img src="{{uploadpath}}resource/{{res.tianxie}}" class="icon-15" /></div>
 
                                         <!-- <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15" title="删除">
@@ -245,12 +244,12 @@
 </div>
 
 
-<div class="modal fade" id="modal-xl2"  *ngIf='info!=null'>
+<div class="modal fade" id="modal-xl2" *ngIf='info!=null'>
 
     <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
-                
+
                 <div class="flex-1"></div>
                 <h4 class="modal-title">套餐详情</h4>
                 <div class="flex-1"></div>
@@ -261,24 +260,24 @@
             </div>
 
 
-            <div class="modal-body" >
+            <div class="modal-body">
 
-                <div >
-                 剩余流量:{{info.dataUsageTotal}}MB
+                <div>
+                    剩余流量:{{info.dataUsageTotal}}MB
                 </div>
 
-                <div  >
-                <div  class="margin-top-20" *ngFor='let item of info.dataPackage'>
-                   
-                    <div>套餐名称:{{item.productName}}</div>
-                    <div>套餐已使用流量:{{item.dataUsage}}</div> 
-               </div>
-            </div>
+                <div>
+                    <div class="margin-top-20" *ngFor='let item of info.dataPackage'>
+
+                        <div>套餐名称:{{item.productName}}</div>
+                        <div>套餐已使用流量:{{item.dataUsage}}</div>
+                    </div>
+                </div>
 
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-  
+
             </div>
         </div>
         <!-- /.modal-content -->
@@ -306,11 +305,9 @@
             <div class="modal-body">
 
                 <div>
-                    <input type="text"  
-                    class=" form-control col-form-label-sm" id="wechatid"
-                    name='wechatid' placeholder="请输入微信号"
-                    [(ngModel)]='wechatid' />
-                  </div>
+                    <input type="text" class=" form-control col-form-label-sm" id="wechatid" name='wechatid'
+                        placeholder="请输入微信号" [(ngModel)]='wechatid' />
+                </div>
 
             </div>
             <div class="modal-footer justify-content-between">

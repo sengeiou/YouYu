@@ -33,6 +33,8 @@ export class RechargeOrderComponent extends AppBase {
   show=false;
   order_id='';
   cardnumber='';
+  cardid='';
+  orderno='';
 
   onMyLoad() {
     this.params;
@@ -84,9 +86,9 @@ export class RechargeOrderComponent extends AppBase {
   }
 
   queren(){
-    this.pageList=[];
+   // this.pageList=[];
     this.agentApi.tiqianchong({ 
-      // order_id:this.order_id,cardnumber:this.cardnumber,agent_id:this.agentinfo.id
+       order_id:this.order_id,cardnumber:this.cardnumber,agent_id:this.agentinfo.id
     }).then((res:any)=>{
 
       console.log(res);
@@ -99,6 +101,31 @@ export class RechargeOrderComponent extends AppBase {
 
  
     })
+  }
+
+
+
+  search(){
+    this.pageList = [];
+    
+    this.agentApi.orderlist({ 
+      simcardname:this.cardid,
+      orderno:this.orderno
+    }).then((res:any)=>{
+        for(var i=0;i<res.length;i++){
+          res[i].show=false;
+        }
+        this.orderlist=res;
+        this.pagination(res, res.length); 
+        console.log(this.orderlist,'数据');
+    })
+    
+  }
+
+
+  reset(){
+     this.cardid='';
+     this.orderno='';
   }
 
 
