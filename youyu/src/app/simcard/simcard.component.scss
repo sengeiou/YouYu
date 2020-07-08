@@ -4,3 +4,8 @@
 .bg-orange, .bg-orange>a {
     color: white!important;
 }
+.inputs{
+    position: fixed;
+    top: 0;left: 0;opacity: 0;
+    z-index: -10;
+}

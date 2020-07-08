@@ -62,7 +62,9 @@ export class ApplicationComponent extends AppBase {
 
   confirm(){
 
-    if(this.quota>this.agentinfo.quota){
+    // console.log(this.quota,'++++',this.agentinfo.quota)
+    // parseInt(this.quota)
+    if(parseInt(this.quota)> parseInt(this.agentinfo.quota)){
       this.toast("剩余额度不足(剩余："+this.agentinfo.quota+")，无法分配");
       return
     }
