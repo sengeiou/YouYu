@@ -40,13 +40,13 @@ export class MainComponent extends AppBase {
   shenqingshu=0;
   shensu=0;
   onMyLoad() {
-    this.agentApi.shenqing({shenqingstatus:'A'}).then((res:any)=>{ 
-      this.shenqingshu=res.length;  
-    })
+    // this.agentApi.shenqing({shenqingstatus:'A'}).then((res:any)=>{ 
+    //   this.shenqingshu=res.length;  
+    // })
 
-    this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
-      this.shensu= res.length;
-     })
+    // this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
+    //   this.shensu= res.length;
+    //  })
   }
 
   newhuman = 0;
@@ -58,7 +58,7 @@ export class MainComponent extends AppBase {
 
 
 
-    var time=setInterval(()=>{
+    // var time=setInterval(()=>{
       this.agentApi.shenqing({shenqingstatus:'A'}).then((ret:any)=>{ 
         this.shenqingshu=ret.length;  
       })
@@ -66,7 +66,7 @@ export class MainComponent extends AppBase {
       this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
         this.shensu= res.length;
        })
-    },2000)
+    // },2000)
     
     if (this.memberinfo != null
       &&

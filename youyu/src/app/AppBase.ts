@@ -36,8 +36,7 @@ export class AppBase implements OnInit {
     public static UNICODE = "youyucard";
 
     public statusBarStyle = "X";//{DARK}
-    public uploadpath: string = ApiConfig.getUploadPath();
-    public localpath: string = ApiConfig.getLocalPath();
+    public uploadpath: string = ApiConfig.getUploadPath(); 
     public uploadapi: string = ApiConfig.getFileUploadAPI();
     public util = AppUtil;
     public static Resources = null;

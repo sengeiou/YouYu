@@ -84,6 +84,8 @@
 
                                         </tr>
 
+                                        
+
                                         <tr *ngIf='type=="B"'>
                                             <td class=" ">剩余额度</td>
                                             <td class=""> <input type="text" class=" form-control col-form-label-sm"
@@ -102,6 +104,13 @@
                                             <td class=""><input type="text" class=" form-control col-form-label-sm"
                                                     id="jihuoshu" name='jihuoshu' disabled [(ngModel)]='jihuoshu' />
                                             </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td class=" ">折扣</td>
+                                            <td class=""> <input type="text" class=" form-control col-form-label-sm"
+                                                    id="discount" name='discount' placeholder="请填写折扣"
+                                                    [(ngModel)]='list.discount' /></td> 
                                         </tr>
 
 

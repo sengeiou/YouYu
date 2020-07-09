@@ -117,6 +117,7 @@
                                     <th>已使用卡数(激活)</th>
                                     <th>当前额度</th>
                                     <th>累积额度</th> 
+                                    <th>折扣</th>
                                     <th>状态</th>
                                     <th>操作</th>
                                 </tr>
@@ -145,6 +146,8 @@
                                     <td>{{item.quota}}</td>
 
                                     <td>{{item.yixiaohao}}</td>
+
+                                    <td>{{item.discount}}</td>
                                     
                                     <td>  
                                     <button class="badge  margin-right {{item.status=='A'?'bg-primary':'bg-red'}}" style="border: 0;"  (click)='update(item.id,item.status)'>{{item.status=="A"?"启用":"禁用"}}</button>

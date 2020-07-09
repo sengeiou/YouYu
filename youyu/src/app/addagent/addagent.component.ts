@@ -37,6 +37,7 @@ export class AddagentComponent extends AppBase {
     account: '',
     primary_id:'',
     password: '',
+    discount:'',
     logo: ''
   };
   primary_id="";
@@ -50,21 +51,25 @@ export class AddagentComponent extends AppBase {
     // if (MainComponent.Instance != null) {
     //   MainComponent.Instance.setModule("sim", "addagent");
     // }
-    this.agentApi.agentinfo({ id: this.params.id }).then((ret: any) => {
-      this.info = ret;
-      this.list.name = ret.name;
-      this.list.account = ret.account;
-      this.list.password = ret.password;
-      this.list.mobile = ret.mobile;
-      this.list.logo = ret.logo;
-      this.list.primary_id=this.params.id;
-      this.quota = ret.quota;
-      this.yixiaohao = ret.yixiaohao;
-      this.total = ret.total;
-      this.jihuoshu = ret.jihuoshu;
-      
-      console.log(this.info, ' 信息11111');
-    })
+    if(this.params.id!=null&&this.params.id!=undefined&&this.params.id!=''){
+      this.agentApi.agentinfo({ id: this.params.id }).then((ret: any) => {
+        this.info = ret;
+        this.list.name = ret.name;
+        this.list.account = ret.account;
+        this.list.password = ret.password;
+        this.list.mobile = ret.mobile;
+        this.list.logo = ret.logo;
+        this.list.discount = ret.discount;
+        this.list.primary_id=this.params.id;
+        this.quota = ret.quota;
+        this.yixiaohao = ret.yixiaohao;
+        this.total = ret.total;
+        this.jihuoshu = ret.jihuoshu;
+        
+        console.log(this.info, ' 信息11111');
+      })
+    }
+    
 
   }
 
@@ -104,6 +109,12 @@ export class AddagentComponent extends AppBase {
       this.toast("请填写代理商密码");
       return
     }
+    if(this.list.discount.trim()==''){
+      this.toast("请填写折扣");
+      return
+    }
+    console.log(this.list)
+    //return;
 
     // if(this.params.id==null||this.params.id==undefined){
     //   this.primary_id=0;
