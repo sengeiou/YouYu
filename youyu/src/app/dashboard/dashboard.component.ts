@@ -62,7 +62,7 @@ export class DashboardComponent extends AppBase {
       this.datefrom=res.list[0].date;
       this.allprice=res.allprice;
       this.dateto=res.list[res.list.length-1].date; 
-      console.log(res.list[res.list.length-1].date,'返回的数据'); 
+      console.log(res,'返回的数据'); 
 
       this.setClientAccOption(this.list);
       
