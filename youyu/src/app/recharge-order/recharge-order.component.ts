@@ -82,6 +82,8 @@ export class RechargeOrderComponent extends AppBase {
 
     this.order_id=order_id;
     this.cardnumber=cardnumber;
+
+    console.log(cardnumber,'-----',order_id);
  
   }
 
@@ -93,9 +95,9 @@ export class RechargeOrderComponent extends AppBase {
 
       console.log(res);
       if(res.code==0){
+        
         this.simapiApi.chargesimcard({}).then((res:any)=>{
  
-  
         })
       }
 

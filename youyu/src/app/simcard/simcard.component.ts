@@ -125,10 +125,11 @@ export class SimcardComponent extends AppBase {
         if(this.simcardlist[i].checking==true){
          var list2={id:this.simcardlist[i].id,agent_id:agent_id,qudao:qudao};
          this.idlist.push(list2);
-        } 
+        }
      }
      
     }
+
     console.log(this.idlist);
     //return;
  
