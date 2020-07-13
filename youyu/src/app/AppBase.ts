@@ -296,7 +296,7 @@ export class AppBase implements OnInit {
     Next() {
         this.changedate(this.selPage + 1);
     }
-    pageSize = 10;
+    pageSize = 20;
     pages = null;
     newPage = null;
     selPage = null;

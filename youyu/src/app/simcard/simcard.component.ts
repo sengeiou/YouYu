@@ -63,14 +63,14 @@ export class SimcardComponent extends AppBase {
   copy(cardnumber){
     console.log(cardnumber);
     var input = <HTMLInputElement>document.getElementById("inputs"); 
-      input.value = 'http://uat13.helpfooter.com/selectpage?cardid='+cardnumber; // 修改文本框的内容
+      input.value = "http://"+window.location.host+'/selectpage?cardid='+cardnumber; // 修改文本框的内容
       input.select(); // 选中文本
       document.execCommand("copy"); // 执行浏览器复制命令
       
       this.succ("复制成功！");
 
      return;
-    this.navigate("selectpage",{cardid:cardnumber}); 
+     this.navigate("selectpage",{cardid:cardnumber}); 
 
   }
 
@@ -83,6 +83,7 @@ export class SimcardComponent extends AppBase {
   }
 
   simcard(){
+    this.pageList = [];
     this.agentApi.simcardlist({ 
     }).then((res: any) => { 
       for (var i = 0; i < res.length; i++) {
