@@ -95,9 +95,10 @@ export class RechargeOrderComponent extends AppBase {
 
       console.log(res);
       if(res.code==0){
-        
+
         this.simapiApi.chargesimcard({}).then((res:any)=>{
- 
+            this.pageList=[];
+            this.onMyShow();
         })
       }
 
