@@ -115,7 +115,7 @@ export class SimcardComponent extends AppBase {
     }
     
 
-      console.log(agent_id,'---',qudao);
+    
       //return;
 
     if(this.fenpeitype=="A"){
