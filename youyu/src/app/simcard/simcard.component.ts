@@ -31,6 +31,7 @@ export class SimcardComponent extends AppBase {
   check = false;
   simcardlist = [];
   idno = '';
+  idno2='';
   allchose=false;
   datajson=[];
   agentlist=[];
@@ -42,6 +43,7 @@ export class SimcardComponent extends AppBase {
   info=null;
   wechatid='';
   cardid=''; 
+   
   onMyLoad() {
     this.params;
   }
@@ -69,8 +71,8 @@ export class SimcardComponent extends AppBase {
       
       this.succ("复制成功！");
 
-     return;
-     this.navigate("selectpage",{cardid:cardnumber}); 
+    //  return;
+    //  this.navigate("selectpage",{cardid:cardnumber}); 
 
   }
 
@@ -148,9 +150,14 @@ export class SimcardComponent extends AppBase {
   }
 
   search() {
+
+    console.log(this.idno2);
+    //return
+
     this.pageList = [];
     this.agentApi.simcardlist({ 
-      cardnumber:this.idno
+      cardnumber:this.idno,
+      cardnumber2:this.idno2
     }).then((res: any) => { 
       for (var i = 0; i < res.length; i++) {
         res[i].checking = false;
@@ -163,6 +170,7 @@ export class SimcardComponent extends AppBase {
 
   reset() {
     this.idno='';
+    this.idno2='';
   }
 
   ordertype(type) {
