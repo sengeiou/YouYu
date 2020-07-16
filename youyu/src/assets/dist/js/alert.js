@@ -32,3 +32,11 @@ Chart.warning=function(title,subtitle,body){
     body: body
   })
 }
+Chart.setselect2=function(fid,callback){
+  $("#"+fid).select2({
+    theme: 'bootstrap4'
+  });
+  $("#"+fid).change(()=>{
+    callback($("#"+fid).val());
+  });
+}

@@ -6,6 +6,8 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
+
+declare let Chart: any;
 @Component({
   selector: 'app-creat-recharge-order',
   templateUrl: './creat-recharge-order.component.html',
@@ -51,6 +53,10 @@ export class CreatRechargeOrderComponent extends AppBase {
     }).then((ret:any)=>{
         this.simcardlist=ret; 
     })
+
+    Chart.setselect2("simcardlist",(v)=>{
+      this.simcardidx=v;
+    });
     
   }
   chakan(){
