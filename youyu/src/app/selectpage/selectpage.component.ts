@@ -12,7 +12,7 @@ import { SimapiApi } from 'src/providers/simapi.api';
   selector: 'app-selectpage',
   templateUrl: './selectpage.component.html',
   styleUrls: ['./selectpage.component.scss'],
-  providers: [InstApi, MemberApi,SimapiApi]
+  providers: [InstApi, MemberApi,SimapiApi,AgentApi]
 })
 export class SelectpageComponent extends AppBase {
 
@@ -21,6 +21,7 @@ export class SelectpageComponent extends AppBase {
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public simapiApi: SimapiApi,
+    public agentApi: AgentApi,
     public memberApi: MemberApi,
   ) {
     super(router, activeRoute, instApi, memberApi);
@@ -28,16 +29,27 @@ export class SelectpageComponent extends AppBase {
   }
   info=null;
   simcardid='';
-
+  orderlist=[];
   onMyLoad() {
     this.params;
     this.simcardid=this.params.cardid;
+    this.chakan();
   }
   onMyShow() {
      
   }
 
   chakan(){
+
+    //simcardname:this.simcardid
+    this.agentApi.orderlist({ 
+     type:'A',
+     simcardname:this.simcardid
+    }).then((res:any)=>{ 
+        this.orderlist=res; 
+        console.log(this.orderlist,'数据');
+    })
+ 
 
     this.simapiApi.simcardinfo({simcard:this.simcardid}).then((ret:any)=>{
      this.info=ret;

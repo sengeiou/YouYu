@@ -1,33 +1,64 @@
-<div class="login-page" [style.background-image]="'url('+uploadpath+'resource/'+res.loginbg+')'"
-    style="background-size:100% 100%;">
-    <div class=" flex-row flex-center ">
+<div class=" page" style="width: 100vw;height:100vh;">
 
+
+    <div class=" text-center ">
+
+        <div style="height:150px"></div>
         <input type="text" class="padding-10 input" id="inputEmail3" placeholder="请输入ID号" name='simcardid'
             [(ngModel)]='simcardid' />
 
         <button class="badge bg-primary buttons padding-10" style="border: 0;" data-toggle="modal"
             data-target="#modal-default" (click)='chakan()'>
             查询</button>
+
+
+        <div *ngIf="info!=null" class="">
+            <div class="margin-top-20 txt-bold">当前使用情况</div>
+            <div *ngFor='let item of info.dataPackage;let i=index'>
+                <div class="margin-top-20" *ngIf="item.status==1">
+                    <!-- <div>状态{{item.status}}</div> -->
+                    <div>套餐可用流量：{{item.dataTotal}}MB</div>
+                    <div class="margin-top-10">今日使用流量：{{item.dataToday}}</div>
+                    <div class="margin-top-10">累积使用流量：{{item.dataUsage}}MB</div>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="orderlist.length>0" class="flex-row2 flex-column2">
+            <div class="margin-top-40 txt-bold">产品套餐</div>
+
+            <div *ngFor='let item of orderlist;let i=index' class="">
+                <div class="">套餐名称：{{item.packagetype_name}}</div>
+ 
+                <table class="table text-center margin-top-20" style="min-width: 200px;max-width: 300px;">
+                    <thead>
+                        <tr>
+                            <th>充值额度</th>
+                            <th>生效时间</th>
+                            <th>状态</th>
+                        </tr>
+                    </thead>
+
+                    <tbody *ngFor='let item2 of item.recordlist;let i2=index'>
+                        <tr>
+                            <td>{{item2.quota}}</td>
+                            <td>{{item2.taketime}}</td>
+                            <td class="{{item2.takestatus=='A'?'txt-red':'txt-green'}}">
+                                {{item2.takestatus=='A'?'未启用':'已启用'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+
     </div>
 
 
 
-    <div *ngIf="info!=null" class="">
-   <!-- <div>{{info.account}}</div> -->
-        <div *ngFor='let item of info.dataPackage;let i=index'>
 
-            <div   class="margin-top-20" *ngIf="item.status==1">
-                <!-- <div>状态{{item.status}}</div> -->
-
-            <div>套餐可用流量：{{item.dataTotal}}MB</div>
-
-            <div class="margin-top-10">今日使用流量：{{item.dataToday}}</div>
-
-            <div class="margin-top-10">累积使用流量：{{item.dataUsage}}MB</div>
-        </div>
-        </div>
-
-    </div>
 
 
 

@@ -56,6 +56,7 @@ export class CreatRechargeOrderComponent extends AppBase {
   chakan(){
     console.log("23123")
   }
+ 
 
   confirm() {
      

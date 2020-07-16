@@ -43,7 +43,11 @@ export class SimcardComponent extends AppBase {
   info=null;
   wechatid='';
   cardid=''; 
-   
+  statuslist=[{id:0,name:'未激活'},{id:1,name:'已激活'},{id:2,name:'已关闭'},{id:3,name:'已过期'},{id:4,name:'HLR Terminated'}];
+  accountStatus='';
+  agent='';
+  orderlist=[];
+
   onMyLoad() {
     this.params;
   }
@@ -54,7 +58,7 @@ export class SimcardComponent extends AppBase {
     this.pageList = [];
     this.agentApi.agentlist({  
     }).then((ret:any)=>{
-        this.agentlist=ret; 
+        this.agentlist=ret;
         
         console.log(this.agentlist);
     })
@@ -76,13 +80,36 @@ export class SimcardComponent extends AppBase {
 
   }
 
+  // chakan(cardnumber){
+
+  //   this.simapiApi.simcardinfo({simcard:cardnumber}).then((ret:any)=>{
+  //    this.info=ret;
+  //    console.log(this.info,'详情')
+  //   })
+  // }
+
+
   chakan(cardnumber){
 
+    //simcardname:this.simcardid
+    this.agentApi.orderlist({ 
+     agent:this.agentinfo.id,
+     simcardname:cardnumber
+    }).then((res:any)=>{ 
+        this.orderlist=res; 
+        console.log(this.orderlist,'数据');
+    })
+  
     this.simapiApi.simcardinfo({simcard:cardnumber}).then((ret:any)=>{
-     this.info=ret;
+     this.info=ret; 
+      
      console.log(this.info,'详情')
     })
+
   }
+
+
+
 
   simcard(){
     this.pageList = [];
@@ -151,13 +178,15 @@ export class SimcardComponent extends AppBase {
 
   search() {
 
-    console.log(this.idno2);
-    //return
+    console.log(this.agent);
+   // return
 
     this.pageList = [];
-    this.agentApi.simcardlist({ 
+    this.agentApi.simcardlist({
       cardnumber:this.idno,
-      cardnumber2:this.idno2
+      cardnumber2:this.idno2,
+      accountStatus:this.accountStatus,
+      agent:this.agent
     }).then((res: any) => { 
       for (var i = 0; i < res.length; i++) {
         res[i].checking = false;

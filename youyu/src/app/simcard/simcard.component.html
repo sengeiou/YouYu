@@ -42,9 +42,22 @@
                                         name='idno2' [(ngModel)]='idno2' />
                                 </div>
 
-                              
-                            
+                                <div class="form-group   col-lg-2 col-md-3  col-sm-4 ">
+                                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">卡状态</label>
+                                    <select name='cardstatus' id="inputEmail3" class="form-control col-form-label-sm margin-top-5"
+                                      [(ngModel)]='accountStatus'>
+                                      <option value="">请选择</option>
+                                      <option value="{{item.id}}" *ngFor='let item of statuslist'>{{item.name}}</option>
+                                    </select>
+                                  </div>
 
+                                  <div class="form-group  col-lg-4 col-md-5  col-sm-6">
+                                    <label for="inputEmail3" class=" col-form-label">代理商</label>
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商账号"
+                                        name='agent' [(ngModel)]='agent' />
+                                </div>
+
+                              
                                 <!-- <div class="form-group  col-lg-4 col-md-5  col-sm-6">
                                     <label for="inputEmail3" class=" col-form-label"></label>
                                     <input type="text" class="form-control" id="inputEmail3" placeholder="请输入结束卡号搜索"
@@ -276,7 +289,7 @@
 
             <div class="modal-body">
 
-                <div>
+                <!-- <div>
                     剩余流量:{{info.dataUsageTotal}}MB
                 </div>
 
@@ -286,7 +299,48 @@
                         <div>套餐名称:{{item.productName}}</div>
                         <div>套餐已使用流量:{{item.dataUsage}}</div>
                     </div>
+                </div> -->
+
+                <div class="margin-top-20 txt-bold">当前使用情况</div>
+                <div *ngFor='let item of info.dataPackage;let i=index'>
+                    <div class="margin-top-20" *ngIf="item.status==1">
+                        <!-- <div>状态{{item.status}}</div> -->
+                        <div>套餐可用流量：{{item.dataTotal}}MB</div>
+                        <div class="margin-top-10">今日使用流量：{{item.dataToday}}</div>
+                        <div class="margin-top-10">累积使用流量：{{item.dataUsage}}MB</div>
+                    </div>
                 </div>
+ 
+
+                <div class="margin-top-40 txt-bold">产品套餐</div>
+
+                <div *ngFor='let item of orderlist;let i=index' class="">
+                    <div class="">套餐名称：{{item.packagetype_name}}</div>
+     
+                    <table class="table text-center margin-top-20" style="min-width: 200px;max-width: 300px;">
+                        <thead>
+                            <tr>
+                                <th>充值额度</th>
+                                <th>生效时间</th>
+                                <th>状态</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody *ngFor='let item2 of item.recordlist;let i2=index'>
+                            <tr>
+                                <td>{{item2.quota}}</td>
+                                <td>{{item2.taketime}}</td>
+                                <td class="{{item2.takestatus=='A'?'txt-red':'txt-green'}}">
+                                    {{item2.takestatus=='A'?'未启用':'已启用'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+    
+                </div>
+
+
+                
+
 
             </div>
             <div class="modal-footer justify-content-between">
