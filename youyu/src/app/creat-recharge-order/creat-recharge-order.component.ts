@@ -65,6 +65,19 @@ export class CreatRechargeOrderComponent extends AppBase {
  
 
   confirm() {
+
+    if(this.simcardidx==""){
+      this.toast("请选择需要充值的SIM卡");
+      return
+    }
+    if (this.idx=="") {
+      this.toast("请选择充值套餐");
+      return
+    }
+    if(price>parseInt(this.agentinfo.quota)){
+      this.toast("您的额度不足，无法充值");
+      return
+      }
      
     this.package_id=this.packagelist[this.idx].id;
     console.log(this.packagelist[this.idx].price);
@@ -79,21 +92,10 @@ export class CreatRechargeOrderComponent extends AppBase {
     //return;
    console.log("走了",this.agentinfo.id)
  // return;
-    if(this.simcard_id.trim()==""){
-      this.toast("请选择需要充值的SIM卡");
-      return
-    }
-    if (this.package_id.trim()=="") {
-      this.toast("请选择充值套餐");
-      return
-    }
-    if(price>parseInt(this.agentinfo.quota)){
-      this.toast("您的额度不足，无法充值");
-      return
-      }
+  
     
       console.log(productid);
-     // return;
+    // return;
      
     this.agentApi.creatorder({ simcard_id:this.simcard_id,package_id:this.package_id,remarks:this.remarks,price:price}).then((ret: any) => {
       console.log(ret);

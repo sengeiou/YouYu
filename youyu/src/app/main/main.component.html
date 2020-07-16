@@ -44,13 +44,13 @@
 
       <li class="nav-item dropdown user-menu">
 
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown">
+        <a class="nav-link dropdown-toggle"  >
           <img src="{{uploadpath}}resource/{{res.dianpu}}" class="user-image img-circle elevation-2" alt="User Image">  
           <span class="d-none d-md-inline txt-bold">{{agentinfo.name}}</span> 
         </a>
 
-        <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <!-- User image -->
+        <!-- <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        
           <li class="user-header  ">
             <img src="{{uploadpath}}resource/{{res.dianpu}}" class="img-circle elevation-2" alt="User Image">
             
@@ -59,12 +59,12 @@
 
             </p>
           </li>
-          <!-- Menu Footer-->
+         
           <li class="user-footer">
             <a href="/addshenqing" class="btn btn-default btn-flat">申请额度</a>
             <a class="btn btn-default btn-flat float-right" (click)='logout()'>退出</a>
           </li>
-        </ul>
+        </ul> -->
       </li>
 
       <li class="nav-item dropdown">
@@ -72,10 +72,17 @@
 
           <span class="h5 txt-red">剩余额度：{{agentinfo.quota}}</span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+        <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
           <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
-        </div>
+        </div> -->
+      </li>
+
+      <li class="nav-item dropdown" >
+        <a class="nav-link "   href="/addshenqing">  
+          <span class="h5 txt-blue" >申请额度</span>
+        </a>
+         
       </li>
 
       <li class="nav-item dropdown" >
@@ -86,6 +93,14 @@
         <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"> 
           <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
         </div> -->
+      </li>
+
+      <li class="nav-item dropdown" >
+        <a class="nav-link " data-toggle="modal" data-target="#modal-xl3" (click)='logout()'> 
+           
+          <span class="h5 txt-blue" >退出登录</span>
+        </a>
+         
       </li>
 
 
