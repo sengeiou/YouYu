@@ -200,6 +200,8 @@ export class SimcardComponent extends AppBase {
   reset() {
     this.idno='';
     this.idno2='';
+    this.accountStatus='';
+    this.agent='';
   }
 
   ordertype(type) {

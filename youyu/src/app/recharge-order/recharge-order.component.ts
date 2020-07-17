@@ -35,6 +35,7 @@ export class RechargeOrderComponent extends AppBase {
   cardnumber='';
   cardid='';
   orderno='';
+  xianshi='B';
 
   onMyLoad() {
     this.params;
@@ -89,6 +90,7 @@ export class RechargeOrderComponent extends AppBase {
 
   queren(){
    // this.pageList=[];
+   this.xianshi='A';
     this.agentApi.tiqianchong({ 
        order_id:this.order_id,cardnumber:this.cardnumber,agent_id:this.agentinfo.id
     }).then((res:any)=>{
@@ -97,11 +99,14 @@ export class RechargeOrderComponent extends AppBase {
       if(res.code==0){
 
         this.simapiApi.chargesimcard({}).then((res:any)=>{
-            this.pageList=[];
+            this.pageList=[]; 
             this.onMyShow();
+            setTimeout(() => {
+              this.xianshi='B';
+              this.succ("操作成功！");
+            }, 500);
         })
       }
-
  
     })
   }

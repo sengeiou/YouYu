@@ -37,8 +37,8 @@
                                             <td class=" ">选择SIM卡</td>
                                             <td class="">
                                                 <select name='country' [(ngModel)]='simcardidx' id="simcardlist"
-                                                    class="form-control col-form-label-sm">
-                                                    <option value="">请选择需要充值的SIM卡</option>
+                                                    class="form-control col-form-label-sm" data-placeholder="请选择需要充值的SIM卡"   >
+                                                    <!-- <option value="">请选择需要充值的SIM卡</option> -->
                                                     <option value="{{i}}" *ngFor='let item of simcardlist;let i=index'>
                                                         {{item.cardnumber}} (微信号: {{item.wechatid}})</option>
                                                 </select>
@@ -53,7 +53,7 @@
                                                     class="form-control col-form-label-sm">
                                                     <option value="">请选择充值套餐</option>
                                                     <option value="{{i}}" *ngFor='let item of packagelist;let i=index'>
-                                                        {{item.packagetype_name}}({{item.traffic}}M /{{item.month}}个月 /{{item.price}}元)</option>
+                                                        {{item.packagetype_name}}({{item.traffic}}M /{{item.month}}{{item.danwei=='A'?'天':'个月'}} /{{item.price}}元)</option>
                                                 </select>
                                                  
                                             </td>
@@ -82,7 +82,7 @@
                         </div>
 
                         <div class="card-footer text-center">
-                            <button type="submit" class="btn btn-primary" (click)='confirm()'>保存</button>
+                            <button type="submit" class="btn btn-primary" (click)='confirm()'>充值</button>
                             <button type="submit" class="btn bg-gray margin-left-20" (click)='back()'>返回</button>
                         </div>
                     </form>
