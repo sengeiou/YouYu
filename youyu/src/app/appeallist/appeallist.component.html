@@ -102,8 +102,8 @@
  
                                     
                                     <td> 
-                                        <div *ngIf='item.appeal_status=="B"' class="txt-green">{{item.appeal_status_name}}</div>
-                                        <button *ngIf='item.appeal_status=="A"' style="border: 0;" class="badge bg-green" (click)='update(item.id)'>{{item.appeal_status_name}}</button> 
+                                        <div  class="txt-bold {{item.appeal_status=='A'?'txt-red':'txt-green'}}">{{item.appeal_status_name}}</div>
+                                        <!-- <button *ngIf='item.appeal_status=="A"' style="border: 0;" class="badge bg-green" (click)='update(item.id)'>{{item.appeal_status_name}}</button>  -->
                                     </td>
                                     
 
@@ -114,7 +114,11 @@
                     </div>
 
                 </div>
-
+                <div *ngIf='appeallist.length==0' class="text-center" style="width: 100%;">
+                    <div style="height: 20px;"></div>
+                    <img src="{{uploadpath}}resource/{{res.zanwu}}" class="icon-60" >
+                    <div class="margin-top-10">暂无数据</div> 
+                </div>
 
             </div>
         </div>

@@ -23,6 +23,7 @@ import { PackagelistComponent } from '../packagelist/packagelist.component';
 import { CreatRechargeOrderComponent } from '../creat-recharge-order/creat-recharge-order.component';
 import { AppealComponent } from '../appeal/appeal.component';
 import { AppeallistComponent } from '../appeallist/appeallist.component';
+import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,7 @@ const routes: Routes = [
       { path: "creatrechargeorder", component: CreatRechargeOrderComponent },
       { path: "appeal", component: AppealComponent },
       { path: "appeallist", component: AppeallistComponent },
+      { path: "resetpassword", component: ResetPasswordComponent },
       
     ]
   }

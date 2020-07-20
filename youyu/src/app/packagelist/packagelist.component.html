@@ -91,8 +91,8 @@
                                     
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr *ngFor='let item of data;let i=index'>
+                            <tbody class="">
+                                <tr *ngFor='let item of data;let i=index' class="{{item.status=='A'?'txt-black':'txt-gray'}}">
                                     <!-- <td>
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==true' />
@@ -107,7 +107,7 @@
                                     <td>
                                         {{item.price}} 元
                                     </td>
-                                    <td>{{item.status_name}}</td>
+                                    <td >{{item.status_name}}</td>
  
                                     
 
@@ -117,6 +117,12 @@
                         </table>
                     </div>
 
+                </div>
+
+                <div *ngIf='packagelist.length==0' class="text-center" style="width: 100%;">
+                    <div style="height: 20px;"></div>
+                    <img src="{{uploadpath}}resource/{{res.zanwu}}" class="icon-60" >
+                    <div class="margin-top-10">暂无数据</div> 
                 </div>
 
 

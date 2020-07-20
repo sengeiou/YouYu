@@ -6,12 +6,13 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
+import { AppUtil } from '../app.util';
 
 @Component({
   selector: 'app-packagelist',
   templateUrl: './packagelist.component.html',
   styleUrls: ['./packagelist.component.scss'],
-  providers: [InstApi, MemberApi,AgentApi]
+  providers: [InstApi, MemberApi,AgentApi,]
 })
 export class PackagelistComponent extends AppBase {
 
@@ -38,8 +39,17 @@ export class PackagelistComponent extends AppBase {
     }
 
     this.agentApi.packagelist({ 
-
+      orderby:'r_main.seq desc'
     }).then((res:any)=>{
+      for(var i=0;i<res.length;i++){
+          if(res[i].status!='A'){
+           res[i].seq=1;
+          }else{
+            res[i].seq=0;
+          }
+      }
+
+      console.log(res.sort(AppUtil.compare('seq')),'排好的列表');
         this.packagelist=res;
         this.pagination(res, res.length);
         console.log(this.packagelist,'数据');

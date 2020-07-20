@@ -114,7 +114,7 @@
                             <tbody>
                                 <ng-container *ngFor='let item of orderlist;let i=index'>
 
-                                    <tr>
+                                    <tr class=" ">
 
                                         <!-- <td>{{i+1}}</td> -->
                                         <td>{{item.orderno}}</td>
@@ -147,7 +147,7 @@
                                     </tr>
 
                                     <ng-container *ngIf="item.show==true">
-                                        <tr *ngFor='let items of item.recordlist;let a=index'>
+                                        <tr *ngFor='let items of item.recordlist;let a=index' class="{{items.takestatus=='A'?'txt-blue':'txt-green'}}">
 
 
                                             <td colspan="2">卡号：{{items.cardnumber}}</td>
@@ -161,13 +161,25 @@
 
                                 </ng-container>
 
+                               
 
                             </tbody>
+
+                            
                         </table>
+
+                       
                     </div>
+
+                    
 
                 </div>
 
+                <div *ngIf='orderlist.length==0' class="text-center" style="width: 100%;">
+                    <div style="height: 20px;"></div>
+                    <img src="{{uploadpath}}resource/{{res.zanwu}}" class="icon-60" >
+                    <div class="margin-top-10">暂无数据</div> 
+                </div>
 
             </div>
         </div>

@@ -170,7 +170,7 @@
 
                                                 <button class="badge bg-green margin-right" style="border: 0;"  (click)='detail(item.id)'>查看</button>
 
-                                                <button class="badge bg-red margin-right" style="border: 0;" data-toggle="modal" data-target="#modal-default"  (click)='tanchuan(item.id)'>删除</button>
+                                                <!-- <button class="badge bg-red margin-right" style="border: 0;" data-toggle="modal" data-target="#modal-default"  (click)='tanchuan(item.id)'>删除</button> -->
 
                                         <!-- <div class="badge bg-primary margin-right" (click)='detail(item.id)'><img
                                                 src="{{uploadpath}}resource/{{res.update}}" class="icon-15"
@@ -190,7 +190,11 @@
 
                 </div>
 
-
+                <div *ngIf='agentlist.length==0' class="text-center" style="width: 100%;">
+                    <div style="height: 20px;"></div>
+                    <img src="{{uploadpath}}resource/{{res.zanwu}}" class="icon-60" >
+                    <div class="margin-top-10">暂无数据</div> 
+                </div>
             </div>
         </div>
 
