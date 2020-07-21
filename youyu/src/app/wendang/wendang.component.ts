@@ -8,12 +8,12 @@ import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
 
 @Component({
-  selector: 'app-appeal',
-  templateUrl: './appeal.component.html',
-  styleUrls: ['./appeal.component.scss'],
+  selector: 'app-wendang',
+  templateUrl: './wendang.component.html',
+  styleUrls: ['./wendang.component.scss'],
   providers: [InstApi, MemberApi, AgentApi]
 })
-export class AppealComponent extends AppBase {
+export class WendangComponent extends AppBase {
 
   constructor(
     public router: Router,
@@ -27,29 +27,18 @@ export class AppealComponent extends AppBase {
   }
   type = null;
   shensu='';
-  lianxi='';
+
   onMyLoad() {
     this.params; 
   }
 
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("set", "appeal");
+      MainComponent.Instance.setModule("wendang", "wendang");
     }
     
   }
-  confirm(){
-   console.log(this.shensu);
-   this.agentApi.addappeal({content:this.shensu,agent_id:this.agentinfo.agent_id,agent2_id:this.agentinfo.id,lianxifangshi:this.lianxi}).then((res:any)=>{ 
-     console.log(res,'222222')
-    if(res.code==0){
-     this.toast('提交成功!');
-     this.back();
-    }else{
-      this.toast('提交失败!')
-    }
-   }) 
-  }
+ 
 
   
  

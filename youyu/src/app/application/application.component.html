@@ -92,7 +92,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor='let item of shenqing;let i=index' class="{{item.shenqingstatus=='A'?'txt-blue':'txt-green'}}">
+                                <tr *ngFor='let item of shenqing;let i=index' class="{{item.shenqingstatus=='A'?'':'txt-gray'}}">
                                     <!-- <td>
                                         <img src="{{uploadpath}}resource/{{res.check}}" class="icon-20"
                                             *ngIf='check==true' />
@@ -114,8 +114,15 @@
                                     <td>
                                         <button class="badge bg-primary margin-right " style="border: 0;" data-toggle="modal" data-target="#modal-default" *ngIf='item.shenqingstatus=="A"'(click)='tongyi(item.id,item.quota,item.agent2_id)'>
                                               同意</button> 
-                                        <div class="badge bg-green margin-right" *ngIf='item.shenqingstatus=="B"' >
+
+                                              <button class="badge bg-red margin-right " style="border: 0;" data-toggle="modal" data-target="#modal-default" *ngIf='item.shenqingstatus=="A"'(click)='bohui(item.id)'>
+                                                驳回</button>
+
+                                        <div class="txt-green margin-right txt-bold" *ngIf='item.shenqingstatus=="B"' >
                                             已同意</div> 
+
+                                            <div class="txt-red margin-right txt-bold" *ngIf='item.shenqingstatus=="C"' >
+                                                已驳回</div> 
                                         <!-- <div class="badge bg-danger">
                                             <img src="{{uploadpath}}resource/{{res.delete}}" class="icon-15"
                                                 title="删除">

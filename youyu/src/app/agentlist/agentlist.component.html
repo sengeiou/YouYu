@@ -148,7 +148,7 @@
                                     <td>{{item.discount}}</td>
                                     
                                     <td>  
-                                    <button class="badge  margin-right {{item.status=='A'?'bg-primary':'bg-red'}}" style="border: 0;"  (click)='update(item.id,item.status)'>{{item.status=="A"?"启用":"禁用"}}</button>
+                                    <button class="badge  margin-right {{item.status=='A'?'bg-primary':'bg-red'}}" style="border: 0;" title='{{item.status=="A"?"启用":"禁用"}}'  (click)='update(item.id,item.status)'><img src="{{uploadpath}}resource/{{res.qiyon}}"  class="icon-15" /></button>
                                     </td>
 
                                     <!-- <td>
@@ -168,7 +168,7 @@
 
                                                 <!-- <button class="badge bg-primary margin-right" style="border: 0;"  (click)='update(item.id,item.status)'>禁用/启用</button> -->
 
-                                                <button class="badge bg-green margin-right" style="border: 0;"  (click)='detail(item.id)'>查看</button>
+                                                <button class="badge bg-green margin-right" style="border: 0;"  (click)='detail(item.id)' title="查看"><img src="{{uploadpath}}resource/{{res.see}}"  class="icon-15" /></button>
 
                                                 <!-- <button class="badge bg-red margin-right" style="border: 0;" data-toggle="modal" data-target="#modal-default"  (click)='tanchuan(item.id)'>删除</button> -->
 

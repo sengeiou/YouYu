@@ -59,6 +59,15 @@ export class ApplicationComponent extends AppBase {
     this.quota=quota;
     this.agent2_id=agent2_id;
   }
+  bohui(id){
+    this.agentApi.tongyi({  
+      id:id, 
+      type:'B'
+     }).then((res:any)=>{
+        this.pageList=[];
+        this.onMyShow();
+   })
+  }
 
   confirm(){
 
@@ -75,6 +84,7 @@ export class ApplicationComponent extends AppBase {
 
         this.agentApi.tongyi({  
           id:this.id, 
+          type:'A'
          }).then((res:any)=>{
             this.pageList=[];
             this.onMyShow();

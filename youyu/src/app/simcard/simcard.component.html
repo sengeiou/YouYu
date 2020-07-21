@@ -178,27 +178,44 @@
 
 
 
-                                        <button class="badge bg-primary margin-right" style="border: 0;"
+                                        <button class="badge bg-primary margin-right" style="border: 0;"title="分配"
                                             *ngIf='item.usestatus!="A"' data-toggle="modal" data-target="#modal-xl"
-                                            (click)='chooseagent(item.id,item.usestatus)'>分配</button>
-                                        <button class="badge bg-primary margin-right" style="border: 0;"
+                                            (click)='chooseagent(item.id,item.usestatus)'><img src="{{uploadpath}}resource/{{res.fenpei}}"  class="icon-15" /></button>
+
+
+                                            <button class="badge bg-primary margin-right" style="border: 0;"title="分配"
+                                            *ngIf='item.usestatus=="A"'  
+                                            (click)='chooseagent(item.id,item.usestatus)'><img src="{{uploadpath}}resource/{{res.fenpei}}"  class="icon-15" /></button>
+
+                                        <!-- <button class="badge bg-primary margin-right" style="border: 0;"
                                             *ngIf='item.usestatus=="A"'
-                                            (click)='chooseagent(item.id,item.usestatus)'>分配</button>
+                                            (click)='chooseagent(item.id,item.usestatus)'>分配</button> -->
 
-                                        <button class="badge bg-green margin-right" style="border: 0;"
+ 
+
+
+                                        <!-- <button class="badge bg-green margin-right" style="border: 0;"
                                             data-toggle="modal" data-target="#modal-xl2"
-                                            (click)='chakan(item.cardnumber)'>查看套餐</button>
+                                            (click)='chakan(item.cardnumber)'>查看套餐</button> -->
 
-                                        <button class="badge bg-orange margin-right " style="border: 0;"
+
+
+                                            <button class="badge bg-success margin-right" style="border: 0;" title="查看套餐" (click)='chakan(item.cardnumber)'
+                                            data-toggle="modal" data-target="#modal-xl2"><img src="{{uploadpath}}resource/{{res.see}}"  class="icon-15" /></button>
+
+
+
+                                        <button class="badge bg-orange margin-right " style="border: 0;"title="微信号"
                                             *ngIf='item.wechatid==""||item.wechatid==undefined' data-toggle="modal"
                                             data-target="#modal-xl3"
-                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'>微信号</button>
-                                        <button class="badge bg-orange margin-right " style="border: 0;"
-                                            *ngIf='item.wechatid!=""&&item.wechatid!=undefined'
-                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'>微信号</button>
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'><img src="{{uploadpath}}resource/{{res.weixin}}"  class="icon-15" /></button>
 
-                                        <button class="badge bg-green margin-right" style="border: 0;"
-                                            (click)='copy(item.cardnumber)'>转发用户</button>
+                                        <button class="badge bg-orange margin-right " style="border: 0;"title="微信号"
+                                            *ngIf='item.wechatid!=""&&item.wechatid!=undefined'
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'><img src="{{uploadpath}}resource/{{res.weixin}}"  class="icon-15" /></button>
+
+                                        <button class="badge bg-green margin-right" style="border: 0;" title="转发用户"
+                                            (click)='copy(item.cardnumber)'><img src="{{uploadpath}}resource/{{res.copy}}"  class="icon-15" /></button>
 
 
                                         <!-- <div class="badge bg-danger" data-toggle="modal" data-target="#modal-default">

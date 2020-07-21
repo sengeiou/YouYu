@@ -16,45 +16,7 @@
 
     <section class="content">
 
-        <!-- <div class="row">
-            <div class="col-md-12">
-              
-                <div class="card card-info">
-                    <div class="card-header bg-gray-d">
-                        <h3 class="card-title">搜索条件</h3>
-                    </div>
-               
-                    <form class="form-horizontal">
-                        <div class="card-body">
-                            <div class="row">
-                                 
-                                <div class="form-group  col-lg-4 col-md-5  col-sm-6">
-                                    <label for="inputEmail3" class=" col-form-label">代理商</label>
-                                    <input type="text" class="form-control" id="inputEmail3" placeholder="请输入代理商名称"
-                                        name='name'  [(ngModel)]='name' />
-                                </div>
-                                 
-                            </div>
-                        </div>
-                       
-                        <div class="card-footer">
-                            <div class="float-right">
-                                <button type="submit" class="btn bg-gray" (click)='reset()'>重置</button>
-                                <button type="submit" class="btn btn-primary margin-left-20" (click)='search()'>搜索</button>
-                            </div>
-                            <div>
-                                <button type="submit" class="btn btn-info " routerLink='/creatorder'>新增分配记录</button>
-                            </div>
-
-                        </div>
-                        
-                    </form>
-                </div>
-              
-
-
-            </div>
-        </div> -->
+  
 
         <div class="row">
             <div class="col-md-12">
@@ -123,6 +85,13 @@
                     <div style="height: 20px;"></div>
                     <img src="{{uploadpath}}resource/{{res.zanwu}}" class="icon-60" >
                     <div class="margin-top-10">暂无数据</div> 
+                </div>
+
+
+                <div class="card">
+                    <div class="card-body padding-40">
+                        <pre style="white-space:pre-wrap;color: gray;">{{InstInfo.goodspage}}</pre>
+                    </div> 
                 </div>
 
 

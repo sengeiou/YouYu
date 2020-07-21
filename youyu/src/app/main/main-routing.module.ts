@@ -24,6 +24,8 @@ import { CreatRechargeOrderComponent } from '../creat-recharge-order/creat-recha
 import { AppealComponent } from '../appeal/appeal.component';
 import { AppeallistComponent } from '../appeallist/appeallist.component';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
+import { WendangComponent } from '../wendang/wendang.component';
+
 
 const routes: Routes = [
   {
@@ -54,7 +56,7 @@ const routes: Routes = [
       { path: "appeal", component: AppealComponent },
       { path: "appeallist", component: AppeallistComponent },
       { path: "resetpassword", component: ResetPasswordComponent },
-      
+      { path: "wendang", component: WendangComponent },
     ]
   }
 ];
