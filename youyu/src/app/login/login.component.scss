@@ -34,3 +34,36 @@ height:40px;
 background:rgba(23,25,48,1);
 border-radius:4px;
 }
+
+.button2{
+    width:250px;
+height:40px;
+background:rgb(162, 162, 163);
+border-radius:4px;
+}
+pre{
+    white-space: pre-wrap; /*css-3*/
+white-space: -moz-pre-wrap; /*Mozilla,since1999*/
+white-space: -pre-wrap; /*Opera4-6*/
+white-space: -o-pre-wrap; /*Opera7*/
+word-wrap: break-word; /*InternetExplorer5.5+*/
+}
+.modal-xl {
+    max-width: 540px;
+}
+.justify-content-between { 
+    //justify-content: space-between!important;
+    justify-content: center!important;
+}
+.tiao{
+    width:82px;
+height:7px;
+background:rgba(68,215,182,1);
+}
+.wenan{
+    font-size:20px; 
+font-weight:400;
+color:rgba(255,255,255,1);
+line-height:38px;
+letter-spacing:3px;
+}

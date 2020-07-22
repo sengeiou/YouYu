@@ -28,7 +28,7 @@
             <div class="margin-top-40 txt-bold">产品套餐</div>
 
             <div *ngFor='let item of orderlist;let i=index' class="">
-                <div class="">套餐名称：{{item.packagetype_name}} {{item.package_traffic}}M {{item.package_month}}{{item.package_danwei=='A'?'天':'个月'}}</div>
+                <div class="">套餐名称：{{item.packagetype_name}}  {{item.package_month}}{{item.package_danwei=='A'?'天':'个月'}}  总{{item.zong}}G</div>
  
                 <table class="table text-center margin-top-20" style="min-width: 200px;max-width: 300px;">
                     <thead>

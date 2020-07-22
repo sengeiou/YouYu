@@ -36,7 +36,8 @@ export class RechargeOrderComponent extends AppBase {
   cardid='';
   orderno='';
   xianshi='B';
-
+  starttime='';
+  endtime='';
   onMyLoad() {
     this.params;
   }
@@ -118,7 +119,9 @@ export class RechargeOrderComponent extends AppBase {
     
     this.agentApi.orderlist({ 
       simcardname:this.cardid,
-      orderno:this.orderno
+      orderno:this.orderno,
+      starttime:this.starttime,
+      endtime:this.endtime
     }).then((res:any)=>{
         for(var i=0;i<res.length;i++){
           res[i].show=false;

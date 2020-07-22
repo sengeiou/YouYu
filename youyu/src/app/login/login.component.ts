@@ -27,7 +27,7 @@ export class LoginComponent extends AppBase {
     this.isLoginPage=true;
    }
    loginunicode="";
-  
+   readagreement=false;
    onMyLoad(){
      this.params;
      this.instApi.info({  }).then((instinfo) => {
@@ -53,6 +53,11 @@ export class LoginComponent extends AppBase {
       }else if (this.password != ''){
         this.isremember = true;
       }
+   }
+
+   inputs(){
+     console.log(this.readagreement);
+     this.readagreement=this.readagreement;
    }
   
    login(){
@@ -118,5 +123,11 @@ export class LoginComponent extends AppBase {
     // })
     
    }
+
+   tishi(){
+      this.toast("请先同意电子协议")
+   }
+
+
   
 }

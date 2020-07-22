@@ -29,6 +29,8 @@ export class OrderlistComponent extends AppBase {
   check=false;
   fenpeilist=[];
   name='';
+  starttime='';
+  endtime='';
   onMyLoad() {
     this.params;
   }
@@ -50,6 +52,8 @@ export class OrderlistComponent extends AppBase {
     this.pageList = [];
     this.agentApi.fenpeilist({  
      name:this.name, 
+     starttime:this.starttime,
+     endtime:this.endtime
     }).then((res:any)=>{
         this.fenpeilist=res;
         this.pagination(res, res.length);

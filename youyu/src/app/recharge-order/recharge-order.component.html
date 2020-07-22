@@ -44,6 +44,21 @@
                                     <input type="text" [(ngModel)]='cardid' class="form-control" id="inputEmail3"
                                         placeholder="请输入充值卡号" name='cardid' />
                                 </div>
+
+                                <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">起始时间</label>
+                                    <input type="date" class="form-control col-form-label-sm" id="inputEmail3"
+                                      data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask
+                                      placeholder="年/月/日" name='start' [(ngModel)]='starttime' />
+                                  </div>
+
+                                  <div class="form-group   col-lg-2 col-md-3  col-sm-4">
+                                    <label for="inputEmail3" class=" col-form-label col-form-label-sm">结束时间</label>
+                                    <input type="date" class="form-control col-form-label-sm" id="inputEmail3"
+                                      data-inputmask-alias="datetime" data-inputmask-inputformat="yyyy/mm/dd" data-mask
+                                      placeholder="年/月/日" name='end' [(ngModel)]='endtime' />
+                                  </div>
+
                             </div>
                         </div>
                         <!-- /.card-body -->

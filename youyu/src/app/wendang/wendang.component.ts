@@ -6,7 +6,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
-
+import { AppUtil } from '../app.util';
 @Component({
   selector: 'app-wendang',
   templateUrl: './wendang.component.html',
@@ -27,7 +27,8 @@ export class WendangComponent extends AppBase {
   }
   type = null;
   shensu='';
-
+  content='';
+  //wenjian=null;
   onMyLoad() {
     this.params; 
   }
@@ -36,7 +37,13 @@ export class WendangComponent extends AppBase {
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("wendang", "wendang");
     }
+
     
+    this.agentApi.wendang({}).then((res:any)=>{
+        this.content=res.content;
+        this.content=AppUtil.HtmlDecode(res.content);
+       console.log(res.status,'文档')
+    })
   }
  
 

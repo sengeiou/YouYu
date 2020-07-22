@@ -162,7 +162,10 @@
                                     <td>{{item.cardnumber}}</td>
                                     <td>{{item.agent_name}}</td>
 
-                                    <td>{{item.accountStatus_name}}</td>
+                                    <td class="txt-red" *ngIf='item.accountStatus=="2"||item.accountStatus=="3"'>{{item.accountStatus_name}}</td>
+                                    <td class="txt-green"*ngIf='item.accountStatus=="1"'>{{item.accountStatus_name}}</td>
+                                    <td class="txt-blue"*ngIf='item.accountStatus=="0"'>{{item.accountStatus_name}}</td>
+                                    <td class="txt-gray"*ngIf='item.accountStatus==""||item.accountStatus=="4"'>{{item.accountStatus_name}}</td>
                                     <td>{{item.type_name}}/{{item.youma}}</td>
                                     <td>{{item.fachu}}</td>
                                     <td>{{item.huode}}</td>
@@ -206,13 +209,14 @@
 
 
                                         <button class="badge bg-orange margin-right " style="border: 0;"title="微信号"
-                                            *ngIf='item.wechatid==""||item.wechatid==undefined' data-toggle="modal"
+                                             data-toggle="modal"
                                             data-target="#modal-xl3"
                                             (click)='wechat(item.id,item.usestatus,item.wechatid)'><img src="{{uploadpath}}resource/{{res.weixin}}"  class="icon-15" /></button>
 
-                                        <button class="badge bg-orange margin-right " style="border: 0;"title="微信号"
+                                            <!-- *ngIf='item.wechatid==""||item.wechatid==undefined' -->
+                                        <!-- <button class="badge bg-orange margin-right " style="border: 0;"title="微信号"
                                             *ngIf='item.wechatid!=""&&item.wechatid!=undefined'
-                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'><img src="{{uploadpath}}resource/{{res.weixin}}"  class="icon-15" /></button>
+                                            (click)='wechat(item.id,item.usestatus,item.wechatid)'><img src="{{uploadpath}}resource/{{res.weixin}}"  class="icon-15" /></button> -->
 
                                         <button class="badge bg-green margin-right" style="border: 0;" title="转发用户"
                                             (click)='copy(item.cardnumber)'><img src="{{uploadpath}}resource/{{res.copy}}"  class="icon-15" /></button>
@@ -398,8 +402,8 @@
 
             </div>
             <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
 
                 <button type="submit" class="btn bg-primary" data-dismiss="modal" (click)='tianxie()'>保存</button>
 

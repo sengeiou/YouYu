@@ -43,7 +43,7 @@ export class AppBase implements OnInit {
     public res = null;
     public static StaticInstInfo = null;
 
-    public InstInfo = { name: "", tel: '', logo: '' ,version:'',copyright:'',links:'',agentname:'',agent_version:'',shensu:'',goodspage:'',password:'',guanyuedu:'' };
+    public InstInfo = { name: "", tel: '', logo: '' ,version:'',copyright:'',links:'',agentname:'',agent_version:'',shensu:'',goodspage:'',password:'',guanyuedu:'',agreement:'',biaoti:'',wenan1:'',wenan2:'',wenan3:'',shuoming:'' };
 
 
     public options = null; 

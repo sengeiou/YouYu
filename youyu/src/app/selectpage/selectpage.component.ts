@@ -30,6 +30,7 @@ export class SelectpageComponent extends AppBase {
   info=null;
   simcardid='';
   orderlist=[];
+
   onMyLoad() {
     this.params;
     this.simcardid=this.params.cardid;
@@ -47,6 +48,13 @@ export class SelectpageComponent extends AppBase {
      simcardname:this.simcardid
     }).then((res:any)=>{ 
         this.orderlist=res; 
+
+        for(var i=0;i<res.length;i++){
+         
+          res[i].zong=(parseInt(res[i].package_traffic)/1000)*res[i].recordlist.length;
+
+        }
+
         console.log(this.orderlist,'数据');
     })
  

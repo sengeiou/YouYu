@@ -269,10 +269,10 @@ export class SimcardComponent extends AppBase {
 
   }
   wechat(id,status,wechatid){
-    if(wechatid!=undefined&&wechatid!=""){
-      this.toast("该卡已填写微信号!");
-      return
-    }
+    // if(wechatid!=undefined&&wechatid!=""){
+    //   this.toast("该卡已填写微信号!");
+    //   return
+    // }
     this.cardid=id;
   }
   tianxie(){

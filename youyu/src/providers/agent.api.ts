@@ -361,6 +361,28 @@ export class AgentApi {
     }
 
 
+    public statistics(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/statistics';
+        var headers = ApiConfig.GetHeader(url, data);
+        let options = { headers: headers };
+        let body = ApiConfig.ParamUrlencoded(data);
+        let loading = null;
+
+        if (showLoadingModal) {
+            loading = ApiConfig.GetLoadingModal();
+        }
+
+        return this.http.post(url, body, options).toPromise()
+            .then((res) => {
+                return res;
+            })
+            .catch(err => {
+                console.error(err);
+                return ApiConfig.ErrorHandle('agent/statistics', data, err);
+            });
+    }
+
+
     public tiqianchong(data, showLoadingModal: boolean = true) {
         var url = ApiConfig.getApiUrl() + 'agent/tiqianchong';
         var headers = ApiConfig.GetHeader(url, data);
@@ -471,8 +493,8 @@ export class AgentApi {
     }
 
 
-    public statistics(data, showLoadingModal: boolean = true) {
-        var url = ApiConfig.getApiUrl() + 'agent/statistics';
+    public wendang(data, showLoadingModal: boolean = true) {
+        var url = ApiConfig.getApiUrl() + 'agent/wendang';
         var headers = ApiConfig.GetHeader(url, data);
         let options = { headers: headers };
         let body = ApiConfig.ParamUrlencoded(data);
@@ -488,7 +510,7 @@ export class AgentApi {
             })
             .catch(err => {
                 console.error(err);
-                return ApiConfig.ErrorHandle('agent/statistics', data, err);
+                return ApiConfig.ErrorHandle('agent/wendang', data, err);
             });
     }
 
