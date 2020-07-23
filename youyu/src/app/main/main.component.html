@@ -9,9 +9,10 @@
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" role="button"><img src="{{uploadpath}}resource/{{res.shouqi}}" class="icon-25 margin-right-10"></a>
+        <a class="nav-link" data-widget="pushmenu" role="button"><img src="{{uploadpath}}resource/{{res.shouqi}}"
+            class="icon-25 margin-right-10"></a>
 
-         
+
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a routerLink='/' class="nav-link">主页</a>
@@ -72,7 +73,7 @@
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
 
-          <span class="h5 txt-red">余额显示：{{agentinfo.quota}}</span>
+          <span class="h5 txt-red">当前余额：{{agentinfo.quota}}元</span>
         </a>
         <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
 
@@ -80,22 +81,20 @@
         </div> -->
       </li>
 
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link " href="/addshenqing">
           <span class="h5 txt-blue">申请额度</span>
         </a>
 
-      </li>
+      </li> -->
 
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link " href="/resetpassword">
 
           <span class="h5 txt-blue">修改密码</span>
         </a>
-        <!-- <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right"> 
-          <a class="dropdown-item dropdown-footer" routerLink='/addshenqing'>额度申请</a>
-        </div> -->
-      </li>
+       
+      </li> -->
 
       <li class="nav-item dropdown">
         <a class="nav-link " data-toggle="modal" data-target="#modal-xl3" (click)='logout()'>
@@ -174,7 +173,7 @@
             </ul>
           </li>
 
-          
+
 
           <li class="nav-item has-treeview">
             <a class="nav-link {{module=='agent'?'active':''}}">
@@ -248,7 +247,7 @@
 
           <li class="nav-item has-treeview">
             <a class="nav-link {{module=='set'?'active':''}}">
-              
+
 
               <i class=""><img src="{{uploadpath}}resource/{{res.gengduofuwu}}" class="icon-25 margin-right-10"></i>
 
@@ -275,18 +274,75 @@
                   <p>申请额度</p>
 
                 </a></li>
+                <li class="nav-item"><a href="#" class="nav-link flex-row flex-center
+                  {{module2=='mima'?'active':''}}" routerLink='/resetpassword'><i class="
+                    far fa-circle nav-icon"></i>
+                  <p>修改密码</p>
+
+                </a></li>
+  
+            </ul>
+
+          </li>
+          
+          
+
+
+          <li class="nav-item has-treeview">
+            <a class="nav-link {{module=='wd'?'active':''}}">
+
+              <i class=""><img src="{{uploadpath}}resource/{{res.wendang}}" class="icon-25 margin-right-10"></i>
+
+              <p>
+                共同成长<i class="right fas fa-angle-left"></i>
+              </p>
+              <!-- <span class="badge badge-info right" *ngIf='shensu>0'>{{shensu}}</span> -->
+            </a>
+
+            <ul class="nav nav-treeview" style="margin-top: 0;">
+              <!-- <li class="nav-item"><a href="#" class="nav-link flex-row flex-center  "  
+                   ><i class=" far fa-circle nav-icon"></i>
+                  <p>短信通知设置</p>
+                </a></li> -->
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module2=='A'?'active':''}}"
+                 (click)='jump("wd","A")'><i class=" far fa-circle nav-icon"></i>
+                  <p>了解我们的产品</p>
+                  <!-- <span class="badge badge-info right" *ngIf='shensu>0'>{{shensu}}</span>  -->
+                </a></li>
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module2=='B'?'active':''}}"
+                 (click)='jump("wd","B")'><i class=" far fa-circle nav-icon"></i>
+                  <p>理解资费策略与服务精神</p>
+                </a></li>
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module=='C'?'active':''}}"
+                routerLink='/wendang' (click)='setModule("wd","C")'><i class=" far fa-circle nav-icon"></i>
+                  <p>帮助用户解决问题</p>
+                </a></li>
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module=='D'?'active':''}}"
+                  routerLink='/wendang' (click)='setModule("wd","D")'><i class=" far fa-circle nav-icon"></i>
+                  <p>实现您的营销与推广</p>
+                </a></li>
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module=='E'?'active':''}}"
+                  routerLink='/wendang' (click)='setModule("wd","E")'><i class=" far fa-circle nav-icon"></i>
+                  <p>提升您的盈利</p>
+                </a></li>
+              <li class="nav-item"><a href="#" class="nav-link flex-row flex-center {{module=='F'?'active':''}}"
+                  routerLink='/wendang' (click)='setModule("wd","F")'><i class=" far fa-circle nav-icon"></i>
+                  <p>用户常见问题集合</p>
+                </a></li>
             </ul>
 
           </li>
 
-          <li class="nav-item ">
+
+
+          <!-- <li class="nav-item ">
             <a class="nav-link  {{module=='wendang'?'active':''}}" routerLink='/wendang'>
               <i class=""><img src="{{uploadpath}}resource/{{res.wendang}}" class="icon-25 margin-right-10"></i>
               <p>
                 共同成长
               </p>
             </a>
-          </li>
+          </li> -->
 
           <!-- <li class="nav-item">
             <a class="nav-link {{module=='addshenqing'?'active':''}}" routerLink='/addshenqing'>

@@ -162,10 +162,10 @@
                                     <td>{{item.cardnumber}}</td>
                                     <td>{{item.agent_name}}</td>
 
-                                    <td class="txt-red" *ngIf='item.accountStatus=="2"||item.accountStatus=="3"'>{{item.accountStatus_name}}</td>
+                                    <td class="txt-red" *ngIf='item.accountStatus=="2"||item.accountStatus=="3"||item.accountStatus=="4"'>{{item.accountStatus_name}}</td>
                                     <td class="txt-green"*ngIf='item.accountStatus=="1"'>{{item.accountStatus_name}}</td>
                                     <td class="txt-blue"*ngIf='item.accountStatus=="0"'>{{item.accountStatus_name}}</td>
-                                    <td class="txt-gray"*ngIf='item.accountStatus==""||item.accountStatus=="4"'>{{item.accountStatus_name}}</td>
+                                    <td class="txt-gray"*ngIf='item.accountStatus==""'>{{item.accountStatus_name}}</td>
                                     <td>{{item.type_name}}/{{item.youma}}</td>
                                     <td>{{item.fachu}}</td>
                                     <td>{{item.huode}}</td>
@@ -174,7 +174,6 @@
                                     <!-- <td> <span class="badge">
                                             {{item.status=="A"?"启用":"禁用"}}</span>
                                     </td> -->
-
 
                                     <!-- <textarea cols="20" rows="10" id="urls">用户定义的代码区域</textarea>  -->
                                     <td>

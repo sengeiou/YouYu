@@ -56,17 +56,6 @@ export class MainComponent extends AppBase {
     var today = new Date();
     var timespan = today.getTime();
 
-
-
-    // var time=setInterval(()=>{
-      this.agentApi.shenqing({shenqingstatus:'A'}).then((ret:any)=>{ 
-        this.shenqingshu=ret.length;  
-      })
-      
-      this.agentApi.appeallist({appeal_status:'A'}).then((res:any)=>{ 
-        this.shensu= res.length;
-       })
-    // },2000)
     
     if (this.memberinfo != null
       &&
@@ -77,13 +66,24 @@ export class MainComponent extends AppBase {
     
     this.renderer2.setStyle(this.el.nativeElement.querySelector('#loadingimg'),'background','green');
   }
-
+   
 
   setModule(module, module2) {
     this.module = module;
-    this.module2 = module2;
-    this.refreshSummary();
+    this.module2 = module2; 
+   
+    this.refreshSummary(); 
+ 
+
     console.log("列表",module,module2)
+     
+  }
+  jump(module, module2){
+    this.module = module;
+    this.module2 = module2; 
+     
+    this.navigate('/wendang',{wdtype:this.module2})
+    this.onMyShow();
   }
 
   

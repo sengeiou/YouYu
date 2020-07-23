@@ -29,7 +29,7 @@ export class AppBase implements OnInit {
     public static devicename = "";
     public static Lang = null;
     public static TABName = "";
-    public static LASTTAB = null;
+    public static LASTTAB = null; 
     public static CurrentRoute: Router = null;
     public static Current: AppBase = null;
     public static myapp: AppComponent = null;
@@ -48,8 +48,9 @@ export class AppBase implements OnInit {
 
     public options = null; 
     public params: Params = null;
-
-
+    
+    
+    
     public memberinfo = null;
     public agentinfo = null;
 
@@ -75,6 +76,7 @@ export class AppBase implements OnInit {
         this.activeRoute.queryParams.subscribe((params: Params) => {
             console.log(params);
             this.params = params;
+          
         });
         this.res = [];
 
@@ -101,9 +103,13 @@ export class AppBase implements OnInit {
         this.checktime();
         this.getlang();
         this.getcountry();
- 
 
+      
+ 
     }
+    
+
+ 
     
     CheckPermission() {
         //console.log(this.agentinfo,'信息信息信息');
@@ -230,7 +236,6 @@ export class AppBase implements OnInit {
     
     onMyShow() {
         
-
     }
     windowslocation(url) {
         window.location.href = url;

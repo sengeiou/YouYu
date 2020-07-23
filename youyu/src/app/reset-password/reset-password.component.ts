@@ -6,6 +6,7 @@ import { InstApi } from 'src/providers/inst.api';
 import { MemberApi } from 'src/providers/member.api';
 import { ApiConfig } from '../api.config';
 import { AgentApi } from 'src/providers/agent.api'; 
+import { MainComponent } from '../main/main.component';
 
 @Component({
   selector: 'app-reset-password',
@@ -57,6 +58,9 @@ export class ResetPasswordComponent extends AppBase {
     }
   }
   onMyShow() {
+    if (MainComponent.Instance != null) {
+      MainComponent.Instance.setModule("set", "mima");
+    }
   }
   changePassword() {
  

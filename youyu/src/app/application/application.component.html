@@ -115,7 +115,7 @@
                                         <button class="badge bg-primary margin-right " style="border: 0;" data-toggle="modal" data-target="#modal-default" *ngIf='item.shenqingstatus=="A"'(click)='tongyi(item.id,item.quota,item.agent2_id)'>
                                               同意</button> 
 
-                                              <button class="badge bg-red margin-right " style="border: 0;" data-toggle="modal" data-target="#modal-default" *ngIf='item.shenqingstatus=="A"'(click)='bohui(item.id)'>
+                                              <button class="badge bg-red margin-right " style="border: 0;"   *ngIf='item.shenqingstatus=="A"'(click)='bohui(item.id)'>
                                                 驳回</button>
 
                                         <div class="txt-green margin-right txt-bold" *ngIf='item.shenqingstatus=="B"' >

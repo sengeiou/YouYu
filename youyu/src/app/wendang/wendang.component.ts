@@ -15,8 +15,11 @@ import { AppUtil } from '../app.util';
 })
 export class WendangComponent extends AppBase {
 
+  
+   
   constructor(
     public router: Router,
+    private routeInfo:ActivatedRoute,
     public activeRoute: ActivatedRoute,
     public instApi: InstApi,
     public agentApi: AgentApi,
@@ -28,16 +31,22 @@ export class WendangComponent extends AppBase {
   type = null;
   shensu='';
   content='';
+  wdtype='';
   //wenjian=null;
   onMyLoad() {
     this.params; 
+
+  }
+  ngOnInit(){
+    console.log(this.params,'快乐健康')
   }
 
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("wendang", "wendang");
+    //  MainComponent.Instance.setModule("wd", "wendang");
     }
-
+      this.wdtype=this.params.wdtype;
+      console.log(this.wdtype,'参数')
     
     this.agentApi.wendang({}).then((res:any)=>{
         this.content=res.content;

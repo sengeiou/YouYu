@@ -5,32 +5,32 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class ApiConfig {
 	
     
-    public static getLocalPath() {
-        return "https://alioss.app-link.org/alucard263096/youyucard/";
-    }
+    // public static getLocalPath() {
+    //     return "https://alioss.app-link.org/alucard263096/youyucard/";
+    // }
 
-    public static getApiUrl() {
-        return "https://cmsdev.app-link.org/alucard263096/youyucard/api/";
-    }
-    public static getUploadPath() {
-        return "https://alioss.app-link.org/alucard263096/youyucard/";
-    }
-    public static getFileUploadAPI() {
-        return "https://cmsdev.app-link.org/alucard263096/youyucard/fileupload";
-    }
-    
-    
-    
-
-    // public static getApiUrl() { 
-    //      return "http://cms.kalianworld.com/api/";
+    // public static getApiUrl() {
+    //     return "https://cmsdev.app-link.org/alucard263096/youyucard/api/";
     // }
     // public static getUploadPath() {
-    //     return "https://kalianworld.oss-accelerate.aliyuncs.com/";
+    //     return "https://alioss.app-link.org/alucard263096/youyucard/";
     // }
-    // public static getFileUploadAPI() { 
-    //     return "http://cms.kalianworld.com/fileupload";
+    // public static getFileUploadAPI() {
+    //     return "https://cmsdev.app-link.org/alucard263096/youyucard/fileupload";
     // }
+    
+    
+    
+
+    public static getApiUrl() { 
+         return "http://cms.kalianworld.com/api/";
+    }
+    public static getUploadPath() {
+        return "https://kalianworld.oss-accelerate.aliyuncs.com/";
+    }
+    public static getFileUploadAPI() { 
+        return "http://cms.kalianworld.com/fileupload";
+    }
 
 
 

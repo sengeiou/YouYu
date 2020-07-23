@@ -43,7 +43,7 @@ export class SimcardComponent extends AppBase {
   info=null;
   wechatid='';
   cardid=''; 
-  statuslist=[{id:0,name:'未激活'},{id:1,name:'已激活'},{id:2,name:'已关闭'},{id:3,name:'已过期'},{id:4,name:'HLR Terminated'}];
+  statuslist=[{id:0,name:'未激活'},{id:1,name:'已激活'},{id:2,name:'已关闭'},{id:3,name:'已过期'},{id:4,name:'已销户'}];
   accountStatus='';
   agent='';
   orderlist=[];
