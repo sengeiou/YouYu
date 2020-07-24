@@ -48,6 +48,11 @@ import { NgxEchartsModule } from 'ngx-echarts';
 import * as echarts from 'echarts';
 import { SelectpageComponent } from './selectpage/selectpage.component'; 
 import { WendangComponent } from './wendang/wendang.component';
+import { Wendang2Component } from './wendang2/wendang2.component';
+import { Wendang3Component } from './wendang3/wendang3.component';
+import { Wendang4Component } from './wendang4/wendang4.component';
+import { Wendang5Component } from './wendang5/wendang5.component';
+import { Wendang6Component } from './wendang6/wendang6.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +84,7 @@ import { WendangComponent } from './wendang/wendang.component';
     AppealComponent,
     AppeallistComponent,
     SelectpageComponent, 
-    WendangComponent, 
+    WendangComponent, Wendang2Component, Wendang3Component, Wendang4Component, Wendang5Component, Wendang6Component, 
 
   ],
   imports: [

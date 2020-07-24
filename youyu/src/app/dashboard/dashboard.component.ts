@@ -41,9 +41,15 @@ export class DashboardComponent extends AppBase {
   datefrom='';
   dateto='';
   allprice=0;
- 
-  
-
+  active_total=0;
+  agent_total=0;
+  zongshu=0;
+  starnum=0;
+  cha=0;
+  start=0;
+  tianshu=0;
+  chongzhilv=0;
+  yuelirun=0;
   onMyShow() { 
     if (MainComponent.Instance != null) {
       MainComponent.Instance.setModule("home", "");
@@ -58,11 +64,52 @@ export class DashboardComponent extends AppBase {
     }).then((res:any)=>{
       this.month=res.month;
       this.days=res.days;
+      this.active_total=res.active_total;
+      this.agent_total=res.agent_total;
+      this.zongshu=parseInt(res.zongshu);
       this.list=res.list; 
       this.datefrom=res.list[0].date;
       this.allprice=res.allprice;
       this.dateto=res.list[res.list.length-1].date; 
-      console.log(res,'返回的数据'); 
+      this.tianshu=res.tianshu;
+
+
+      this.chongzhilv=Math.ceil((this.allprice/this.tianshu)*365);
+
+      this.yuelirun=Math.ceil(this.chongzhilv/12);
+      
+      console.log(this.yuelirun,'利率多少');
+
+      if(this.zongshu<50){ 
+        this.cha=50-this.zongshu;
+        this.start=0;
+     }
+
+      if(this.zongshu>=50&&this.zongshu<200){
+         this.starnum=20;
+         this.cha=200-this.zongshu;
+         this.start=1;
+      }
+      if(this.zongshu>=200&&this.zongshu<500){
+        this.starnum=40;
+        this.cha=500-this.zongshu;
+        this.start=2;
+      }
+     if(this.zongshu>=500&&this.zongshu<1000){
+      this.starnum=60;
+      this.cha=1000-this.zongshu;
+      this.start=3;
+      }
+     if(this.zongshu>=1000&&this.zongshu<2000){
+       this.starnum=80;
+       this.cha=2000-this.zongshu;
+       this.start=4;
+       }
+       if(this.zongshu>=2000){
+        this.starnum=100; 
+        this.start=5;
+        }
+
 
       this.setClientAccOption(this.list);
       

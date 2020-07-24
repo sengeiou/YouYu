@@ -5,3 +5,28 @@
     width: 800px;
     height: 600px;
   }
+
+  .starbox {
+    width: 100px;
+    position: relative;
+    display: inline-block; 
+    overflow: hidden;
+  }
+  .stars {
+    position: relative;
+    top: 0;
+    left: 0; 
+    overflow: hidden;
+  }
+  .ims {
+    float: left;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .stars2 { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+ 

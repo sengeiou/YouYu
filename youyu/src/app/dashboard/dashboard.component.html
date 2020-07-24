@@ -16,6 +16,48 @@
   <section class="content">
     <div class="container-fluid">
 
+      <div class=" ">
+
+        <div class="card-body padding-40">
+
+          <div class="flex-row2 flex-center2">
+            <div>
+              您当前星级：
+            </div>
+ 
+            <div class="starbox margin-bottom-10">
+							<div class="stars"   style="width: 100%;">
+								<div class=" ims">
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-20"   />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-20"   />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-20"   />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-20"   />
+                  <img src="{{uploadpath}}resource/{{res.star_null}}" class="icon-20"   />
+								</div>
+              </div>
+              
+							<div class="stars2"   [ngStyle]="{'width':starnum+'%'}">
+								<div class="ims">
+                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-20"    />
+                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-20"    />
+                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-20"    />
+                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-20"    />
+                   <img src="{{uploadpath}}resource/{{res.star}}" class="icon-20"    />
+								</div>
+							</div>
+            </div>
+            
+
+
+           
+          </div>
+          
+          <div>再提卡<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{cha}}</span>张，即可晋级<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{start+1}}</span>星级！</div>
+          <div>您的用户已激活<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{active_total}}</span>个，累计充值<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{allprice}}</span>元，已发展代理商数<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{agent_total}}</span>人！</div>
+          <div>继续努力，预计12个月后，您的月充值额将达到<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{chongzhilv}}</span>元，月利润<span class="txt-red txt-bold margin-left-10 margin-right-10 h4">{{yuelirun}}</span>元左右！</div>
+        </div>
+        
+      </div>
 
       <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
@@ -25,7 +67,7 @@
             <div class="info-box-content">
               <span class="info-box-text">今日充值</span>
               <span class="info-box-number">
-                {{days}}
+                {{days}}元
               </span>
             </div>
 
@@ -39,7 +81,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">本月充值</span>
-              <span class="info-box-number">{{month}}</span>
+              <span class="info-box-number">{{month}}元</span>
             </div>
 
           </div>
@@ -51,8 +93,8 @@
             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">累积充值</span>
-              <span class="info-box-number">{{allprice}}</span>
+              <span class="info-box-text">累计充值</span>
+              <span class="info-box-number">{{allprice}}元</span>
             </div>
 
           </div>
@@ -67,9 +109,11 @@
           <div class="info-box mb-3 cur-po">
             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
+
+
             <div class="info-box-content">
-              <span class="info-box-text">卡统计</span>
-              <span class="info-box-number">{{cardtoatl}}张</span>
+              <span class="info-box-text">累计提卡</span>
+              <span class="info-box-number">{{zongshu}}张</span>
             </div>
 
           </div>
@@ -82,20 +126,20 @@
       </div>
 
 
-      <div class="row" id="statincome" > 
+      <div class="row" id="statincome">
         <div class="col-md-12 col-sm-12" *ngIf="clientaccoptions!=null">
           <div echarts [options]='clientaccoptions'>
           </div>
-          
+
         </div>
       </div>
 
 
       <div class=" ">
         <div class="card-body padding-40">
-            <pre style="white-space:pre-wrap;color: gray;">{{InstInfo.shuoming}}</pre>
-        </div> 
-    </div>
+          <pre style="white-space:pre-wrap;color: gray;">{{InstInfo.shuoming}}</pre>
+        </div>
+      </div>
 
 
 
@@ -104,7 +148,7 @@
 
 
 
-    
+
 
   </section>
 

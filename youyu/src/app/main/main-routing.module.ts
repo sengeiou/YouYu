@@ -25,7 +25,11 @@ import { AppealComponent } from '../appeal/appeal.component';
 import { AppeallistComponent } from '../appeallist/appeallist.component';
 import { ResetPasswordComponent } from '../reset-password/reset-password.component';
 import { WendangComponent } from '../wendang/wendang.component';
-
+import { Wendang2Component } from '../wendang2/wendang2.component';
+import { Wendang3Component } from '../wendang3/wendang3.component';
+import { Wendang4Component } from '../wendang4/wendang4.component';
+import { Wendang5Component } from '../wendang5/wendang5.component';
+import { Wendang6Component } from '../wendang6/wendang6.component';
 
 const routes: Routes = [
   {
@@ -57,6 +61,11 @@ const routes: Routes = [
       { path: "appeallist", component: AppeallistComponent },
       { path: "resetpassword", component: ResetPasswordComponent },
       { path: "wendang", component: WendangComponent },
+      { path: "wendang2", component: Wendang2Component },
+      { path: "wendang3", component: Wendang3Component },
+      { path: "wendang4", component: Wendang4Component },
+      { path: "wendang5", component: Wendang5Component },
+      { path: "wendang6", component: Wendang6Component },
     ]
   }
 ];

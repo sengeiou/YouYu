@@ -8,12 +8,12 @@ import { MainComponent } from '../main/main.component';
 import { AgentApi } from 'src/providers/agent.api';
 import { AppUtil } from '../app.util';
 @Component({
-  selector: 'app-wendang',
-  templateUrl: './wendang.component.html',
-  styleUrls: ['./wendang.component.scss'],
+  selector: 'app-wendang4',
+  templateUrl: './wendang4.component.html',
+  styleUrls: ['./wendang4.component.scss'],
   providers: [InstApi, MemberApi, AgentApi]
 })
-export class WendangComponent extends AppBase {
+export class Wendang4Component extends AppBase {
 
   
    
@@ -28,10 +28,11 @@ export class WendangComponent extends AppBase {
     super(router, activeRoute, instApi, memberApi);
 
   }
-   
-   
+  type = null;
+  shensu='';
   content='';
-   
+  wdtype='';
+  //wenjian=null;
   onMyLoad() {
     this.params; 
 
@@ -42,13 +43,12 @@ export class WendangComponent extends AppBase {
 
   onMyShow() {
     if (MainComponent.Instance != null) {
-      MainComponent.Instance.setModule("wd", "wendang");
+      MainComponent.Instance.setModule("wd", "wendang4");
     }
-   
-    this.agentApi.wendang({type:'A'}).then((res:any)=>{
-        this.content=res[0].content; 
-       console.log(res,'文档')
-    })
+    this.agentApi.wendang({type:'D'}).then((res:any)=>{
+      this.content=res[0].content; 
+     console.log(res,'文档')
+  })
   }
  
 

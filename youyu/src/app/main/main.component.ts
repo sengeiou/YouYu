@@ -78,13 +78,7 @@ export class MainComponent extends AppBase {
     console.log("列表",module,module2)
      
   }
-  jump(module, module2){
-    this.module = module;
-    this.module2 = module2; 
-     
-    this.navigate('/wendang',{wdtype:this.module2})
-    this.onMyShow();
-  }
+ 
 
   
   recentunreadlist = [];
